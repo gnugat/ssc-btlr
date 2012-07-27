@@ -9,7 +9,8 @@ Documentation
 You can find more documentation at the following links:
 
 * Copyright and MIT license: ``./LICENSE.md``;
-* version and change log: ``./VERSION.md`` and ``CHANGELOG.md``.
+* version and change log: ``./VERSION.md`` and ``CHANGELOG.md``;
+* versioning, branch and public API models: ``./VERSIONING.md``.
 
 Contributing
 ============
