@@ -1,0 +1,20 @@
+{
+    "name": "gnugat/QuickCommandsBundle",
+    "type": "symfony-bundle",
+    "description": "A Symfony2 bundle to run quickly daily commands (composer, doctrine, cache, etc).",
+    "keywords": ["commands", "quick", "alias"],
+    "homepage": "https://github.com/gnugat/GnugatQuickCommandsBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Loic Chardonnet"
+        }
+    ],
+    "require": {
+         "symfony/framework-bundle": "2.1.*"
+    },
+    "autoload": {
+        "psr-0": { "Gnugat\\QuickCommandsBundle": "" }
+    },
+    "target-dir": "Gnugat/QuickCommandsBundle"
+}
