@@ -36,5 +36,12 @@ EOT
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $unixCommands = array(
+            '01-removingVendorDirectory' => 'rm -rf ./vendor',
+            '02-installingDependencies' => 'php composer.phar install',
+        );
+
+        $unixCommands = implode(';', $unixCommands);
+        exec($unixCommands);
     }
 }
