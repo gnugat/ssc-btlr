@@ -1,6 +1,6 @@
 <?php
 
-namespace Gnugat\GnugatQuickCommandsBundle\Command;
+namespace Gnugat\QuickCommandsBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
