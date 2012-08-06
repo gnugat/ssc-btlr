@@ -2,7 +2,7 @@
 
 namespace Gnugat\QuickCommandsBundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\Command;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  *
  * @author Loic Chardonnet <loic.chardonnet@gmail.com>
  */
-class DepsCommand extends Command
+class DbCommand extends Command
 {
     protected function configure()
     {
