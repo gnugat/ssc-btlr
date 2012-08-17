@@ -1,7 +1,7 @@
 LICENSE
 =======
 
-License for the GnugatQuickCommandsBundle Symfony2 bundle.
+License for the sfQuickCommands project.
 
 The MIT license
 ---------------
