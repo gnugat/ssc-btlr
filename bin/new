@@ -1,6 +1,7 @@
 #!/bin/sh
 
 echo 'Creating the directory and installing symfony'
+php ./bin/composer.phar self-update
 php ./bin/composer.phar create-project symfony/framework-standard-edition $1
 
 echo 'Creating the virtual files'
@@ -22,5 +23,4 @@ sudo /bin/sh -c "echo '127.0.0.1       $2.local' >> /etc/hosts"
 ./bin/rights $1/app/logs
 
 echo 'Gets composer for your project'
-./bin/composer.phar self-update
 cp ./bin/composer.phar $1
