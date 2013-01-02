@@ -20,3 +20,7 @@ sudo /bin/sh -c "echo '127.0.0.1       $2.local' >> /etc/hosts"
 
 ./bin/rights $1/app/cache
 ./bin/rights $1/app/logs
+
+echo 'Gets composer for your project'
+./bin/composer.phar self-update
+cp ./bin/composer.phar $1
