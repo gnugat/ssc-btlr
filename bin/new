@@ -17,3 +17,6 @@ sudo /etc/init.d/apache2 reload
 
 echo 'Creating the hostname'
 sudo /bin/sh -c "echo '127.0.0.1       $2.local' >> /etc/hosts"
+
+./bin/rights $1/app/cache
+./bin/rights $1/app/logs
