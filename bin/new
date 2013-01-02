@@ -12,7 +12,7 @@ echo 'Creating the log files'
 sudo mkdir /var/log/apache2/$2
 sudo touch /var/log/apache2/$2/error.log /var/log/apache2/$2/access.log
 
-echo 'Restarting apache2'
+echo 'Reloading apache2 configuration'
 sudo /etc/init.d/apache2 reload
 
 echo 'Creating the hostname'
