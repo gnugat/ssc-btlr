@@ -1,1 +1,5 @@
-/nbproject
+# IDE configuration
+nbproject/*
+
+# Composer
+bin/composer.phar

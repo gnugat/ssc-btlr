@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo 'Setting the rights for ' $1
+setfacl -R -m u:www-data:rwx -m u:`whoami`:rwx $1
+setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx $1

@@ -1,0 +1,22 @@
+#!/bin/sh
+
+echo 'Creating the directory and installing symfony'
+php ./bin/composer.phar create-project symfony/framework-standard-edition $1
+
+echo 'Creating the virtual files'
+php ./helpers/virtual-host.php $1 $2
+sudo mv ./skeleton/$2.local /etc/apache2/sites-available/
+sudo ln -s /etc/apache2/sites-available/$2.local /etc/apache2/sites-enabled/$2.local
+
+echo 'Creating the log files'
+sudo mkdir /var/log/apache2/$2
+sudo touch /var/log/apache2/$2/error.log /var/log/apache2/$2/access.log
+
+echo 'Reloading apache2 configuration'
+sudo /etc/init.d/apache2 reload
+
+echo 'Creating the hostname'
+sudo /bin/sh -c "echo '127.0.0.1       $2.local' >> /etc/hosts"
+
+./bin/rights $1/app/cache
+./bin/rights $1/app/logs

@@ -1,20 +1,45 @@
-sfQuickCommands
-===============
+# sfQuickCommands
 
 Scripts allowing to speed up your workflow/process by running sets of daily
 Symfony2 commands (composer, doctrine, cache, etc).
 
-Documentation
-=============
+## Commands
+
+### init
+
+Basically, this command downloads composer and sets the execution rights.
+You should run this command only when to install sfQuickCommands.
+
+`init`
+
+### new
+
+This command allows you to create a new Symfony2 project by:
+
+* creating the project directory and installing Symfony2 in it;
+* creating the virtual hosts;
+* creating the log files;
+* reloading the apache2 configuration;
+* creating the hostname;
+* setting the rights for the `app/cache` and `app/logs` directories.
+
+`new absolute-path project-name`
+
+### rights
+
+Sets the ACL rights on the given directory.
+
+`rights directory-path`
+
+## Documentation
 
 You can find more documentation at the following links:
 
-* Copyright and MIT license: ``./LICENSE.md``;
-* version and change log: ``./VERSION.md`` and ``CHANGELOG.md``;
-* versioning, branch and public API models: ``./VERSIONING.md``.
+* Copyright and MIT license: `./LICENSE.md`;
+* version and change log: `./VERSION.md` and `CHANGELOG.md`;
+* versioning, branch and public API models: `./VERSIONING.md`.
 
-Contributing
-============
+## Contributing
 
 1. [Fork it](https://github.com/gnugat/GnugatQuickCommandsBundle/fork_select) ;
 2. create a branch (``git checkout -b my_branch``);
