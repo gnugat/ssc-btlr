@@ -4,7 +4,7 @@
 $skeletonDirectory = __DIR__.'/../skeleton/';
 
 $projectPath = $argv[1];
-$projectName = end(explode('/', $argv[1]));
+$projectName = $argv[2];
 
 $virtualHostFile = file_get_contents($skeletonDirectory.'virtual-host');
 $virtualHostFile = str_replace('path-to-replace', $projectPath, $virtualHostFile);
