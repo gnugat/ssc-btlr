@@ -3,16 +3,19 @@
 Scripts allowing to speed up your workflow/process by running sets of daily
 Symfony2 commands (project creation, database re-creation, etc).
 
+## Installation
+
+You should first clone this repository, go inside it
+and then run the initialization script:
+
+    git clone git://github.com/gnugat/sfQuickCommands.git
+    cd sfQuickCommands
+    sh init
+
+The initialization script will download [composer](http://getcomposer.org/)
+(the PHP dependency manager), and set the execution rights on the scripts.
+
 ## Commands
-
-### init
-
-Basically, this command downloads composer and sets the execution rights.
-You should run this command only when installing sfQuickCommands.
-
-Usage:
-
-    init
 
 ### new
 
