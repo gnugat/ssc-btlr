@@ -26,21 +26,6 @@ read the [documentation](doc/01-index.md).
 
 ## Commands
 
-### new
-
-This command allows you to create a new Symfony2 project by:
-
-* creating the project directory and installing Symfony2 in it;
-* creating the virtual hosts;
-* creating the log files;
-* reloading the apache2 configuration;
-* creating the hostname;
-* setting the rights for the `app/cache` and `app/logs` directories.
-
-Usage:
-
-    new absolute-path project-name
-
 ### rights
 
 Sets the ACL rights on the given directory.
