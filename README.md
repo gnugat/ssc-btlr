@@ -37,6 +37,18 @@ Usage:
 
 `rights directory-path`
 
+### db
+
+This command re-creates your database by:
+
+ * dropping the database;
+ * creating the database;
+ * creating the schema.
+
+Usage:
+
+    db
+
 ## Documentation
 
 You can find more documentation at the following links:
