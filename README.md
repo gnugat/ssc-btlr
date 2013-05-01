@@ -15,6 +15,15 @@ and then run the initialization script:
 The initialization script will download [composer](http://getcomposer.org/)
 (the PHP dependency manager), and set the execution rights on the scripts.
 
+## Usage
+
+You can run the scripts from your project directory, except for the one that
+creates a new Symfony2 project for which you need to go inside the
+sfQuickCommands root directory.
+
+To learn more about the available commands and their usage,
+read the [documentation](doc/01-index.md).
+
 ## Commands
 
 ### new
@@ -52,15 +61,14 @@ Usage:
 
     db
 
-## Documentation
+## Further documentation
 
 You can find more documentation at the following links:
 
 * Copyright and MIT license: [LICENSE.md](LICENSE.md);
 * version and change log:
   [VERSION.md](VERSION.md) and [CHANGELOG.md](CHANGELOG.md);
-* versioning, branch and public API models: [VERSIONING.md](VERSIONING.md);
-* commands documentation: [doc/01-index.md](doc/01-index.md).
+* versioning, branch and public API models: [VERSIONING.md](VERSIONING.md).
 
 ## Contributing
 
