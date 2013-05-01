@@ -65,10 +65,9 @@ Usage:
 
 You can find more documentation at the following links:
 
-* Copyright and MIT license: [LICENSE.md](LICENSE.md);
-* version and change log:
-  [VERSION.md](VERSION.md) and [CHANGELOG.md](CHANGELOG.md);
-* versioning, branch and public API models: [VERSIONING.md](VERSIONING.md).
+* [Copyright and MIT license](LICENSE.md);
+* [version](VERSION.md) and [change log](CHANGELOG.md);
+* [versioning/branching models and public API definition](VERSIONING.md).
 
 ## Contributing
 
