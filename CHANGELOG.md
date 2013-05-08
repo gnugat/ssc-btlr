@@ -4,4 +4,5 @@ This file logs the changes between versions.
 
 ## 1.1.0
 
- * Added the `db` script.
+ * Improved the documentation;
+ * added the `db` script.
