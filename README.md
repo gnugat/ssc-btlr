@@ -24,20 +24,6 @@ sfQuickCommands root directory.
 To learn more about the available commands and their usage,
 read the [documentation](doc/01-index.md).
 
-## Commands
-
-### db
-
-This command re-creates your database by:
-
- * dropping the database;
- * creating the database;
- * creating the schema.
-
-Usage:
-
-    db
-
 ## Further documentation
 
 You can find more documentation at the following links:
