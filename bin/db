@@ -7,10 +7,10 @@ then
 fi
 
 echo 'Dropping database'
-php ./app/console doctrine:database:drop --force --env=${env}
+app/console doctrine:database:drop --force --env=${env}
 
 echo 'Creating database'
-php ./app/console doctrine:database:create --env=${env}
+app/console doctrine:database:create --env=${env}
 
 echo 'Creating schema'
-php ./app/console doctrine:schema:create --env=${env}
+app/console doctrine:schema:create --env=${env}
