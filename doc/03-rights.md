@@ -2,6 +2,6 @@
 
 Sets the ACL rights on the given directory.
 
-Usage:
+## Usage
 
     rights directory-path

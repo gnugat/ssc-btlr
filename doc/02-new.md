@@ -9,7 +9,7 @@ This command allows you to create a new Symfony2 project by:
 * creating the hostname;
 * setting the rights for the `app/cache` and `app/logs` directories.
 
-Usage:
+## Usage
 
     new absolute-path project-name
 
