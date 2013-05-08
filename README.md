@@ -26,14 +26,6 @@ read the [documentation](doc/01-index.md).
 
 ## Commands
 
-### rights
-
-Sets the ACL rights on the given directory.
-
-Usage:
-
-`rights directory-path`
-
 ### db
 
 This command re-creates your database by:
