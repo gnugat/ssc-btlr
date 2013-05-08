@@ -5,8 +5,9 @@ php ./bin/composer.phar self-update
 php ./bin/composer.phar create-project symfony/framework-standard-edition $1
 
 echo 'Creating the virtual files'
-php ./helpers/virtual-host.php $1 $2
-sudo mv ./skeleton/$2.local /etc/apache2/sites-available/
+sudo cp skeleton/virtual-host /etc/apache2/sites-available/$2.local
+sudo sed -i "s|<path>|$1|" /etc/apache2/sites-available/$2.local
+sudo sed -i "s/<name>/$2/" /etc/apache2/sites-available/$2.local
 sudo ln -s /etc/apache2/sites-available/$2.local /etc/apache2/sites-enabled/$2.local
 
 echo 'Creating the log files'
