@@ -1,61 +1,36 @@
 # sfQuickCommands
 
 Scripts allowing to speed up your workflow/process by running sets of daily
-Symfony2 commands (composer, doctrine, cache, etc).
+Symfony2 commands (project creation, database re-creation, etc).
 
-## Commands
+## Installation
 
-### init
+You should first clone this repository, go inside it
+and then run the initialization script:
 
-Basically, this command downloads composer and sets the execution rights.
-You should run this command only when installing sfQuickCommands.
+    git clone git://github.com/gnugat/sfQuickCommands.git
+    cd sfQuickCommands
+    sh init
 
-Usage:
+The initialization script will download [composer](http://getcomposer.org/)
+(the PHP dependency manager), and set the execution rights on the scripts.
 
-    init
+## Usage
 
-### new
+You can run the scripts from your project directory, except for the one that
+creates a new Symfony2 project for which you need to go inside the
+sfQuickCommands root directory.
 
-This command allows you to create a new Symfony2 project by:
+To learn more about the available commands and their usage,
+read the [documentation](doc/01-index.md).
 
-* creating the project directory and installing Symfony2 in it;
-* creating the virtual hosts;
-* creating the log files;
-* reloading the apache2 configuration;
-* creating the hostname;
-* setting the rights for the `app/cache` and `app/logs` directories.
-
-Usage:
-
-    new absolute-path project-name
-
-### rights
-
-Sets the ACL rights on the given directory.
-
-Usage:
-
-`rights directory-path`
-
-### db
-
-This command re-creates your database by:
-
- * dropping the database;
- * creating the database;
- * creating the schema.
-
-Usage:
-
-    db
-
-## Documentation
+## Further documentation
 
 You can find more documentation at the following links:
 
-* Copyright and MIT license: [LICENSE.md](LICENSE.md);
-* version and change log: [VERSION.md](VERSION.md) and [CHANGELOG.md](CHANGELOG.md);
-* versioning, branch and public API models: [VERSIONING.md](VERSIONING.md).
+* [Copyright and MIT license](LICENSE.md);
+* [version](VERSION.md) and [change log](CHANGELOG.md);
+* [versioning/branching models and public API definition](VERSIONING.md).
 
 ## Contributing
 
