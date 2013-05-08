@@ -1,8 +1,8 @@
 #!/bin/sh
 
 echo 'Creating the directory and installing symfony'
-php bin/composer.phar self-update
-php bin/composer.phar create-project symfony/framework-standard-edition $1
+bin/composer.phar self-update
+bin/composer.phar create-project symfony/framework-standard-edition $1
 
 echo 'Creating the virtual files'
 sudo cp skeleton/virtual-host /etc/apache2/sites-available/$2.local
@@ -15,7 +15,7 @@ sudo mkdir /var/log/apache2/$2
 sudo touch /var/log/apache2/$2/error.log /var/log/apache2/$2/access.log
 
 echo 'Reloading apache2 configuration'
-sudo /etc/init.d/apache2 reload
+sudo /etc/init.d/apache2 restart
 
 echo 'Creating the hostname'
 sudo echo "127.0.0.1       $2.local" | sudo tee -a /etc/hosts
