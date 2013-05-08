@@ -11,6 +11,6 @@ This command allows you to create a new Symfony2 project by:
 
 ## Usage
 
-    new absolute-path project-name
+    new <absolute-path> <project-name>
 
 The `project-name` will be in most cases the project directory name.
