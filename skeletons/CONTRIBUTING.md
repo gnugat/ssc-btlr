@@ -1,10 +1,10 @@
 # CONTRIBUTING
 
-Everybody should be able to help. Here's how you can make sfQuickCommands more
+Everybody should be able to help. Here's how you can make this project more
 awesome:
 
- 1. [Fork the repository](https://github.com/gnugat/sfQuickCommands/fork_select);
- 2. track the upstream (original) repository: `git remote add upstream https://github.com/gnugat/sfQuickCommands.git`;
+ 1. [Fork the repository](https://github.com/<namespace>/fork_select);
+ 2. track the upstream (original) repository: `git remote add upstream https://github.com/<namespace>.git`;
  3. checkout to the unstable branch: `git checkout develop`;
  4. create your own branch: `git checkout -b <type-of-work>/<micro-title>`;
  5. make your changes and don't forget to:

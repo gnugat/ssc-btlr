@@ -13,6 +13,18 @@ echo 'Creating the directory and installing symfony'
 bin/composer.phar self-update
 bin/composer.phar create-project symfony/framework-standard-edition $path
 
+echo 'Adding the documentation files'
+cp skeletons/*.md $path/
+sed -i "s/<name>/$name/" $path/*.md
+
+echo '  Type your name for the license:'
+read author
+sed -i "s/<author>/$author/" $path/LICENSE.md
+
+echo '  Type the Github namespace (<github-login>/<github-project-name>):'
+read namespace
+sed -i "s|<namespace>|$namespace|" $path/CONTRIBUTING.md
+
 echo 'Creating the virtual files'
 sudo cp skeletons/virtual-host /etc/apache2/sites-available/$name.local
 sudo sed -i "s|<path>|$path|" /etc/apache2/sites-available/$name.local
