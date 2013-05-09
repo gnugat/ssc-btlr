@@ -1,27 +1,36 @@
 #!/bin/sh
 
+if [ $# -lt 2 ]
+then
+    echo 'Usage: new <absolute-path> <project-name>'
+    exit 1
+else
+    path=${1}
+    name=${2}
+fi
+
 echo 'Creating the directory and installing symfony'
 bin/composer.phar self-update
-bin/composer.phar create-project symfony/framework-standard-edition $1
+bin/composer.phar create-project symfony/framework-standard-edition $path
 
 echo 'Creating the virtual files'
-sudo cp skeleton/virtual-host /etc/apache2/sites-available/$2.local
-sudo sed -i "s|<path>|$1|" /etc/apache2/sites-available/$2.local
-sudo sed -i "s/<name>/$2/" /etc/apache2/sites-available/$2.local
-sudo ln -s /etc/apache2/sites-available/$2.local /etc/apache2/sites-enabled/$2.local
+sudo cp skeleton/virtual-host /etc/apache2/sites-available/$name.local
+sudo sed -i "s|<path>|$path|" /etc/apache2/sites-available/$name.local
+sudo sed -i "s/<name>/$name/" /etc/apache2/sites-available/$name.local
+sudo ln -s /etc/apache2/sites-available/$name.local /etc/apache2/sites-enabled/$name.local
 
 echo 'Creating the log files'
-sudo mkdir /var/log/apache2/$2
-sudo touch /var/log/apache2/$2/error.log /var/log/apache2/$2/access.log
+sudo mkdir /var/log/apache2/$name
+sudo touch /var/log/apache2/$name/error.log /var/log/apache2/$name/access.log
 
 echo 'Reloading apache2 configuration'
 sudo /etc/init.d/apache2 restart
 
 echo 'Creating the hostname'
-sudo echo "127.0.0.1       $2.local" | sudo tee -a /etc/hosts
+sudo echo "127.0.0.1       $name.local" | sudo tee -a /etc/hosts
 
-bin/rights $1/app/cache
-bin/rights $1/app/logs
+bin/rights $path/app/cache
+bin/rights $path/app/logs
 
 echo 'Gets composer for your project'
-cp bin/composer.phar $1
+cp bin/composer.phar $path
