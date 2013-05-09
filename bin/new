@@ -14,7 +14,7 @@ bin/composer.phar self-update
 bin/composer.phar create-project symfony/framework-standard-edition $path
 
 echo 'Creating the virtual files'
-sudo cp skeleton/virtual-host /etc/apache2/sites-available/$name.local
+sudo cp skeletons/virtual-host /etc/apache2/sites-available/$name.local
 sudo sed -i "s|<path>|$path|" /etc/apache2/sites-available/$name.local
 sudo sed -i "s/<name>/$name/" /etc/apache2/sites-available/$name.local
 sudo ln -s /etc/apache2/sites-available/$name.local /etc/apache2/sites-enabled/$name.local
