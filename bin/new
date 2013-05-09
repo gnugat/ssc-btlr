@@ -13,6 +13,9 @@ echo 'Creating the directory and installing symfony'
 bin/composer.phar self-update
 bin/composer.phar create-project symfony/framework-standard-edition $path
 
+echo "Removing Symfony's documentation files"
+rm $path/*.md $path/LICENSE
+
 echo 'Adding the documentation files'
 cp skeletons/*.md $path/
 sed -i "s/<name>/$name/" $path/*.md
