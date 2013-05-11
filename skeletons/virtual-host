@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+    DocumentRoot "<path>/web"
+    ServerAlias <name>.local
+
+    ErrorLog "/var/log/apache2/<name>/error.log"
+    CustomLog "/var/log/apache2/<name>/access.log" common
+
+    <Directory "<path>/web">
+        Options -Indexes FollowSymLinks Includes ExecCGI
+        AllowOverride All
+        Order allow,deny
+        Allow from All
+    </Directory>
+</VirtualHost>

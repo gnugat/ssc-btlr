@@ -1,0 +1,16 @@
+#!/bin/sh
+
+env="dev"
+if [ $# -gt 0 ]
+then
+    env=${1}
+fi
+
+echo 'Dropping database'
+app/console doctrine:database:drop --force --env=${env}
+
+echo 'Creating database'
+app/console doctrine:database:create --env=${env}
+
+echo 'Creating schema'
+app/console doctrine:schema:create --env=${env}

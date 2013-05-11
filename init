@@ -2,7 +2,7 @@
 
 echo 'Installing composer'
 curl -s https://getcomposer.org/installer | php
-mv ./composer.phar ./bin/
+mv composer.phar bin/
 
 echo 'Setting execution rights'
-chmod +x ./bin/*
+chmod +x bin/*
