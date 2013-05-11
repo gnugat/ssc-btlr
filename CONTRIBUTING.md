@@ -30,12 +30,12 @@ as we can. We may suggest some changes or improvements or alternatives.
 
 We prefix our branch names with the type of work done, which might be:
 
- * `fix`: a correction of the code (bug, security hole, typos);
- * `test`: creation or correction of tests;
- * `documentation`: creation or correction of documentation;
- * `refactoring`: improvement or cleaning of code;
- * `feature`: everything else (creation, modification
-   or removal of a functionality);
+* `fix`: a correction of the code (bug, security hole, typos);
+* `test`: creation or correction of tests;
+* `documentation`: creation or correction of documentation;
+* `refactoring`: improvement or cleaning of code;
+* `feature`: everything else (creation, modification
+  or removal of a functionality);
 
 The `<micro-title>` part is a descriptive but minimalist title describing your
 work. Those should be written in lower-case and the words should be separated
@@ -43,10 +43,10 @@ by hyphens.
 
 ### Examples
 
- * `fix/xss-injection`;
- * `test/user-registration`;
- * `documentation/installation`;
- * `feature/cloud-pagination`.
+* `fix/xss-injection`;
+* `test/user-registration`;
+* `documentation/installation`;
+* `feature/cloud-pagination`.
 
 ## Coding standards
 
