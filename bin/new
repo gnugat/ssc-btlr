@@ -11,10 +11,7 @@ fi
 
 echo 'Creating the directory and installing symfony'
 bin/composer.phar self-update
-bin/composer.phar create-project symfony/framework-standard-edition $path
-
-echo "Removing Symfony's documentation files"
-rm $path/*.md $path/LICENSE
+bin/composer.phar create-project gnugat/symfony-framework-empty-edition $path
 
 echo 'Adding the documentation files'
 cp skeletons/*.md $path/
