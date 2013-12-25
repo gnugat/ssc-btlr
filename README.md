@@ -1,34 +1,46 @@
-# sfQuickCommands
+# Fossil: bootstrap your project documentation
 
-Scripts allowing to speed up your workflow/process by running sets of daily
-Symfony2 commands (project creation, database re-creation, etc).
+Are you fed up at creating the same markdown files to document your new FOSS
+projects? You're in luck: fossil will help you bootstrap them!
+
+Read more about this project in [its introduction](doc/01-introduction.md).
+
+## Features
+
+The `fossil doc` command will create the documentation of your project with the
+following skeletons:
+
+* `CHANGELOG.md`
+* `CONTRIBUTING.md`
+* `README.md`
+* `VERSIONING.md`
+* `doc` (or `Resources/doc` if the project is a bundle) directory:
+  - `01-introduction.md`
+  - `02-installation.md`
+  - `03-usage.md`
+  - `04-tests.md`
+
+Find out how to use it with the [usage guide](doc/03-usage.md).
 
 ## Installation
 
-You should first clone this repository, go inside it
-and then run the initialization script:
+To download and install this project, run the following command:
 
-    git clone git://github.com/gnugat/sfQuickCommands.git
-    cd sfQuickCommands
-    sh init
+    curl -sS https://raw.github.com/gnugat/fossil/master/bin/installer.sh | sh
 
-The initialization script will download [composer](http://getcomposer.org/)
-(the PHP dependency manager), and set the execution rights on the scripts.
-
-## Usage
-
-You can run the scripts from your project directory, except for the one that
-creates a new Symfony2 project for which you need to go inside the
-sfQuickCommands root directory.
-
-To learn more about the available commands and their usage,
-read the [documentation](doc/01-index.md).
+Learn more about the steps followed by the script by reading its [documentation](doc/02-installation.md).
 
 ## Further documentation
 
+You can see the current and past versions using one of the following:
+
+* the `git tag` command
+* the [releases page on Github](https://github.com/gnugat/fossil/releases)
+* the file listing the [changes between versions](CHANGELOG.md)
+
 You can find more documentation at the following links:
 
-* [Copyright and MIT license](LICENSE.md);
-* [version](VERSION.md) and [change log](CHANGELOG.md);
-* [versioning and branching models](VERSIONING.md);
-* [contribution instructions](CONTRIBUTING.md).
+* [copyright and MIT license](LICENSE)
+* [versioning and branching models](VERSIONING.md)
+* [contribution instructions](CONTRIBUTING.md)
+* [documentation directory](doc)

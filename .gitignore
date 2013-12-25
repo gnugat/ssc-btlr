@@ -1,5 +1,4 @@
-# IDE configuration
-nbproject/*
+# Dependencies
 
-# Composer
-bin/composer.phar
+/vendor/
+/composer.lock
