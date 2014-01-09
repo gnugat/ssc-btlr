@@ -25,7 +25,7 @@ class Project
         $this->author = $input->getArgument('author');
         $this->composer_package = $input->getArgument('composer-package');
 
-        $this->path = $input->getOption('project-path');;
+        $this->path = $input->getOption('project-path');
     }
 
     /** @return bool */
@@ -37,6 +37,6 @@ class Project
     /** @return string */
     public function documentation_path()
     {
-        return $this->path.'/doc';
+        return 'doc';
     }
 }

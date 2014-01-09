@@ -26,6 +26,6 @@ class Bundle extends Project
     /** @return string */
     public function documentation_path()
     {
-        return $this->path.'/Resources/doc';
+        return 'Resources/doc';
     }
 }
