@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="symfony.console.application"
+            class="Symfony\Component\Console\Application">
+            <argument key="name">Fossil</argument>
+            <argument key="version">2.0.0</argument>
+            <call method="add">
+                 <argument type="service" id="fossil.doc_command" />
+            </call>
+        </service>
+
+        <service id="fossil.doc_command" class="Gnugat\Fossil\DocCommand"
+            public="false">
+            <argument type="service" id="fossil.factory.project_factory" />
+            <argument type="service" id="fossil.repository.skeleton_repository" />
+            <argument type="service" id="fossil.factory.documentation_factory" />
+        </service>
+
+        <service id="fossil.factory.project_factory"
+            class="Gnugat\Fossil\Factory\ProjectFactory"
+            public="false">
+        </service>
+
+        <service id="fossil.repository.skeleton_repository"
+            class="Gnugat\Fossil\Repository\SkeletonRepository"
+            public="false">
+            <argument type="service" id="symfony.finder" />
+            <argument key="skeletonsPath">%fossil.path.skeletons%</argument>
+        </service>
+
+        <service id="symfony.finder" class="Symfony\Component\Finder\Finder">
+        </service>
+
+        <service id="fossil.factory.documentation_factory"
+            class="Gnugat\Fossil\Factory\DocumentationFactory"
+            public="false">
+            <argument type="service" id="twig.environment" />
+        </service>
+
+        <service id="twig.environment" class="Twig_Environment">
+            <argument type="service" id="twig.loader.filesystem" />
+        </service>
+
+        <service id="twig.loader.filesystem" class="Twig_Loader_Filesystem"
+            public="false">
+            <argument>%fossil.path.skeletons%</argument>
+        </service>
+    </services>
+</container>
