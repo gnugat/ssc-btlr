@@ -14,7 +14,8 @@ This will allow you to run `git pull` to get the newest updates.
 
 ## 2. Downloading its dependencies
 
-Fossil uses [Composer](http://getcomposer.org/) to manage its dependencies:
+Fossil uses [Composer](http://getcomposer.org/) to manage its dependencies. In
+order to download them, you should run these commands:
 
     curl -sS https://getcomposer.org/installer | php
     php composer.phar install --no-dev --optimize-autoloader
@@ -26,7 +27,6 @@ If you want to install the project for development purpose, you can simply run:
 ## Next readings
 
 * [usage](03-usage.md)
-* [tests](04-tests.md)
 
 ## Previous readings
 

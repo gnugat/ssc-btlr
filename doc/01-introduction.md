@@ -11,8 +11,8 @@ documentation, which:
 The files (`README.md`, `LICENSE`, etc) are always the same, which makes project
 creation repetitive. So why not automate this part?
 
-This is what fossil is there for: run the command to create all those files in
-your brand new project (or in an old one, if you never documented it before).
+This is what **fossil** is there for: run the command to create all those files
+in your brand new project (or in an old one, if you never documented it before).
 
 ## The `fossil` name
 
@@ -25,4 +25,3 @@ Fossils are usually skeletons, right?
 
 * [installation](02-installation.md)
 * [usage](03-usage.md)
-* [tests](04-tests.md)

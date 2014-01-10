@@ -6,10 +6,11 @@ This file logs the changes between versions.
 
 ### 2.0.0
 
+* added doc:bundle command
 * added doc command
 * added installer script
-* added documentation skeleton
-* added fossil documentation
+* added documentation skeletons
+* added fossil's documentation
 * removed everything
 
 ## 1: sfQuickCommand

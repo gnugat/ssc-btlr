@@ -1,26 +1,13 @@
-# Fossil: bootstrap your project documentation
+# Fossil: bootstrap your project's `.md` files
 
 Are you fed up at creating the same markdown files to document your new FOSS
 projects? You're in luck: fossil will help you bootstrap them!
 
-Read more about this project in [its introduction](doc/01-introduction.md).
+    fossil doc 'acme/demo' 'The ACME company'
 
-## Features
-
-The `fossil doc` command will create the documentation of your project with the
-following skeletons:
-
-* `CHANGELOG.md`
-* `CONTRIBUTING.md`
-* `README.md`
-* `VERSIONING.md`
-* `doc` (or `Resources/doc` if the project is a bundle) directory:
-  - `01-introduction.md`
-  - `02-installation.md`
-  - `03-usage.md`
-  - `04-tests.md`
-
-Find out how to use it with the [usage guide](doc/03-usage.md).
+Read more about this project in [its introduction](doc/01-introduction.md), and
+find out how to use it as well as which files it generates by reading the
+[usage guide](doc/03-usage.md).
 
 ## Installation
 
@@ -28,7 +15,8 @@ To download and install this project, run the following command:
 
     curl -sS https://raw.github.com/gnugat/fossil/master/bin/installer.sh | sh
 
-Learn more about the steps followed by the script by reading its [documentation](doc/02-installation.md).
+Learn more about the steps followed by the script with its
+[documentation](doc/02-installation.md).
 
 ## Further documentation
 

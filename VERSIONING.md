@@ -14,11 +14,12 @@ The versioning is inspired by [Semantic Versioning](http://semver.org/):
 
 ### Public API
 
-The script names and arguments are considered as the public API of this project.
+The command names, arguments and options are considered as the public API of
+this project.
 
 ## Branching Model
 
-The branching is inspired by [@jbenet](https://github.com/jbenet)
+The branching model is inspired by [@jbenet](https://github.com/jbenet)'s
 [simple git branching model](https://gist.github.com/jbenet/ee6c9ac48068889b0912):
 
 > 1. `master` must always be deployable.
