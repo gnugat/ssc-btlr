@@ -5,11 +5,11 @@ The installation steps described in this file are followed by the
 
 ## 1. Downloading
 
-First of all, you should download the project using [Composer](http://getcomposer.org/):
+{% if project.is_bundle %}
+First of all, you should download the bundle using [Composer](http://getcomposer.org/):
 
     composer require "{{ project.composer_package }}:~1"
 
-{% if project.is_bundle %}
 ## 2. Registering the bundle
 
 Then simply register it by adding its fully qualified classname in the
@@ -37,6 +37,21 @@ application's kernel, for example like this:
         }
     }
 {% else %}
+In order to install the project, you need to:
+
+1. download the project using git
+2. download [Composer](http://getcomposer.org/)
+3. download the project's dependencies using Composer
+
+    git clone https://github.com/{{ project.github_repository }}.git
+    cd {{ project.directory }}
+
+    echo '[curl] Getting Composer, the PHP dependency manager'
+    curl -sS https://getcomposer.org/installer | php
+
+    echo '[composer] Downloading the dependencies'
+    php composer.phar install --no-dev --optimize-autoloader
+
 ## 2. Extra steps
 
 <description>

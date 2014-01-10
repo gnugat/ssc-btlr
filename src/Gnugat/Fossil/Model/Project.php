@@ -25,7 +25,7 @@ class Project
         $this->author = $input->getArgument('author');
         $this->composer_package = $input->getArgument('composer-package');
 
-        $this->path = $input->getOption('project-path');
+        $this->path = $input->getOption('path');
     }
 
     /** @return bool */
@@ -38,5 +38,13 @@ class Project
     public function documentation_path()
     {
         return 'doc';
+    }
+
+    /** @return string */
+    public function directory()
+    {
+        list($vendor, $project) = explode('/', $this->github_repository);
+
+        return $project;
     }
 }

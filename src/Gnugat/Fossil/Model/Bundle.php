@@ -15,6 +15,7 @@ class Bundle extends Project
         parent::__construct($input);
 
         $this->fully_qualified_classname = $input->getArgument('fully-qualified-classname');
+        $this->is_development_tool = $input->getOption('is-development-tool');
     }
 
     /** @return bool */
@@ -27,5 +28,28 @@ class Bundle extends Project
     public function documentation_path()
     {
         return 'Resources/doc';
+    }
+
+    /** @return string */
+    public function app_kernel_pattern_to_match()
+    {
+        $pattern = '        );';
+        if ($this->is_development_tool) {
+            $pattern = '        }';
+        }
+
+        return $pattern;
+    }
+
+    /** @return string */
+    public function app_kernel_pattern_to_replace()
+    {
+        $escapedFullyQualifiedClassname = str_replace('\\', '\\\\', $this->fully_qualified_classname);
+            $pattern = '                new '.$escapedFullyQualifiedClassname.'(),\n        );';
+        if ($this->is_development_tool) {
+            $pattern = '            $bundles[] = new '.$escapedFullyQualifiedClassname.'();\n        }';
+        }
+
+        return $pattern;
     }
 }

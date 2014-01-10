@@ -50,7 +50,8 @@ class DocBundleCommand extends Command
         $this->addArgument('composer-package', InputArgument::REQUIRED);
         $this->addArgument('fully-qualified-classname', InputArgument::REQUIRED);
 
-        $this->addOption('project-path', 'p', InputOption::VALUE_REQUIRED, '', getcwd());
+        $this->addOption('path', 'p', InputOption::VALUE_REQUIRED, '', getcwd());
+        $this->addOption('is-development-tool', 'd', InputOption::VALUE_NONE);
     }
 
     /** {@inheritdoc} */
