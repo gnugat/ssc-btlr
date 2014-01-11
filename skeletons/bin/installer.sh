@@ -7,7 +7,7 @@ curl -sS https://getcomposer.org/installer | php
 echo '[composer] Downloading the dependencies'
 composer require "{{ project.composer_package }}:~1"
 
-echo '[sed] Registering GnugatWizardBundle'
+echo '[sed] Registering the bundle'
 sed -i 's/{{ project.app_kernel_pattern_to_match }}/{{ project.app_kernel_pattern_to_replace }}/' app/AppKernel.php
 {% else %}
 echo '[git] Downloading the project'

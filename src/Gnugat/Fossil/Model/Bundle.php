@@ -28,8 +28,11 @@ class Bundle extends Project
     {
         parent::__construct($input);
 
-        $this->composer_package = $input->getArgument('composer-package');
         $this->fully_qualified_classname = $input->getArgument('fully-qualified-classname');
+        $this->composer_package = $input->getOption('composer-package');
+        if (!isset($this->composer_package)) {
+            $this->composer_package = $this->github_repository;
+        }
         $this->is_development_tool = $input->getOption('is-development-tool');
     }
 

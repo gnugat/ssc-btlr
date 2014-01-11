@@ -25,18 +25,20 @@ You can see the synopsis of this command by running:
 
     fossil doc --help
 
-Arguments:
+### Arguments
 
 * `github-repository`: used to create links to github,
-  should be in the following format: `<username>/<repository-name>`
+  should be in the following format: `username/repository-name`
 * `author`: used for the license's copyright
 
-Options:
+### Options
 
 * `--path` (or `-p`): used to write the files,
   the default is the current directory
 
-**Heads up!** You can run this command using its shortcut: `fossil d`
+### Heads up!
+
+You can run this command using its shortcut: `fossil d`
 
 Example:
 
@@ -48,27 +50,30 @@ You can see the synopsis of this command by running:
 
     fossil doc:bundle --help
 
-Arguments:
+### Arguments
 
 * `github-repository`: used to create links to github,
-  should be in the following format: `<username>/<repository-name>`
+  should be in the following format: `username/repository-name`
 * `author`: used for the license's copyright
-* `composer-package`: used for the installation documentation and script
 * `fully-qualified-classname`: used to register the bundle in the application's
   kernel (put this argument inside quotes, the shell won't like the `\`)
 
-Options:
+### Options
 
 * `--path` (or `-p`): used to write the files,
   the default is the current directory
+* `--composer-package` (or `-c`): used for the installation's documentation and
+  script, by default is the same as the `github-repository` argument
 * `--is-development-tool` (or `-d`): used to register the bundle in the
   application's in development and test environments
 
-**Heads up!** You can run this command using its shortcut: `fossil d:b`
+### Heads up!
+
+You can run this command using its shortcut: `fossil d:b`
 
 Example:
 
-    fossil d:b 'acme/demo-bundle' 'The ACME company' 'acme/demo-bundle' 'Acme\DemoBundle\AcmeDemoBundle'
+    fossil d:b 'acme/demo-bundle' 'The ACME company' 'Acme\DemoBundle\AcmeDemoBundle'
 
 ## Previous readings
 

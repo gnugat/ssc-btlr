@@ -59,10 +59,10 @@ class DocBundleCommand extends Command
 
         $this->addArgument('github-repository', InputArgument::REQUIRED);
         $this->addArgument('author', InputArgument::REQUIRED);
-        $this->addArgument('composer-package', InputArgument::REQUIRED);
         $this->addArgument('fully-qualified-classname', InputArgument::REQUIRED);
 
         $this->addOption('path', 'p', InputOption::VALUE_REQUIRED, '', getcwd());
+        $this->addOption('composer-package', 'c', InputOption::VALUE_REQUIRED, 'By default will be the same as the github-repository argument');
         $this->addOption('is-development-tool', 'd', InputOption::VALUE_NONE);
     }
 
