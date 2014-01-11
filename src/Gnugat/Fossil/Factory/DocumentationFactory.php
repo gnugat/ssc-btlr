@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Fossil project.
+ *
+ * (c) Loïc Chardonnet <loic.chardonnet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gnugat\Fossil\Factory;
 
 use Gnugat\Fossil\Model\Documentation;
@@ -7,6 +16,11 @@ use Gnugat\Fossil\Model\Project;
 use Gnugat\Fossil\Model\Skeleton;
 use Twig_Environment;
 
+/**
+ * Creates the project's documentation files using skeleton files.
+ *
+ * @author Loïc Chardonnet <loic.chardonnet@gmail.com>
+ */
 class DocumentationFactory
 {
     /** @var Twig_Environment */

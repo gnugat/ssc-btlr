@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Fossil project.
+ *
+ * (c) Loïc Chardonnet <loic.chardonnet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gnugat\Fossil;
 
 use Gnugat\Fossil\Factory\DocumentationFactory;
@@ -12,10 +21,13 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Entry point for the documentation task:
+ * Entry point for the `doc` command:
+ * - defines the command name, arguments and options
  * - extracts parameters from the input
  * - passes the parameters to services
  * - returns the output
+ *
+ * @author Loïc Chardonnet <loic.chardonnet@gmail.com>
  */
 class DocCommand extends Command
 {

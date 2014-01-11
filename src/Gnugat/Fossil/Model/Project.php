@@ -1,9 +1,23 @@
 <?php
 
+/*
+ * This file is part of the Fossil project.
+ *
+ * (c) Loïc Chardonnet <loic.chardonnet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gnugat\Fossil\Model;
 
 use Symfony\Component\Console\Input\InputInterface;
 
+/**
+ * Wraps the project's information provided via the input.
+ *
+ * @author Loïc Chardonnet <loic.chardonnet@gmail.com>
+ */
 class Project
 {
     /** @var string */

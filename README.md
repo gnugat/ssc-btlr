@@ -5,6 +5,13 @@ projects? You're in luck: fossil will help you bootstrap them!
 
     fossil doc 'acme/demo' 'The ACME company'
 
+Then you just need to complete the following files:
+
+* `README.md`
+* `doc/01-introduction.md`
+* `doc/03-usage.md`
+* `doc/04-tests.md`
+
 Read more about this project in [its introduction](doc/01-introduction.md), and
 find out how to use it as well as which files it generates by reading the
 [usage guide](doc/03-usage.md).

@@ -1,10 +1,24 @@
 <?php
 
+/*
+ * This file is part of the Fossil project.
+ *
+ * (c) Loïc Chardonnet <loic.chardonnet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gnugat\Fossil\Repository;
 
 use Gnugat\Fossil\Model\Skeleton;
 use Symfony\Component\Finder\Finder;
 
+/**
+ * Finds skeleton files and wraps them in the Skeleton model.
+ *
+ * @author Loïc Chardonnet <loic.chardonnet@gmail.com>
+ */
 class SkeletonRepository
 {
     /** @var Finder */
