@@ -3,6 +3,7 @@
 Available commands:
 
 * [doc](#the-doc-command)
+* [doc:library](#the-doclibrary-command)
 * [doc:bundle](#the-docbundle-command)
 
 The documentation commands use [skeletons](../skeletons) to create the
@@ -43,6 +44,33 @@ You can run this command using its shortcut: `fossil d`
 Example:
 
     fossil d 'acme/demo-bundle' 'The ACME company'
+
+## The `doc:library` command
+
+You can see the synopsis of this command by running:
+
+    fossil doc:library --help
+
+### Arguments
+
+* `github-repository`: used to create links to github,
+  should be in the following format: `username/repository-name`
+* `author`: used for the license's copyright
+
+### Options
+
+* `--path` (or `-p`): used to write the files,
+  the default is the current directory
+* `--composer-package` (or `-c`): used for the installation's documentation and
+  script, by default is the same as the `github-repository` argument
+
+### Heads up!
+
+You can run this command using its shortcut: `fossil d:l`
+
+Example:
+
+    fossil d:l 'acme/demo-lib' 'The ACME company'
 
 ## The `doc:bundle` command
 

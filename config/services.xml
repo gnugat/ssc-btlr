@@ -12,11 +12,20 @@
                  <argument type="service" id="fossil.doc_command" />
             </call>
             <call method="add">
+                 <argument type="service" id="fossil.doc_library_command" />
+            </call>
+            <call method="add">
                  <argument type="service" id="fossil.doc_bundle_command" />
             </call>
         </service>
 
         <service id="fossil.doc_command" class="Gnugat\Fossil\DocCommand"
+            public="false">
+            <argument type="service" id="fossil.repository.skeleton_repository" />
+            <argument type="service" id="fossil.factory.documentation_factory" />
+        </service>
+
+        <service id="fossil.doc_library_command" class="Gnugat\Fossil\DocLibraryCommand"
             public="false">
             <argument type="service" id="fossil.repository.skeleton_repository" />
             <argument type="service" id="fossil.factory.documentation_factory" />

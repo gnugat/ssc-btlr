@@ -55,7 +55,7 @@ class DocBundleCommand extends Command
     protected function configure()
     {
         $this->setName('doc:bundle');
-        $this->setDescription('Bootstraps the documentation of your bundle');
+        $this->setDescription('Bootstraps the markdown files of your bundle');
 
         $this->addArgument('github-repository', InputArgument::REQUIRED);
         $this->addArgument('author', InputArgument::REQUIRED);

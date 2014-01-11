@@ -18,7 +18,7 @@ use Symfony\Component\Console\Input\InputInterface;
  *
  * @author Loïc Chardonnet <loic.chardonnet@gmail.com>
  */
-class Bundle extends Project
+class Bundle extends Library
 {
     /** @return string */
     public $fully_qualified_classname;
@@ -29,10 +29,6 @@ class Bundle extends Project
         parent::__construct($input);
 
         $this->fully_qualified_classname = $input->getArgument('fully-qualified-classname');
-        $this->composer_package = $input->getOption('composer-package');
-        if (!isset($this->composer_package)) {
-            $this->composer_package = $this->github_repository;
-        }
         $this->is_development_tool = $input->getOption('is-development-tool');
     }
 

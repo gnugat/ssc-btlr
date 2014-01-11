@@ -12,7 +12,7 @@
 namespace Gnugat\Fossil;
 
 use Gnugat\Fossil\Factory\DocumentationFactory;
-use Gnugat\Fossil\Model\Project;
+use Gnugat\Fossil\Model\Library;
 use Gnugat\Fossil\Repository\SkeletonRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -21,7 +21,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Entry point for the `doc` command:
+ * Entry point for the `doc:library` command:
  * - defines the command name, arguments and options
  * - extracts parameters from the input
  * - passes the parameters to services
@@ -29,7 +29,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  *
  * @author Loïc Chardonnet <loic.chardonnet@gmail.com>
  */
-class DocCommand extends Command
+class DocLibraryCommand extends Command
 {
     const RETURN_SUCCESS = 0;
 
@@ -54,19 +54,20 @@ class DocCommand extends Command
     /** {@inheritdoc} */
     protected function configure()
     {
-        $this->setName('doc');
-        $this->setDescription('Bootstraps the markdown files of your project');
+        $this->setName('doc:library');
+        $this->setDescription('Bootstraps the markdown files of your library');
 
         $this->addArgument('github-repository', InputArgument::REQUIRED);
         $this->addArgument('author', InputArgument::REQUIRED);
 
         $this->addOption('path', 'p', InputOption::VALUE_REQUIRED, '', getcwd());
+        $this->addOption('composer-package', 'c', InputOption::VALUE_REQUIRED, 'By default will be the same as the github-repository argument');
     }
 
     /** {@inheritdoc} */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $project = new Project($input);
+        $project = new Library($input);
         $skeletons = $this->skeletonRepository->find();
         foreach ($skeletons as $skeleton) {
             $documentation = $this->documentationFactory->make($skeleton, $project);

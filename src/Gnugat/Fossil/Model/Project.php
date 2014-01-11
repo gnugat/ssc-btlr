@@ -27,9 +27,6 @@ class Project
     public $author;
 
     /** @var string */
-    public $composer_package;
-
-    /** @var string */
     public $path;
 
     /** @param InputInterface $input */
