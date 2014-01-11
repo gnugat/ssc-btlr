@@ -59,7 +59,6 @@ class DocCommand extends Command
 
         $this->addArgument('github-repository', InputArgument::REQUIRED);
         $this->addArgument('author', InputArgument::REQUIRED);
-        $this->addArgument('composer-package', InputArgument::REQUIRED);
 
         $this->addOption('path', 'p', InputOption::VALUE_REQUIRED, '', getcwd());
     }

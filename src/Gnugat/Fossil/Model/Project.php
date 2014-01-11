@@ -37,7 +37,6 @@ class Project
     {
         $this->github_repository = $input->getArgument('github-repository');
         $this->author = $input->getArgument('author');
-        $this->composer_package = $input->getArgument('composer-package');
 
         $this->path = $input->getOption('path');
     }
