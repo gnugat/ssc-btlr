@@ -60,4 +60,12 @@ class Project
 
         return $project;
     }
+
+    public function copyright_years()
+    {
+        $currentYear = date('Y');
+        $nextYear = date('Y', strtotime('+1 year'));
+
+        return sprintf('%s-%s', $currentYear, $nextYear);
+    }
 }
