@@ -61,18 +61,31 @@ class DocCommand extends Command
         $this->addArgument('author', InputArgument::REQUIRED);
 
         $this->addOption('path', 'p', InputOption::VALUE_REQUIRED, '', getcwd());
+        $this->addOption('force-overwrite', 'f', InputOption::VALUE_NONE, 'Overwrite files if they already exist');
     }
 
     /** {@inheritdoc} */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $project = new Project($input);
+        $shouldOverwrite = $input->getOption('force-overwrite');
+
+        $project = $this->getProject($input);
         $skeletons = $this->skeletonRepository->find();
         foreach ($skeletons as $skeleton) {
             $documentation = $this->documentationFactory->make($skeleton, $project);
-            $documentation->write();
+            $documentation->write($shouldOverwrite);
         }
 
         return self::RETURN_SUCCESS;
+    }
+
+    /**
+     * @param InputInterface $input
+     *
+     * @return Project
+     */
+    protected function getProject(InputInterface $input)
+    {
+        return new Project($input);
     }
 }

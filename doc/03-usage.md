@@ -20,6 +20,10 @@ following files:
     - `03-usage.md`
     - `04-tests.md`
 
+By default, if the file already exists it is not overwritten, which means you
+can safely run **fossil** on existing projects. However if you want to replace
+the existing files, use the `-f` option.
+
 ## The `doc` command
 
 You can see the synopsis of this command by running:
@@ -36,14 +40,11 @@ You can see the synopsis of this command by running:
 
 * `--path` (or `-p`): used to write the files,
   the default is the current directory
+* `--force-overwrite` (or `-f`): use it if you want to overwrite existing files
 
-### Heads up!
+### Example:
 
-You can run this command using its shortcut: `fossil d`
-
-Example:
-
-    fossil d 'acme/demo-bundle' 'The ACME company'
+    fossil doc 'acme/demo' 'The ACME company'
 
 ## The `doc:library` command
 
@@ -61,6 +62,7 @@ You can see the synopsis of this command by running:
 
 * `--path` (or `-p`): used to write the files,
   the default is the current directory
+* `--force-overwrite` (or `-f`): use it if you want to overwrite existing files
 * `--composer-package` (or `-c`): used for the installation's documentation and
   script, by default is the same as the `github-repository` argument
 
@@ -90,6 +92,7 @@ You can see the synopsis of this command by running:
 
 * `--path` (or `-p`): used to write the files,
   the default is the current directory
+* `--force-overwrite` (or `-f`): use it if you want to overwrite existing files
 * `--composer-package` (or `-c`): used for the installation's documentation and
   script, by default is the same as the `github-repository` argument
 * `--is-development-tool` (or `-d`): used to register the bundle in the

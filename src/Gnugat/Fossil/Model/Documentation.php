@@ -11,6 +11,8 @@
 
 namespace Gnugat\Fossil\Model;
 
+use Symfony\Component\Filesystem\Filesystem;
+
 /**
  * Wraps documentation files, generated using skeleton files.
  *
@@ -18,6 +20,13 @@ namespace Gnugat\Fossil\Model;
  */
 class Documentation
 {
+    const DIRECTORY_MODE = 0755;
+
+    const FILE_MODE = 0644;
+
+    /** @var Filesystem */
+    private $filesystem;
+
     /** @var string */
     private $absolutePathname;
 
@@ -25,22 +34,30 @@ class Documentation
     private $content;
 
     /**
-     * @param string $absolutePathname
-     * @param string $content
+     * @param Filesystem $filesystem
+     * @param string     $absolutePathname
+     * @param string     $content
+     * @param boll       $shouldOverwrite
      */
-    public function __construct($absolutePathname, $content)
+    public function __construct(Filesystem $filesystem, $absolutePathname, $content)
     {
+        $this->filesystem = $filesystem;
         $this->absolutePathname = $absolutePathname;
         $this->content = $content;
     }
 
-    public function write()
+    /** @param bool $shouldOverwrite */
+    public function write($shouldOverwrite = false)
     {
         $absolutePath = $this->getAbsolutePath();
-        if (!file_exists($absolutePath)) {
-            mkdir($absolutePath, 0755, true);
+
+        if (!$this->filesystem->exists($absolutePath)) {
+            $this->filesystem->mkdir($absolutePath, self::DIRECTORY_MODE);
         }
-        file_put_contents($this->absolutePathname, $this->content);
+
+        if (!$this->filesystem->exists($this->absolutePathname) || $shouldOverwrite) {
+            $this->filesystem->dumpFile($this->absolutePathname, $this->content, self::FILE_MODE);
+        }
     }
 
     /** @return string */

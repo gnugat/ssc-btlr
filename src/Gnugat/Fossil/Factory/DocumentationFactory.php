@@ -14,6 +14,7 @@ namespace Gnugat\Fossil\Factory;
 use Gnugat\Fossil\Model\Documentation;
 use Gnugat\Fossil\Model\Project;
 use Gnugat\Fossil\Model\Skeleton;
+use Symfony\Component\Filesystem\Filesystem;
 use Twig_Environment;
 
 /**
@@ -26,10 +27,17 @@ class DocumentationFactory
     /** @var Twig_Environment */
     private $twig;
 
-    /** @param Twig_Environment $twig */
-    public function __construct(Twig_Environment $twig)
+    /** @var Filesystem */
+    private $filesystem;
+
+    /**
+     * @param Twig_Environment $twig
+     * @param Filesystem       $filesystem
+     */
+    public function __construct(Twig_Environment $twig, Filesystem $filesystem)
     {
         $this->twig = $twig;
+        $this->filesystem = $filesystem;
     }
 
     /**
@@ -50,6 +58,6 @@ class DocumentationFactory
         $viewParameters = array('project' => $project);
         $content = $this->twig->render($skeleton->relative_pathname, $viewParameters);
 
-        return new Documentation($absolutePathname, $content);
+        return new Documentation($this->filesystem, $absolutePathname, $content);
     }
 }

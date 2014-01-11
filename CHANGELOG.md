@@ -4,8 +4,9 @@ This file logs the changes between versions.
 
 ## 2: fossil
 
-### 2.0.0
+### 2.0.0: the doc commands
 
+* added doc:library command
 * added doc:bundle command
 * added doc command
 * added installer script

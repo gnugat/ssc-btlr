@@ -12,6 +12,10 @@ Then you just need to complete the following files:
 * `doc/03-usage.md`
 * `doc/04-tests.md`
 
+You've already created a FOSS project with some markdown files (let's say
+`README.md` and `LICENSE` for example)? Don't panic: fossil can generate the
+missing files without touching the existing ones.
+
 Read more about this project in [its introduction](doc/01-introduction.md), and
 find out how to use it as well as which files it generates by reading the
 [usage guide](doc/03-usage.md).
