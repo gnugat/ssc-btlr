@@ -23,6 +23,7 @@
             public="false">
             <argument type="service" id="fossil.markdown_file.skeleton_repository" />
             <argument type="service" id="fossil.markdown_file.documentation_factory" />
+            <argument type="service" id="fossil.markdown_file.documentation_writer" />
         </service>
 
         <service id="fossil.doc_library_command"
@@ -30,6 +31,7 @@
             public="false">
             <argument type="service" id="fossil.markdown_file.skeleton_repository" />
             <argument type="service" id="fossil.markdown_file.documentation_factory" />
+            <argument type="service" id="fossil.markdown_file.documentation_writer" />
         </service>
 
         <service id="fossil.doc_bundle_command"
@@ -37,6 +39,7 @@
             public="false">
             <argument type="service" id="fossil.markdown_file.skeleton_repository" />
             <argument type="service" id="fossil.markdown_file.documentation_factory" />
+            <argument type="service" id="fossil.markdown_file.documentation_writer" />
         </service>
     </services>
 </container>

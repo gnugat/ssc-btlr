@@ -12,8 +12,6 @@
 namespace Gnugat\Fossil\MarkdownFile;
 
 use Gnugat\Fossil\ProjectType\Project;
-use Monolog\Logger;
-use Symfony\Component\Filesystem\Filesystem;
 use Twig_Environment;
 
 /**
@@ -26,22 +24,12 @@ class DocumentationFactory
     /** @var Twig_Environment */
     private $twig;
 
-    /** @var Filesystem */
-    private $filesystem;
-
-    /** @var Logger */
-    private $logger;
-
     /**
      * @param Twig_Environment $twig
-     * @param Filesystem       $filesystem
-     * @param Logger           $logger
      */
-    public function __construct(Twig_Environment $twig, Filesystem $filesystem, Logger $logger)
+    public function __construct(Twig_Environment $twig)
     {
         $this->twig = $twig;
-        $this->filesystem = $filesystem;
-        $this->logger = $logger;
     }
 
     /**
@@ -62,6 +50,6 @@ class DocumentationFactory
         $viewParameters = array('project' => $project);
         $content = $this->twig->render($skeleton->relative_pathname, $viewParameters);
 
-        return new Documentation($this->filesystem, $this->logger, $absolutePathname, $content);
+        return new Documentation($absolutePathname, $content);
     }
 }

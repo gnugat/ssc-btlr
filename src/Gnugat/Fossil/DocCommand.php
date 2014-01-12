@@ -12,6 +12,7 @@
 namespace Gnugat\Fossil;
 
 use Gnugat\Fossil\MarkdownFile\DocumentationFactory;
+use Gnugat\Fossil\MarkdownFile\DocumentationWriter;
 use Gnugat\Fossil\MarkdownFile\SkeletonRepository;
 use Gnugat\Fossil\ProjectType\Project;
 use Symfony\Component\Console\Command\Command;
@@ -34,19 +35,24 @@ class DocCommand extends Command
     const RETURN_SUCCESS = 0;
 
     /** @var ProjectFactory */
-    private $projectFactory;
+    protected $projectFactory;
 
     /** @var SkeletonRepository */
-    private $skeletonRepository;
+    protected $skeletonRepository;
+
+    /** @var DocumentationWriter */
+    protected $documentationWriter;
 
     /**
      * @param SkeletonRepository   $skeletonRepository
      * @param DocumentationFactory $documentationFactory
+     * @param DocumentationWriter  $documentationWriter
      */
-    public function __construct(SkeletonRepository $skeletonRepository, DocumentationFactory $documentationFactory)
+    public function __construct(SkeletonRepository $skeletonRepository, DocumentationFactory $documentationFactory, DocumentationWriter $documentationWriter)
     {
         $this->skeletonRepository = $skeletonRepository;
         $this->documentationFactory = $documentationFactory;
+        $this->documentationWriter = $documentationWriter;
 
         parent::__construct();
     }
@@ -67,13 +73,15 @@ class DocCommand extends Command
     /** {@inheritdoc} */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $shouldOverwrite = $input->getOption('force-overwrite');
+        if ($input->getOption('force-overwrite')) {
+            $this->documentationWriter->shouldOverwrite();
+        }
 
         $project = $this->getProject($input);
         $skeletons = $this->skeletonRepository->find();
         foreach ($skeletons as $skeleton) {
             $documentation = $this->documentationFactory->make($skeleton, $project);
-            $documentation->write($shouldOverwrite);
+            $this->documentationWriter->write($documentation);
         }
 
         return self::RETURN_SUCCESS;

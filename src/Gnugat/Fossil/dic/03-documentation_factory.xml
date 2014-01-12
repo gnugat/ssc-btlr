@@ -8,8 +8,6 @@
             class="Gnugat\Fossil\MarkdownFile\DocumentationFactory"
             public="false">
             <argument type="service" id="twig.environment" />
-            <argument type="service" id="symfony.filesystem" />
-            <argument type="service" id="monolog.logger" />
         </service>
 
         <service id="twig.environment" class="Twig_Environment" public="false">
@@ -19,15 +17,6 @@
         <service id="twig.loader.filesystem" class="Twig_Loader_Filesystem"
             public="false">
             <argument>%fossil.path.skeletons%</argument>
-        </service>
-
-        <service id="symfony.filesystem"
-            class="Symfony\Component\Filesystem\Filesystem"
-            public="false">
-        </service>
-
-        <service id="monolog.logger" class="Monolog\Logger" public="false">
-            <argument>default.logger</argument>
         </service>
     </services>
 </container>
