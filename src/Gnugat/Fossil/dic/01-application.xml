@@ -41,5 +41,9 @@
             <argument type="service" id="fossil.markdown_file.documentation_factory" />
             <argument type="service" id="fossil.markdown_file.documentation_writer" />
         </service>
+
+        <service id="symfony.console.output"
+            class="Symfony\Component\Console\Output\ConsoleOutput">
+        </service>
     </services>
 </container>

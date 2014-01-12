@@ -62,7 +62,7 @@ class DocumentationWriter
         if (!$this->filesystem->exists($absolutePath)) {
             $this->filesystem->mkdir($absolutePath, self::DIRECTORY_MODE);
 
-            $this->logger->info(sprintf('Created directory %s', $absolutePath));
+            $this->logger->notice(sprintf('Created directory %s', $absolutePath));
         }
     }
 
@@ -72,10 +72,14 @@ class DocumentationWriter
      */
     private function mkfile($absolutePathname, $content)
     {
-        if (!$this->filesystem->exists($absolutePathname) || $this->shouldOverwrite) {
+        if (!$this->filesystem->exists($absolutePathname)) {
             $this->filesystem->dumpFile($absolutePathname, $content, self::FILE_MODE);
 
-            $this->logger->info(sprintf('Created file %s', $absolutePathname));
+            $this->logger->notice(sprintf('Created file %s', $absolutePathname));
+        } elseif ($this->shouldOverwrite) {
+            $this->filesystem->dumpFile($absolutePathname, $content, self::FILE_MODE);
+
+            $this->logger->warning(sprintf('Replaced file %s', $absolutePathname));
         }
     }
 }
