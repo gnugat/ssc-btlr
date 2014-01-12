@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Gnugat\Fossil\Model;
+namespace Gnugat\Fossil\MarkdownFile;
 
 use Monolog\Logger;
 use Symfony\Component\Filesystem\Filesystem;

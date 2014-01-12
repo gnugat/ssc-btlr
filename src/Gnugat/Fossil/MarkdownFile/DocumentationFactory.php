@@ -9,11 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Gnugat\Fossil\Factory;
+namespace Gnugat\Fossil\MarkdownFile;
 
-use Gnugat\Fossil\Model\Documentation;
-use Gnugat\Fossil\Model\Project;
-use Gnugat\Fossil\Model\Skeleton;
+use Gnugat\Fossil\ProjectType\Project;
 use Monolog\Logger;
 use Symfony\Component\Filesystem\Filesystem;
 use Twig_Environment;

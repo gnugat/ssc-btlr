@@ -11,7 +11,7 @@
 
 namespace Gnugat\Fossil;
 
-use Gnugat\Fossil\Model\Bundle;
+use Gnugat\Fossil\ProjectType\Bundle;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;

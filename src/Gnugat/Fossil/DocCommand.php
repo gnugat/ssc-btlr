@@ -11,9 +11,9 @@
 
 namespace Gnugat\Fossil;
 
-use Gnugat\Fossil\Factory\DocumentationFactory;
-use Gnugat\Fossil\Model\Project;
-use Gnugat\Fossil\Repository\SkeletonRepository;
+use Gnugat\Fossil\MarkdownFile\DocumentationFactory;
+use Gnugat\Fossil\MarkdownFile\SkeletonRepository;
+use Gnugat\Fossil\ProjectType\Project;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;

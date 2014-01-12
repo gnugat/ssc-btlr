@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="fossil.markdown_file.documentation_factory"
+            class="Gnugat\Fossil\MarkdownFile\DocumentationFactory"
+            public="false">
+            <argument type="service" id="twig.environment" />
+            <argument type="service" id="symfony.filesystem" />
+            <argument type="service" id="monolog.logger" />
+        </service>
+
+        <service id="twig.environment" class="Twig_Environment" public="false">
+            <argument type="service" id="twig.loader.filesystem" />
+        </service>
+
+        <service id="twig.loader.filesystem" class="Twig_Loader_Filesystem"
+            public="false">
+            <argument>%fossil.path.skeletons%</argument>
+        </service>
+
+        <service id="symfony.filesystem"
+            class="Symfony\Component\Filesystem\Filesystem"
+            public="false">
+        </service>
+
+        <service id="monolog.logger" class="Monolog\Logger" public="false">
+            <argument>default.logger</argument>
+        </service>
+    </services>
+</container>

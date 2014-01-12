@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Gnugat\Fossil\Model;
+namespace Gnugat\Fossil\ProjectType;
 
 use Symfony\Component\Console\Input\InputInterface;
 

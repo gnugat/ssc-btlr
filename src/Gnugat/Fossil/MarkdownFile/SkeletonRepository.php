@@ -9,9 +9,8 @@
  * file that was distributed with this source code.
  */
 
-namespace Gnugat\Fossil\Repository;
+namespace Gnugat\Fossil\MarkdownFile;
 
-use Gnugat\Fossil\Model\Skeleton;
 use Symfony\Component\Finder\Finder;
 
 /**
