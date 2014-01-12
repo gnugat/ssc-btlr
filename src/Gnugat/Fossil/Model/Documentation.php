@@ -11,6 +11,7 @@
 
 namespace Gnugat\Fossil\Model;
 
+use Monolog\Logger;
 use Symfony\Component\Filesystem\Filesystem;
 
 /**
@@ -27,6 +28,9 @@ class Documentation
     /** @var Filesystem */
     private $filesystem;
 
+    /** @var Logger */
+    private $logger;
+
     /** @var string */
     private $absolutePathname;
 
@@ -35,13 +39,14 @@ class Documentation
 
     /**
      * @param Filesystem $filesystem
+     * @param Logger     $logger
      * @param string     $absolutePathname
      * @param string     $content
-     * @param boll       $shouldOverwrite
      */
-    public function __construct(Filesystem $filesystem, $absolutePathname, $content)
+    public function __construct(Filesystem $filesystem, Logger $logger, $absolutePathname, $content)
     {
         $this->filesystem = $filesystem;
+        $this->logger = $logger;
         $this->absolutePathname = $absolutePathname;
         $this->content = $content;
     }
@@ -53,10 +58,14 @@ class Documentation
 
         if (!$this->filesystem->exists($absolutePath)) {
             $this->filesystem->mkdir($absolutePath, self::DIRECTORY_MODE);
+
+            $this->logger->info(sprintf('Created directory %s', $absolutePath));
         }
 
         if (!$this->filesystem->exists($this->absolutePathname) || $shouldOverwrite) {
             $this->filesystem->dumpFile($this->absolutePathname, $this->content, self::FILE_MODE);
+
+            $this->logger->info(sprintf('Created file %s', $this->absolutePathname));
         }
     }
 

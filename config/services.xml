@@ -44,7 +44,8 @@
             <argument key="skeletonsPath">%fossil.path.skeletons%</argument>
         </service>
 
-        <service id="symfony.finder" class="Symfony\Component\Finder\Finder">
+        <service id="symfony.finder" class="Symfony\Component\Finder\Finder"
+            public="false">
         </service>
 
         <service id="fossil.factory.documentation_factory"
@@ -52,9 +53,10 @@
             public="false">
             <argument type="service" id="twig.environment" />
             <argument type="service" id="symfony.filesystem" />
+            <argument type="service" id="monolog.logger" />
         </service>
 
-        <service id="twig.environment" class="Twig_Environment">
+        <service id="twig.environment" class="Twig_Environment" public="false">
             <argument type="service" id="twig.loader.filesystem" />
         </service>
 
@@ -63,7 +65,13 @@
             <argument>%fossil.path.skeletons%</argument>
         </service>
 
-        <service id="symfony.filesystem" class="Symfony\Component\Filesystem\Filesystem">
+        <service id="symfony.filesystem"
+            class="Symfony\Component\Filesystem\Filesystem"
+            public="false">
+        </service>
+
+        <service id="monolog.logger" class="Monolog\Logger" public="false">
+            <argument>default.logger</argument>
         </service>
     </services>
 </container>
