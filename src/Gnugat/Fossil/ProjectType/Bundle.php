@@ -20,6 +20,8 @@ use Symfony\Component\Console\Input\InputInterface;
  */
 class Bundle extends Library
 {
+    const TYPE = 'bundle';
+
     /** @return string */
     public $fully_qualified_classname;
 
@@ -30,12 +32,6 @@ class Bundle extends Library
 
         $this->fully_qualified_classname = $input->getArgument('fully-qualified-classname');
         $this->is_development_tool = $input->getOption('is-development-tool');
-    }
-
-    /** @return bool */
-    public function is_bundle()
-    {
-        return true;
     }
 
     /** @return string */

@@ -20,6 +20,8 @@ use Symfony\Component\Console\Input\InputInterface;
  */
 class Project
 {
+    const TYPE = 'project';
+
     /** @var string */
     public $github_repository;
 
@@ -39,9 +41,9 @@ class Project
     }
 
     /** @return bool */
-    public function is_bundle()
+    public function type()
     {
-        return false;
+        return static::TYPE;
     }
 
     /** @return string */

@@ -20,6 +20,8 @@ use Symfony\Component\Console\Input\InputInterface;
  */
 class Library extends Project
 {
+    const TYPE = 'library';
+
     /** @var string */
     public $composer_package;
 

@@ -5,10 +5,11 @@ The installation steps described in this file are followed by the
 
 ## 1. Downloading
 
-{% if project.is_bundle %}
+{% if project.type != 'project' %}
 First of all, you should download the bundle using [Composer](http://getcomposer.org/):
 
     composer require "{{ project.composer_package }}:~1"
+{% if project.type == 'bundle' %}
 
 ## 2. Registering the bundle
 
@@ -36,6 +37,8 @@ application's kernel, for example like this:
             return $bundles;
         }
     }
+
+{% endif %}
 {% else %}
 In order to install the project, you need to:
 

@@ -12,6 +12,7 @@
 namespace Gnugat\Fossil\MarkdownFile;
 
 use Gnugat\Fossil\ProjectType\Project;
+use Gnugat\Fossil\ProjectType\Bundle;
 use Twig_Environment;
 
 /**
@@ -41,7 +42,7 @@ class DocumentationFactory
     public function make(Skeleton $skeleton, Project $project)
     {
         $pathPieces[] = $project->path;
-        if ($project->is_bundle() && $skeleton->isInsideDocumentationDirectory()) {
+        if ($project->type() === Bundle::TYPE && $skeleton->isInsideDocumentationDirectory()) {
             $pathPieces[] = 'Resources';
         }
         $pathPieces[] = str_replace('.twig', '', $skeleton->relative_pathname);
