@@ -27,11 +27,16 @@ application's kernel, for example like this:
         {
             $bundles = array(
                 // Other bundles...
+{% if not project.is_development_tool %}
+                new {{ project.fully_qualified_classname }}(),
+{% endif %}
             );
 
             if (in_array($this->getEnvironment(), array('dev', 'test'))) {
                 // Other bundles...
+{% if project.is_development_tool %}
                 $bundles[] = new {{ project.fully_qualified_classname }}();
+{% endif %}
             }
 
             return $bundles;
