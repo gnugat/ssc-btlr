@@ -14,7 +14,7 @@ namespace Gnugat\Fossil;
 use Gnugat\Fossil\MarkdownFile\DocumentationFactory;
 use Gnugat\Fossil\MarkdownFile\DocumentationWriter;
 use Gnugat\Fossil\MarkdownFile\SkeletonRepository;
-use Gnugat\Fossil\ProjectType\Project;
+use Gnugat\Fossil\ProjectType\Application;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
@@ -90,10 +90,10 @@ class DocCommand extends Command
     /**
      * @param InputInterface $input
      *
-     * @return Project
+     * @return Application
      */
     protected function getProject(InputInterface $input)
     {
-        return new Project($input);
+        return new Application($input);
     }
 }

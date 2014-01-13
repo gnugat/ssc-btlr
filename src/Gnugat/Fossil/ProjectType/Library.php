@@ -18,7 +18,7 @@ use Symfony\Component\Console\Input\InputInterface;
  *
  * @author Loïc Chardonnet <loic.chardonnet@gmail.com>
  */
-class Library extends Project
+class Library extends Application
 {
     const TYPE = 'library';
 

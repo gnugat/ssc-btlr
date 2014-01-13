@@ -14,13 +14,13 @@ namespace Gnugat\Fossil\ProjectType;
 use Symfony\Component\Console\Input\InputInterface;
 
 /**
- * Wraps the project's information provided via the input.
+ * Wraps the application's information provided via the input.
  *
  * @author Loïc Chardonnet <loic.chardonnet@gmail.com>
  */
-class Project
+class Application
 {
-    const TYPE = 'project';
+    const TYPE = 'application';
 
     /** @var string */
     public $github_repository;

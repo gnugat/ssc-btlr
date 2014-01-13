@@ -1,6 +1,6 @@
 #!/bin/sh
 
-{% if project.type != 'project' %}
+{% if project.type != 'application' %}
 echo '[curl] Getting Composer, the PHP dependency manager'
 curl -sS https://getcomposer.org/installer | php
 

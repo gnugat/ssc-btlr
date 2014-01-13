@@ -11,7 +11,7 @@
 
 namespace Gnugat\Fossil\MarkdownFile;
 
-use Gnugat\Fossil\ProjectType\Project;
+use Gnugat\Fossil\ProjectType\Application;
 use Gnugat\Fossil\ProjectType\Bundle;
 use Twig_Environment;
 
@@ -34,12 +34,12 @@ class DocumentationFactory
     }
 
     /**
-     * @param Skeleton $skeleton
-     * @param Project  $project
+     * @param Skeleton    $skeleton
+     * @param Application $project
      *
      * @return Documentation
      */
-    public function make(Skeleton $skeleton, Project $project)
+    public function make(Skeleton $skeleton, Application $project)
     {
         $pathPieces[] = $project->path;
         if ($project->type() === Bundle::TYPE && $skeleton->isInsideDocumentationDirectory()) {
