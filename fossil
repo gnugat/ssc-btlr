@@ -1,0 +1,19 @@
+#!/usr/bin/php
+<?php
+
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+
+require __DIR__.'/vendor/autoload.php';
+
+$container = new ContainerBuilder();
+$container->setParameter('fossil.path.skeletons', __DIR__.'/skeletons');
+
+$loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/src/Gnugat/Fossil/dic'));
+$loader->load('services.xml');
+
+$output = $container->get('symfony.console.output');
+
+$application = $container->get('symfony.console.application');
+$application->run(null, $output);

@@ -1,8 +1,22 @@
-# CHANGELOG
+# Changes between versions
 
 This file logs the changes between versions.
 
-## 1.1.0
+## 2: fossil
+
+### 2.0.0: the doc commands
+
+* added doc:library command
+* added doc:bundle command
+* added doc command
+* added installer script
+* added documentation skeletons
+* added fossil's documentation
+* removed everything
+
+## 1: sfQuickCommand
+
+### 1.1.0
 
 * improved the `new` script by:
   * adding markdown files to the project (README, LICENSE, etc);

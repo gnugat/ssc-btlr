@@ -1,0 +1,24 @@
+{
+    "name": "gnugat/fossil",
+    "description": "Bootstraps your project's documentation",
+    "type": "project",
+    "license": "MIT",
+    "authors": [{
+        "name": "Loïc Chardonnet",
+        "role": "Lead developer"
+    }],
+    "require": {
+        "symfony/dependency-injection": "~2.4",
+        "symfony/config": "~2.4",
+        "symfony/console": "~2.4",
+        "symfony/finder": "~2.4",
+        "twig/twig": "~1",
+        "symfony/filesystem": "~2.4",
+        "monolog/monolog": "~1.7",
+        "symfony/monolog-bridge": "~2.4",
+        "symfony/event-dispatcher": "~2.4"
+    },
+    "autoload": {
+        "psr-0": { "": "src" }
+    }
+}
