@@ -19,28 +19,46 @@ namespace Gnugat\Fossil\MarkdownFile;
 class Documentation
 {
     /** @var string */
-    public $absolute_pathname;
+    public $absolutePathname;
 
     /** @var string */
     public $content;
 
     /**
-     * @param string $absolute_pathname
+     * @param string $absolutePathname
      * @param string $content
      */
-    public function __construct($absolute_pathname, $content)
+    public function __construct($absolutePathname, $content)
     {
-        $this->absolute_pathname = $absolute_pathname;
+        $this->absolutePathname = $absolutePathname;
         $this->content = $content;
     }
 
     /** @return string */
-    public function absolute_path()
+    public function getAbsolutePathname()
     {
-        $pathPieces = explode('/', $this->absolute_pathname);
+        $pathPieces = explode('/', $this->absolutePathname);
         array_pop($pathPieces);
         $absolutePath = implode('/', $pathPieces);
 
         return $absolutePath;
+    }
+
+    /** @return string */
+    public function getAbsolutePath()
+    {
+        return $this->absolutePathname();
+    }
+
+    /** @return string */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /** @deprecated */
+    public function absolute_path()
+    {
+        return $this->getAbsolutePathname();
     }
 }

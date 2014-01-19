@@ -44,7 +44,13 @@ class DocumentationWriter
         $this->logger = $logger;
     }
 
+    /** @deprecated */
     public function shouldOverwrite()
+    {
+        $this->forceOverwrite();
+    }
+
+    public function forceOverwrite()
     {
         $this->shouldOverwrite = true;
     }
@@ -52,8 +58,8 @@ class DocumentationWriter
     /** @param Documentation $documentation */
     public function write(Documentation $documentation)
     {
-        $this->mkdir($documentation->absolute_path());
-        $this->mkfile($documentation->absolute_pathname, $documentation->content);
+        $this->mkdir($documentation->getAbsolutePath());
+        $this->mkfile($documentation->getAbsolutePathname(), $documentation->getContent());
     }
 
     /** @param string $absolutePath */
