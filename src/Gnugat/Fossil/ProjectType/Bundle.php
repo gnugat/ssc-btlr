@@ -35,13 +35,13 @@ class Bundle extends Library
     }
 
     /** @return string */
-    public function documentation_path()
+    public function documentationPath()
     {
         return 'Resources/doc';
     }
 
     /** @return string */
-    public function app_kernel_pattern_to_match()
+    public function appKernelPatternToMatch()
     {
         $pattern = '        );';
         if ($this->is_development_tool) {
@@ -52,7 +52,7 @@ class Bundle extends Library
     }
 
     /** @return string */
-    public function app_kernel_pattern_to_replace()
+    public function appKernelPatternToReplace()
     {
         $escapedFullyQualifiedClassname = str_replace('\\', '\\\\', $this->fully_qualified_classname);
             $pattern = '                new '.$escapedFullyQualifiedClassname.'(),\n        );';

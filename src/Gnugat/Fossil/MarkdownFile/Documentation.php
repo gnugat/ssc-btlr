@@ -55,10 +55,4 @@ class Documentation
     {
         return $this->content;
     }
-
-    /** @deprecated */
-    public function absolute_path()
-    {
-        return $this->getAbsolutePathname();
-    }
 }

@@ -9,7 +9,7 @@ composer require "{{ project.composer_package }}:~1"
 {% if project.type == 'bundle' %}
 
 echo '[sed] Registering the bundle'
-sed -i 's/{{ project.app_kernel_pattern_to_match }}/{{ project.app_kernel_pattern_to_replace }}/' app/AppKernel.php
+sed -i 's/{{ project.appKernelPatternToMatch }}/{{ project.appKernelPatternToReplace }}/' app/AppKernel.php
 {% endif %}
 {% else %}
 echo '[git] Downloading the project'

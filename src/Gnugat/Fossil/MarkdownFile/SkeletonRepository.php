@@ -24,7 +24,7 @@ class SkeletonRepository
     private $finder;
 
     /** @var string */
-    private $skeletonPath;
+    private $skeletonsPath;
 
     /**
      * @param Finder $finder
