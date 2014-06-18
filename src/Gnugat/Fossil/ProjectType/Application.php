@@ -47,7 +47,7 @@ class Application
     }
 
     /** @return string */
-    public function documentation_path()
+    public function documentationPath()
     {
         return 'doc';
     }
@@ -55,12 +55,13 @@ class Application
     /** @return string */
     public function directory()
     {
-        list($vendor, $project) = explode('/', $this->github_repository);
+        $repositoryParts = explode('/', $this->github_repository);
+        $projectName = $repositoryParts[1];
 
-        return $project;
+        return $projectName;
     }
 
-    public function copyright_years()
+    public function copyrightYears()
     {
         $currentYear = date('Y');
         $nextYear = date('Y', strtotime('+1 year'));
