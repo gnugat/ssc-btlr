@@ -4,6 +4,11 @@ This file logs the changes between versions.
 
 ## 2: fossil
 
+### 2.0.1: Quality
+
+* added specs
+* fixed Insight analysis #7
+
 ### 2.0.0: the doc commands
 
 * added doc:library command
