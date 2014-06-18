@@ -47,7 +47,7 @@ class Documentation
     /** @return string */
     public function getAbsolutePath()
     {
-        return $this->absolutePathname();
+        return $this->absolutePathname;
     }
 
     /** @return string */
