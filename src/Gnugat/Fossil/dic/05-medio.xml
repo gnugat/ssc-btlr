@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="medio.inject_dependency_command"
+            class="Gnugat\Medio\Command\InjectDependencyCommand"
+            public="false">
+            <argument type="service" id="medio.code_detector" />
+            <argument type="service" id="medio.code_editor" />
+            <argument type="service" id="medio.convertor" />
+            <argument type="service" id="redaktilo.editor" />
+        </service>
+
+        <service id="medio.convertor" class="Gnugat\Medio\Convertor"
+            public="false">
+        </service>
+
+        <service id="medio.code_detector"
+            class="Gnugat\Medio\Service\CodeDetector"
+            public="false">
+            <argument type="service" id="medio.code_navigator" />
+            <argument type="service" id="redaktilo.editor" />
+        </service>
+
+        <service id="medio.code_navigator"
+            class="Gnugat\Medio\Service\CodeNavigator"
+            public="false">
+            <argument type="service" id="redaktilo.editor" />
+        </service>
+
+        <service id="medio.code_editor" class="Gnugat\Medio\Service\CodeEditor"
+            public="false">
+            <argument type="service" id="medio.code_detector" />
+            <argument type="service" id="medio.code_navigator" />
+            <argument type="service" id="redaktilo.editor" />
+            <argument type="service" id="medio.multiline_editor" />
+        </service>
+
+        <service id="medio.multiline_editor" class="Gnugat\Medio\Service\MultilineEditor"
+            public="false">
+            <argument type="service" id="medio.code_detector" />
+            <argument type="service" id="medio.code_navigator" />
+            <argument type="service" id="redaktilo.editor" />
+        </service>
+    </services>
+</container>

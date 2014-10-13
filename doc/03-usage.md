@@ -2,9 +2,28 @@
 
 Available commands:
 
+* [dependency:inject](#the-dependencyinjection-command)
 * [doc](#the-doc-command)
 * [doc:library](#the-doclibrary-command)
 * [doc:bundle](#the-docbundle-command)
+
+## The `dependency-injection` command
+
+You can see the synopsis of this command by running:
+
+    fossil dependency:inject --help | less
+
+### Arguments
+
+* `fully-qualified-classname`: the full namespace with the classname of the
+  class to inject
+* `filename`: the path to the class's file where the dependency should be injected
+
+### Example:
+
+    fossil d:i 'Gnugat\Fossil\Dependency' ./src/Gnugat/Fossil/Class.php
+
+## The `doc` command
 
 The documentation commands use [skeletons](../skeletons) to create the
 following files:
@@ -23,8 +42,6 @@ following files:
 By default, if the file already exists it is not overwritten, which means you
 can safely run **fossil** on existing projects. However if you want to replace
 the existing files, use the `-f` option.
-
-## The `doc` command
 
 You can see the synopsis of this command by running:
 
