@@ -8,5 +8,7 @@
         <import resource="02-skeleton_repository.xml" />
         <import resource="03-documentation_factory.xml" />
         <import resource="04-documentation_writer.xml" />
+        <import resource="05-medio.xml" />
+        <import resource="06-redaktilo.xml" />
     </imports>
 </container>

@@ -4,6 +4,10 @@ This file logs the changes between versions.
 
 ## 2: fossil
 
+### 2.1.0: the dependency injection command
+
+* added dependency:inject command
+
 ### 2.0.1: Quality
 
 * added specs

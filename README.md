@@ -1,20 +1,16 @@
-# Fossil: bootstrap your project's `.md` files
+# Fossil: the promise of no more manual boilerplate
 
 Are you fed up at creating the same markdown files to document your new FOSS
 projects? You're in luck: fossil will help you bootstrap them!
 
     fossil doc 'acme/demo' 'The ACME company'
 
-Then you just need to complete the following files:
+Can't bear having to  type al this boilerplate code when injecting a dependency?
 
-* `README.md`
-* `doc/01-introduction.md`
-* `doc/03-usage.md`
-* `doc/04-tests.md`
+    fossil dependency:inject 'Acme\Demo\Dependency' ./src/Acme/Demo/Service.php
 
-You've already created a FOSS project with some markdown files (let's say
-`README.md` and `LICENSE` for example)? Don't panic: fossil can generate the
-missing files without touching the existing ones.
+That's right! Fossil will make your life easier by automating all those
+boilerplate things!
 
 Read more about this project in [its introduction](doc/01-introduction.md), and
 find out how to use it as well as which files it generates by reading the
