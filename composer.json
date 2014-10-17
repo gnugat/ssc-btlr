@@ -1,11 +1,13 @@
 {
     "name": "gnugat/fossil",
-    "description": "Bootstraps your project's documentation",
+    "description": "Bootstraps your project's boilerplate (documentation, code, etc)",
     "type": "project",
     "license": "MIT",
     "authors": [{
         "name": "Loïc Chardonnet",
-        "role": "Lead developer"
+        "email": "loic.chardonnet@gmail.com",
+        "homepage": "http://gnugat.github.io",
+        "role": "Developer"
     }],
     "require": {
         "symfony/dependency-injection": "~2.4",
@@ -20,10 +22,10 @@
         "gnugat/medio": "~0.1@dev"
     },
     "autoload": {
-        "psr-0": { "": "src" }
+        "psr-4": { "Gnugat\\Fossil\\": "src/Gnugat/Fossil" }
     },
     "require-dev": {
-        "phpspec/phpspec": "~2.0@RC",
+        "phpspec/phpspec": "~2.0",
         "kherge/box": "~2.0"
     }
 }
