@@ -16,29 +16,29 @@ VERSION=$1
 
 # Git release
 git checkout master
-git tag -a ${TAG}
+git tag -a ${VERSION}
 
 # Phar release
+box build
 git checkout gh-pages
-./vendor/bin/box build
-mv fossil.phar downloads/fossil-${TAG}.phar
-git add downloads/fossil-${TAG}.phar
+mv fossil.phar downloads/fossil-${VERSION}.phar
+git add downloads/fossil-${VERSION}.phar
 
 SHA1=$(openssl sha1 fossil.phar)
 
 JSON='name:"fossil.phar"'
 JSON="${JSON},sha1:\"${SHA1}\""
-JSON="${JSON},url:\"http://gnugat.github.io/fossil/downloads/fossil-${TAG}.phar\""
-JSON="${JSON},version:\"${TAG}\""
+JSON="${JSON},url:\"http://gnugat.github.io/fossil/downloads/fossil-${VERSION}.phar\""
+JSON="${JSON},version:\"${VERSION}\""
 
 # Manifest release
 cat manifest.json | jsawk -a "this.push({${JSON}})" | python -mjson.tool > manifest.json.tmp
 mv manifest.json.tmp manifest.json
 git add manifest.json
 
-git commit -m "Released version ${TAG}"
+git commit -m "Released version ${VERSION}"
 
 git checkout master
 echo "New version created. Now you should run:"
 echo "git push origin gh-pages"
-echo "git push ${TAG}"
+echo "git push ${VERSION}"
