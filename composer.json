@@ -23,6 +23,7 @@
         "psr-0": { "": "src" }
     },
     "require-dev": {
-        "phpspec/phpspec": "~2.0@RC"
+        "phpspec/phpspec": "~2.0@RC",
+        "kherge/box": "~2.0"
     }
 }

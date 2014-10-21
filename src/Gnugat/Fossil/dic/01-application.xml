@@ -7,7 +7,7 @@
         <service id="symfony.console.application"
             class="Symfony\Component\Console\Application">
             <argument key="name">Fossil</argument>
-            <argument key="version">2.1.0</argument>
+            <argument key="version">%fossil.version%</argument>
             <call method="add">
                  <argument type="service" id="fossil.dependency_inject_command" />
             </call>
