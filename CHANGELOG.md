@@ -4,6 +4,11 @@ This file logs the changes between versions.
 
 ## 2: fossil
 
+### 2.2.0: phar
+
+* added phar generation
+* added self-update command
+
 ### 2.1.1: fixed directory bug
 
 * used medio 0.2 (inserts missing contructor, constants are above attributes)
