@@ -54,5 +54,9 @@
         <service id="symfony.console.output"
             class="Symfony\Component\Console\Output\ConsoleOutput">
         </service>
+
+        <service id="filesystem"
+            class="Symfony\Component\Filesystem\Filesystem">
+        </service>
     </services>
 </container>

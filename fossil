@@ -4,6 +4,7 @@
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 require __DIR__.'/vendor/autoload.php';
 
@@ -11,8 +12,10 @@ $container = new ContainerBuilder();
 $container->setParameter('fossil.version', '@package_version@');
 $container->setParameter('fossil.path.skeletons', __DIR__.'/skeletons');
 
-$loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/src/Gnugat/Fossil/dic'));
-$loader->load('services.xml');
+$internalLoader = new XmlFileLoader($container, new FileLocator(__DIR__.'/src/Gnugat/Fossil/dic'));
+$internalLoader->load('services.xml');
+$redaktiloLoader = new YamlFileLoader($container, new FileLocator(__DIR__.'/vendor/gnugat/redaktilo-bundle/Resources/config'));
+$redaktiloLoader->load('services.yml');
 
 $output = $container->get('symfony.console.output');
 
