@@ -7,11 +7,11 @@
 ##
 
 if [ $# -ne 1 ]; then
-  echo "Usage: releaser <version>"
+  echo "Usage: releaser.sh <version>"
   exit 65
 fi
 
-ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+ROOT="`dirname $0`/.."
 VERSION=$1
 
 # Git release
