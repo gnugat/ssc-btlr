@@ -1,0 +1,47 @@
+services:
+    symfony.console.application:
+        class: Symfony\Component\Console\Application
+        arguments:
+            - Fossil
+            - "%fossil.version%"
+        calls:
+            - [ add, [ "@fossil.dependency_inject_command" ]]
+            - [ add, [ "@fossil.doc_command" ]]
+            - [ add, [ "@fossil.doc_library_command" ]]
+            - [ add, [ "@fossil.doc_bundle_command" ]]
+
+    fossil.dependency_inject_command:
+        class: Gnugat\Fossil\DependencyInjectCommand
+        public: false
+        arguments:
+            - "@medio.inject_dependency_command"
+
+    fossil.doc_command:
+        class: Gnugat\Fossil\DocCommand
+        public: false
+        arguments:
+            - "@fossil.markdown_file.skeleton_repository"
+            - "@fossil.markdown_file.documentation_factory"
+            - "@fossil.markdown_file.documentation_writer"
+
+    fossil.doc_library_command:
+        class: Gnugat\Fossil\DocLibraryCommand
+        public: false
+        arguments:
+            - "@fossil.markdown_file.skeleton_repository"
+            - "@fossil.markdown_file.documentation_factory"
+            - "@fossil.markdown_file.documentation_writer"
+
+    fossil.doc_bundle_command:
+        class: Gnugat\Fossil\DocBundleCommand
+        public: false
+        arguments:
+            - "@fossil.markdown_file.skeleton_repository"
+            - "@fossil.markdown_file.documentation_factory"
+            - "@fossil.markdown_file.documentation_writer"
+
+    symfony.console.output:
+        class: Symfony\Component\Console\Output\ConsoleOutput
+
+    filesystem:
+        class: Symfony\Component\Filesystem\Filesystem

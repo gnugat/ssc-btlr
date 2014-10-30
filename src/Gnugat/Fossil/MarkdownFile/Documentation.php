@@ -35,7 +35,7 @@ class Documentation
     }
 
     /** @return string */
-    public function getAbsolutePathname()
+    public function getAbsolutePath()
     {
         $pathPieces = explode('/', $this->absolutePathname);
         array_pop($pathPieces);
@@ -45,7 +45,7 @@ class Documentation
     }
 
     /** @return string */
-    public function getAbsolutePath()
+    public function getAbsolutePathname()
     {
         return $this->absolutePathname;
     }
