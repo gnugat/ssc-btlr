@@ -4,6 +4,11 @@ This file logs the changes between versions.
 
 ## 2: fossil
 
+### 2.1.1: fixed directory bug
+
+* used medio 0.2 (inserts missing contructor, constants are above attributes)
+* fixed file creation (bug: was creating directories instead)
+
 ### 2.1.0: the dependency injection command
 
 * added dependency:inject command
