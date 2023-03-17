@@ -1,7 +1,0 @@
-# Dependencies
-
-/vendor/
-/composer.lock
-
-# Generated files
-/fossil.phar
