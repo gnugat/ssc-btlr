@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+use Ssc\Btlr\Framework\BtlrApplication;
+use Ssc\Btlr\ListCommands;
+
+$application = BtlrApplication::make();
+$application->setDefaultCommand(ListCommands::NAME);
+$application->run();

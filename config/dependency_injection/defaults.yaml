@@ -1,0 +1,16 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    _instanceof:
+        'Symfony\Component\Console\Command\Command':
+            tags: ['console.command']
+            lazy: true
+            public: true
+    
+    'Ssc\Btlr\Framework\':
+        resource: '../../framework/*/'
+
+    'Ssc\Btlr\':
+        resource: '../../src/'

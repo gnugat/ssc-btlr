@@ -1,0 +1,8 @@
+# Local configurations
+/.php-cs-fixer.php
+/phpunit.xml
+
+# Temporary files
+/.php-cs-fixer.cache
+/.phpunit.result.cache
+/vendor/*
