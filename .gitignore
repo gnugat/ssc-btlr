@@ -1,7 +1,8 @@
-# Dependencies
+# Local configurations
+/.php-cs-fixer.php
+/phpunit.xml
 
-/vendor/
-/composer.lock
-
-# Generated files
-/fossil.phar
+# Temporary files
+/.php-cs-fixer.cache
+/.phpunit.result.cache
+/vendor/*

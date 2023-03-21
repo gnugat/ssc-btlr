@@ -1,32 +1,39 @@
 {
-    "name": "gnugat/fossil",
-    "description": "Bootstraps your project's boilerplate (documentation, code, etc)",
+    "name": "ssc/btlr",
     "type": "project",
     "license": "MIT",
-    "authors": [{
-        "name": "Loïc Chardonnet",
-        "email": "loic.chardonnet@gmail.com",
-        "homepage": "http://gnugat.github.io",
-        "role": "Developer"
-    }],
+    "description": "Your own personal assistant",
+    "authors": [
+        {
+            "name": "Loïc Faugeron",
+            "email": "faugeron.loic@gmail.com",
+            "homepage": "https://gnugat.github.io",
+            "role": "Lead Developer"
+        }
+    ],
     "require": {
-        "symfony/dependency-injection": "~2.4",
-        "symfony/config": "~2.4",
-        "symfony/console": "~2.4",
-        "symfony/finder": "~2.4",
-        "twig/twig": "~1",
-        "symfony/filesystem": "~2.4",
-        "monolog/monolog": "~1.7",
-        "symfony/monolog-bridge": "~2.4",
-        "symfony/event-dispatcher": "~2.4",
-        "gnugat/medio": "~0.2.0@dev",
-        "gnugat/redaktilo-bundle": "~1.0.0"
-    },
-    "autoload": {
-        "psr-4": { "Gnugat\\Fossil\\": "src/Gnugat/Fossil" }
+        "php": "^8.1",
+        "symfony/config": "^6.2",
+        "symfony/console": "^6.2",
+        "symfony/dependency-injection": "^6.2",
+        "symfony/process": "^6.2",      
+        "symfony/yaml": "^6.2"
     },
     "require-dev": {
-        "phpspec/phpspec": "~2.0",
-        "kherge/box": "~2.0"
+        "friendsofphp/php-cs-fixer": "^3.15",
+        "phpunit/phpunit": "^9.6",
+        "phpspec/prophecy-phpunit": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ssc\\Btlr\\Framework\\": "framework/",
+            "Ssc\\Btlr\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "tests\\Ssc\\Btlr\\Framework\\": "framework_tests/",
+            "tests\\Ssc\\Btlr\\": "tests/"
+        }
     }
 }

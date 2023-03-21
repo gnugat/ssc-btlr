@@ -1,48 +1,7 @@
 # Changes between versions
 
-This file logs the changes between versions.
+## 0.0.0: Initial Release - `btlr`
 
-## 2: fossil
-
-### 2.2.0: phar
-
-* added phar generation
-* added self-update command
-
-### 2.1.1: fixed directory bug
-
-* used medio 0.2 (inserts missing contructor, constants are above attributes)
-* fixed file creation (bug: was creating directories instead)
-
-### 2.1.0: the dependency injection command
-
-* added dependency:inject command
-
-### 2.0.1: Quality
-
-* added specs
-* fixed Insight analysis #7
-
-### 2.0.0: the doc commands
-
-* added doc:library command
-* added doc:bundle command
-* added doc command
-* added installer script
-* added documentation skeletons
-* added fossil's documentation
-* removed everything
-
-## 1: sfQuickCommand
-
-### 1.1.0
-
-* improved the `new` script by:
-  * adding markdown files to the project (README, LICENSE, etc);
-  * using restart instead of reload for apache;
-  * using Symfony Empty Edition.
-* added usage message when wrong number of arguments;
-* replaced the PHP helper by unix commands;
-* improved the documentation;
-* added the `db` script;
-* added the `delete` script.
+Basically an empty CLI application,
+the default command is `list-command`,
+it lists the available commands (which is none at the moment).

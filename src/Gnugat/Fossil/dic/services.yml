@@ -1,6 +1,0 @@
-imports:
-    - { resource: 01-application.yml }
-    - { resource: 02-skeleton_repository.yml }
-    - { resource: 03-documentation_factory.yml }
-    - { resource: 04-documentation_writer.yml }
-    - { resource: 05-medio.yml }

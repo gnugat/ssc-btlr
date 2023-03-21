@@ -1,41 +1,36 @@
-# Fossil: the promise of no more manual boilerplate
+# Super Secret Code - Btlr
 
-Are you fed up at creating the same markdown files to document your new FOSS
-projects? You're in luck: fossil will help you bootstrap them!
-
-    fossil doc 'acme/demo' 'The ACME company'
-
-Can't bear having to  type al this boilerplate code when injecting a dependency?
-
-    fossil dependency:inject 'Acme\Demo\Dependency' ./src/Acme/Demo/Service.php
-
-That's right! Fossil will make your life easier by automating all those
-boilerplate things!
-
-Read more about this project in [its introduction](doc/01-introduction.md), and
-find out how to use it as well as which files it generates by reading the
-[usage guide](doc/03-usage.md).
+Your own personal assistant.
 
 ## Installation
 
-To download and install this project, run the following command:
+Clone the repository,
+then run [composer](https://getcomposer.org/) (PHP 8.1 required):
 
-    curl -sS https://raw.github.com/gnugat/fossil/master/bin/installer.sh | sh
+```
+git clone git@github.com:gnugat/ssc-btlr.git
+cd ssc-btlr
+composer up -o
+```
 
-Learn more about the steps followed by the script with its
-[documentation](doc/02-installation.md).
+## Usage
 
-## Further documentation
+To list all the available commands, run (*new in version 0.0.0*):
+
+```
+./btlr
+```
+
+## Want to know more?
 
 You can see the current and past versions using one of the following:
 
 * the `git tag` command
-* the [releases page on Github](https://github.com/gnugat/fossil/releases)
+* the [releases page on Github](https://github.com/gnugat/ssc-btlr/releases)
 * the file listing the [changes between versions](CHANGELOG.md)
 
-You can find more documentation at the following links:
+And finally some meta documentation:
 
 * [copyright and MIT license](LICENSE)
 * [versioning and branching models](VERSIONING.md)
 * [contribution instructions](CONTRIBUTING.md)
-* [documentation directory](doc)
