@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ssc\Btlr\Framework;
 
+use Ssc\Btlr\Framework\Symfony\CommandLoader;
 use Symfony\Component\Console\Application;
 
 class BtlrApplication
@@ -15,7 +18,7 @@ class BtlrApplication
             name: self::NAME,
             version: self::VERSION,
         );
-        $application->setCommandLoader(Symfony\CommandLoader::make());
+        $application->setCommandLoader(CommandLoader::make());
 
         return $application;
     }

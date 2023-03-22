@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ssc\Btlr\Framework\Symfony;
 
+use Ssc\Btlr\Framework\Symfony\DependencyInjection\ContainerFactory;
 use Symfony\Component\Console\CommandLoader\CommandLoaderInterface;
 use Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
 
@@ -9,7 +12,7 @@ class CommandLoader
 {
     public static function make(): CommandLoaderInterface
     {
-        $container = DependencyInjection\ContainerFactory::make();
+        $container = ContainerFactory::make();
         $commands = [];
         foreach ($container->getParameter('console.command.ids') as $class) {
             if (true === str_contains($class, 'Flow')) {

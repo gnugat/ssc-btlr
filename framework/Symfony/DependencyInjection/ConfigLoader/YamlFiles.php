@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ssc\Btlr\Framework\Symfony\DependencyInjection\ConfigLoader;
 
 use Symfony\Component\Config\FileLocator;

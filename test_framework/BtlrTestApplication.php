@@ -1,6 +1,8 @@
 <?php
 
-namespace tests\Ssc\Btlr\Framework;
+declare(strict_types=1);
+
+namespace Ssc\Btlr\TestFramework;
 
 use Ssc\Btlr\Framework\BtlrApplication;
 use Symfony\Component\Console\Tester\ApplicationTester;

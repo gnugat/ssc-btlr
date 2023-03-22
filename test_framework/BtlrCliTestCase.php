@@ -1,6 +1,8 @@
 <?php
 
-namespace tests\Ssc\Btlr\Framework;
+declare(strict_types=1);
+
+namespace Ssc\Btlr\TestFramework;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Command\Command;
