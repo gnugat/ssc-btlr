@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr;
 
+use Ssc\Btlr\ListCommands;
+
 class ListCommandsTest extends Framework\BtlrCliTestCase
 {
     /**
@@ -12,7 +14,7 @@ class ListCommandsTest extends Framework\BtlrCliTestCase
     public function it_lists_commands(): void
     {
         $input = [
-            \Ssc\Btlr\ListCommands::NAME,
+            ListCommands::NAME,
         ];
 
         $statusCode = $this->app->run($input);

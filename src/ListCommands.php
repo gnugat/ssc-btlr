@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Ssc\Btlr;
 
 use Ssc\Btlr\Framework\BtlrCommand;
+use Ssc\Btlr\Framework\BtlrCommand\ConfigureCommand;
+use Ssc\Btlr\Framework\BtlrCommand\InlineCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -20,8 +22,8 @@ class ListCommands extends BtlrCommand
     protected static $defaultName = self::NAME;
 
     public function __construct(
-        private BtlrCommand\ConfigureCommand $configureCommand,
-        private BtlrCommand\InlineCommand $inlineCommand,
+        private ConfigureCommand $configureCommand,
+        private InlineCommand $inlineCommand,
     ) {
         parent::__construct();
     }
