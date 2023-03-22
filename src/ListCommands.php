@@ -7,6 +7,8 @@ namespace Ssc\Btlr;
 use Ssc\Btlr\Framework\BtlrCommand;
 use Ssc\Btlr\Framework\BtlrCommand\ConfigureCommand;
 use Ssc\Btlr\Framework\BtlrCommand\InlineCommand;
+use Ssc\Btlr\Framework\Stdio;
+use Ssc\Btlr\Framework\Stdio\Write\WithStyle;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -37,14 +39,15 @@ class ListCommands extends BtlrCommand
         InputInterface $input,
         OutputInterface $output,
     ): int {
+        $stdio = new Stdio($input, $output);
         $sections = [];
-        foreach (array_keys(self::ARGUMENTS) as $section) {
-            if (true === $input->getOption($section)) {
-                $sections[] = $section;
+        foreach (array_keys(self::ARGUMENTS) as $sectionTitle) {
+            if (true === $input->getOption($sectionTitle)) {
+                $sections[] = $sectionTitle;
             }
         }
 
-        $output->writeln(<<<LOGO
+        $stdio->write(<<<LOGO
               ____  _   _      
              |  _ \| | | |     
              | |_) | |_| |_ __ 
@@ -52,22 +55,23 @@ class ListCommands extends BtlrCommand
              | |_) | |_| | |   
              |____/ \__|_|_|   
              Your own personal assistant
+
             LOGO);
-        $output->writeln($this->inlineCommand->using(
+        $stdio->write($this->inlineCommand->using(
             self::NAME,
             self::ARGUMENTS,
-        )."\n");
+        )."\n", WithStyle::AS_COMMAND);
 
-        foreach (self::COMMANDS as $section => $classes) {
-            if ([] === $sections && false === in_array($section, $sections, true)) {
+        foreach (self::COMMANDS as $sectionTitle => $classes) {
+            if (false === in_array($sectionTitle, $sections, true) && [] !== $sections) {
                 continue;
             }
-            $output->writeln("<bg=blue>{$section}</>");
+            $stdio->write($sectionTitle, WithStyle::AS_SECTION_TITLE);
             foreach ($classes as $class) {
-                $output->writeln('* '.$this->inlineCommand->using(
+                $stdio->write('  '.$this->inlineCommand->using(
                     constant("{$class}::NAME"),
                     constant("{$class}::ARGUMENTS"),
-                ));
+                ), WithStyle::AS_COMMAND);
             }
         }
 
