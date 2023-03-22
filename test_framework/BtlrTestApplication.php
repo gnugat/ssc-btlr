@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\Ssc\Btlr\Framework;
+namespace Ssc\Btlr\TestFramework;
 
 use Ssc\Btlr\Framework\BtlrApplication;
 use Symfony\Component\Console\Tester\ApplicationTester;

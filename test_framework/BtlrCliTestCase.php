@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\Ssc\Btlr\Framework;
+namespace Ssc\Btlr\TestFramework;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Command\Command;

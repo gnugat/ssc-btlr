@@ -32,7 +32,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "tests\\Ssc\\Btlr\\Framework\\": "framework_tests/",
+            "Ssc\\Btlr\\TestFramework\\": "test_framework/",
             "tests\\Ssc\\Btlr\\": "tests/"
         }
     }
