@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ssc\Btlr\Framework\Symfony;
 
 use Symfony\Component\Console\CommandLoader\CommandLoaderInterface;

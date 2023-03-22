@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ssc\Btlr;
 
 use Ssc\Btlr\Framework\BtlrCommand;

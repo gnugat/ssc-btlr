@@ -83,6 +83,7 @@ return (new PhpCsFixer\Config())
             'elements' => ['property', 'const'],
         ],
         'void_return' => true,
+        'declare_strict_types' => true,
     ])
     ->setUsingCache(true)
     ->setFinder($finder)
