@@ -87,7 +87,7 @@ $decryptedMessage = sodium_crypto_box_seal_open(
 TODO:
 
 * `lck:generate-keys`:
-  * [ ] generates new pair of encrypting/decrypting keys
+  * [x] generates new pair of encrypting/decrypting keys
 * `lck:encrypt`:
   * [ ] encrypt single file
   * [ ] encrypt directory
@@ -99,3 +99,21 @@ TODO:
   * [ ] decrypts files (using saved paths)
   * [ ] generates new pair of encrypting/decrypting keys
   * [ ] encrypts files (using new pair of keys)
+
+Generate keys:
+
+```
+./btlr lck:generate-keys \
+  --private-key-filename ./config/lck/private_decrypting_key \
+  --public-key-filename ./config/lck/public_encrypting_key
+```
+
+> **Notes**:
+>
+> * If the keys already exist, the command will fail. Use `lck:rotate-keys` instead
+> * File `./config/lck/public_encrypting_key` needs to be commited
+> * File `./config/lck/private_decrypting_key` is listed in `.gitignore`,
+>   so it won't be commited by accident,
+>   it needs to be kept safely outside (do not share it).
+>   _IF LOST, ALL ENCRYPTED FILES WILL BE LOCKED AWAY FOREVER_,
+>   so... You know... Maybe don't lose it...

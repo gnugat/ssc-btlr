@@ -19,8 +19,10 @@ class Write
         if (self::USE_RECOMMENDED_STYLES === $configuredStyles) {
             $this->configuredStyles = [
                 WithStyle::AS_COMMAND => new WithStyle\AsCommand(),
+                WithStyle::AS_ERROR_BLOCK => new WithStyle\AsErrorBlock(),
                 WithStyle::AS_REGULAR_TEXT => new WithStyle\AsRegularText(),
                 WithStyle::AS_SECTION_TITLE => new WithStyle\AsSectionTitle(),
+                WithStyle::AS_SUCCESS_BLOCK => new WithStyle\AsSuccessBlock(),
             ];
         }
         if (false === isset($this->configuredStyles[$defaultStyle])) {

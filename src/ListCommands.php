@@ -16,9 +16,13 @@ class ListCommands extends BtlrCommand
 {
     public const NAME = 'list-commands';
     public const ARGUMENTS = [
+        'lck' => null,
     ];
 
     private const COMMANDS = [
+        'lck' => [
+            Lck\GenerateKeys::class,
+        ],
     ];
 
     protected static $defaultName = self::NAME;

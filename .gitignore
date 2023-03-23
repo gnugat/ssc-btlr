@@ -6,3 +6,7 @@
 /.php-cs-fixer.cache
 /.phpunit.result.cache
 /vendor/*
+/var/tests/*
+
+# Secrets
+/config/lck/private_decrypting_key
