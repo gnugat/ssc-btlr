@@ -10,18 +10,22 @@ then run [composer](https://getcomposer.org/) (PHP 8.1 required):
 ```
 git clone git@github.com:gnugat/ssc-btlr.git
 cd ssc-btlr
-composer up -o
+./bin/install.sh # Use `-d` option for development and test purposes
 ```
 
 ## Usage
 
-To list all the available commands, run (*new in version 0.0.0*):
+To list all the available commands, run:
 
 ```
 ./btlr
 ```
 
 ## Want to know more?
+
+Check the documentation for each subset commands:
+
+* [lck: keep your secrets safe](./doc/01-lck.md) (*new in version 0.1.0*)
 
 You can see the current and past versions using one of the following:
 
