@@ -1,11 +1,15 @@
 # Changes between versions
 
-## 0.1.0: Keep your secrets safe - `lck`
+## 0.1.0: Introducing `lck`
 
-Allows you to safely store your sensitive files in your git repositories.
+Keep your secrets safe.
 
-## 0.0.0: Initial Release - `btlr`
+* `lck:generate-keys`:
+  * generates new pair of encrypting/decrypting keys 
 
-Basically an empty CLI application,
-the default command is `list-command`,
-it lists the available commands (which is none at the moment).
+## 0.0.0: Introducing `btlr`
+
+You own personal assistant.
+
+* `list-commands`:
+  * lists available commands

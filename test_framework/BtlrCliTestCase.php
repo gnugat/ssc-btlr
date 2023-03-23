@@ -17,6 +17,15 @@ class BtlrCliTestCase extends TestCase
         $this->app = BtlrTestApplication::make();
     }
 
+    public function shouldFail(int $statusCode): void
+    {
+        self::assertSame(
+            Command::FAILURE,
+            $statusCode,
+            $this->app->getDisplay(),
+        );
+    }
+
     public function shouldSucceed(int $statusCode): void
     {
         self::assertSame(
