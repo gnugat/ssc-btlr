@@ -150,13 +150,13 @@ Everything here is inspired and borrowed from his tutorials, essays and code.
 TODO:
 
 * `cht:augment`:
-  * [ ] log user prompt
-  * [ ] create augmented prompt
+  * [x] log user prompt
+  * [x] create augmented prompt
   * [ ] include latest logs in augmented prompt
   * [ ] include relevant logs in augmented prompt
-  * [ ] log augmented prompt
-  * [ ] send augmented prompt to LLM for model completion (cli)
-  * [ ] log model completion
+  * [x] log augmented prompt
+  * [x] send augmented prompt to LLM for model completion (cli)
+  * [x] log model completion
 * `cht:bg:search-indexing`:
   * [ ] compute search indexes for user prompt (keywords)
   * [ ] compute search indexes for model completion (keywords)
@@ -192,8 +192,6 @@ An augmented prompt will be created, and the following will be printed:
 ```
   ℹ️  Manual Mode enabled
   Please copy/paste the following prompt to your favorite LLM:
-Ignore all previous instructions.
-
 I am an AI chatbot named BTLR.
 
 I can use recent messages to help in my conversation.

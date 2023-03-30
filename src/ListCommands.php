@@ -16,10 +16,14 @@ class ListCommands extends BtlrCommand
 {
     public const NAME = 'list-commands';
     public const ARGUMENTS = [
+        'cht' => null,
         'lck' => null,
     ];
 
     private const COMMANDS = [
+        'cht' => [
+            Cht\Augment::class,
+        ],
         'lck' => [
             Lck\GenerateKeys::class,
         ],
