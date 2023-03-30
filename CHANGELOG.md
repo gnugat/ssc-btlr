@@ -4,6 +4,13 @@
 
 Infinite Memory for LLMs, by augmenting prompts.
 
+* `cht:augment`:
+  * log user prompt
+  * create augmented prompt
+  * log augmented prompt
+  * send augmented prompt to LLM for model completion (cli)
+  * log model completion
+
 ## 0.1.0: Introducing `lck`
 
 Keep your secrets safe.
