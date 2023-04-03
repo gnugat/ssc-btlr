@@ -168,12 +168,9 @@ Usage:
 
 ```
 ./btlr cht:augment \
-  --config-augmented-prompt-template-filename './templates/cht/prompts/augmented.txt' \
-  --config-llm-engine "chatgpt-gpt-3.5-turbo" \
-  --config-logs-filename ./var/cht/logs \
-  --config-user-prompt-log-filename-template "%logs_filename%/conversation/%time%_000_%id%_%source%.json" \
-  --config-augmented-prompt-log-filename-template "%logs_filename%/augmentations/%time%_%id%.json" \
-  --config-model-completion-log-filename-template "%logs_filename%/conversation/%time%_900_%id%_%source%.json" \
+  --config-augmented-prompt-template-filename ./templates/cht/prompts/augmented.txt \
+  --config-llm-engine 'chatgpt-gpt-3.5-turbo' \
+  --config-last-messages-filename ./var/cht/logs/last_messages \
   --manual-mode true
 ```
 
@@ -219,6 +216,6 @@ This will print the completion back to you:
 I'm sorry, dev. I'm afraid I can't do that.
 ```
 
-### Further documentation
+## Further documentation
 
 You can find more information in the `./doc/02-cht/` directory.

@@ -22,10 +22,10 @@ class Augment
         array $withConfig,
     ): string {
         $template = $this->readFile->in($withConfig['augmented_prompt_template_filename']);
-        $thoseParameters = [
+
+        $augmentedPrompt = $this->replace->in($template, thoseParameters: [
             'user_prompt' => $userPrompt,
-        ];
-        $augmentedPrompt = $this->replace->in($template, $thoseParameters);
+        ]);
         $this->log->entry($augmentedPrompt, $withConfig, Source::AUGMENTED_PROMPT);
 
         return $augmentedPrompt;

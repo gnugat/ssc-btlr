@@ -24,12 +24,7 @@ class AugmentTest extends BtlrServiceTestCase
         $withConfig = [
             'augmented_prompt_template_filename' => $augmentedPromptTemplateFilename,
             'llm_engine' => 'chatgpt-gpt-3.5-turbo',
-            'logs_filename' => './var/cht/logs',
-            'log_filename_templates' => [
-                Source::USER_PROMPT => '%logs_filename%/conversation/%time%_000_%id%_%source%.json',
-                Source::AUGMENTED_PROMPT => '"%logs_filename%/augmentations/%time%_%id%.json"',
-                Source::MODEL_COMPLETION => '%logs_filename%/conversation/%time%_900_%id%_%source%.json',
-            ],
+            'last_messages_filename' => './var/cht/logs/last_messages',
         ];
         $augmentedPromptTemplate = 'Augmented %user_prompt%';
         $thoseParameters = [
