@@ -19,7 +19,7 @@ class Augment extends BtlrCommand
 {
     public const NAME = 'cht:augment';
     public const ARGUMENTS = [
-        'config-augmented-prompt-template-filename' => './var/cht/prompt_templates/augmented.txt',
+        'config-augmented-prompt-template-filename' => './templates/cht/prompts/augmented.txt',
         'config-llm-engine' => '"chatgpt-gpt-3.5-turbo"',
         'config-logs-filename' => './var/cht/logs',
         'config-user-prompt-log-filename-template' => '"%logs_filename%/conversation/%time%_000_%id%_%source%.json"',

@@ -14,10 +14,11 @@ class AugmentTest extends BtlrCliTestCase
      */
     public function it_augments_user_prompt(): void
     {
-        $forTests = __DIR__.'/../../var/tests';
+        $root = __DIR__.'/../..';
+        $forTests = "{$root}/var/tests";
         $input = [
             Augment::NAME,
-            '--config-augmented-prompt-template-filename' => __DIR__.'/../../var/cht/prompt_templates/augmented.txt',
+            '--config-augmented-prompt-template-filename' => "{$root}/templates/cht/prompts/augmented.txt",
             '--config-llm-engine' => 'chatgpt-gpt-3.5-turbo',
             '--config-logs-filename' => "{$forTests}/var/cht/logs",
             '--config-user-prompt-log-filename-template' => '%logs_filename%/conversation/%time%_000_%id%_%source%.json',

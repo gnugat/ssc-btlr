@@ -24,7 +24,7 @@ class LogTest extends BtlrServiceTestCase
         $logsFilename = './var/cht/logs';
         $source = Source::USER_PROMPT;
         $withConfig = [
-            'augmented_prompt_template_filename' => './var/cht/prompt_templates/augmented.txt',
+            'augmented_prompt_template_filename' => './templates/cht/prompts/augmented.txt',
             'llm_engine' => 'chatgpt-gpt-3.5-turbo',
             'logs_filename' => $logsFilename,
             'log_filename_templates' => [
