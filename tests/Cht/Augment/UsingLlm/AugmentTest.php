@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace tests\Ssc\Btlr\Cht\Augment\UsingLlm;
 
 use Ssc\Btlr\Cht\Augment\UsingLlm\Augment;
+use Ssc\Btlr\Cht\Augment\UsingLlm\Augment\GetLastMessages;
 use Ssc\Btlr\Cht\Augment\UsingLlm\Log;
 use Ssc\Btlr\Cht\Augment\UsingLlm\Log\Source;
 use Ssc\Btlr\Framework\Filesystem\ReadFile;
@@ -21,23 +22,29 @@ class AugmentTest extends BtlrServiceTestCase
         // Fixtures
         $userPrompt = 'Write code for me, please';
         $augmentedPromptTemplateFilename = './templates/cht/prompts/augmented.txt';
+        $lastMessagesFilename = './var/cht/logs/last_messages';
         $withConfig = [
             'augmented_prompt_template_filename' => $augmentedPromptTemplateFilename,
             'llm_engine' => 'chatgpt-gpt-3.5-turbo',
-            'last_messages_filename' => './var/cht/logs/last_messages',
+            'last_messages_filename' => $lastMessagesFilename,
         ];
-        $augmentedPromptTemplate = 'Augmented %user_prompt%';
+        $lastMessages = "USER: Do you read me?\nBTLR: Affirmative dev, I read you\n";
+        $augmentedPromptTemplate = "%last_messages%USER: %user_prompt%\n";
         $thoseParameters = [
+            'last_messages' => $lastMessages,
             'user_prompt' => $userPrompt,
         ];
-        $augmentedPrompt = "Augmented {$userPrompt}";
+        $augmentedPrompt = "{$lastMessages}USER: {$userPrompt}\n";
 
         // Dummies
+        $getLastMessages = $this->prophesize(GetLastMessages::class);
         $log = $this->prophesize(Log::class);
         $readFile = $this->prophesize(ReadFile::class);
         $replace = $this->prophesize(Replace::class);
 
         // Stubs & Mocks
+        $getLastMessages->from($lastMessagesFilename)
+            ->willReturn($lastMessages);
         $readFile->in($augmentedPromptTemplateFilename)
             ->willReturn($augmentedPromptTemplate);
         $replace->in($augmentedPromptTemplate, $thoseParameters)
@@ -47,6 +54,7 @@ class AugmentTest extends BtlrServiceTestCase
 
         // Assertion
         $augment = new Augment(
+            $getLastMessages->reveal(),
             $log->reveal(),
             $readFile->reveal(),
             $replace->reveal(),

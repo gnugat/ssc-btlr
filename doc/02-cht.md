@@ -152,7 +152,7 @@ TODO:
 * `cht:augment`:
   * [x] log user prompt
   * [x] create augmented prompt
-  * [ ] include latest logs in augmented prompt
+  * [x] include latest logs in augmented prompt
   * [ ] include relevant logs in augmented prompt
   * [x] log augmented prompt
   * [x] send augmented prompt to LLM for model completion (cli)
@@ -193,8 +193,11 @@ I am an AI chatbot named BTLR.
 
 I can use recent messages to help in my conversation.
 
-RECENT MESSAGES:
+LAST MESSAGES:
+USER: Do you read me?
+BTLR: Affirmative dev, I read you
 USER: Write code for me, please
+
 BTLR:
 
   Then copy/paste the LLMs' completion here
