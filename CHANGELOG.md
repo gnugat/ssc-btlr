@@ -1,5 +1,10 @@
 # Changes between versions
 
+## 0.3.0: `cht:augment` with Last Messages
+
+* `cht:augment`:
+  * include latest logs in augmented prompt
+
 ## 0.2.0: Introducing `cht`
 
 Infinite Memory for LLMs, by augmenting prompts.

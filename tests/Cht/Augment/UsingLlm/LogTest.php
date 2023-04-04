@@ -21,33 +21,28 @@ class LogTest extends BtlrServiceTestCase
     {
         // Fixtures
         $entry = 'Write code for me, please';
-        $logsFilename = './var/cht/logs';
         $source = Source::USER_PROMPT;
+        $lastMessagesFilename = './var/cht/logs/last_messages';
         $withConfig = [
-            'augmented_prompt_template_filename' => './var/cht/prompt_templates/augmented.txt',
+            'augmented_prompt_template_filename' => './templates/cht/prompts/augmented.txt',
             'llm_engine' => 'chatgpt-gpt-3.5-turbo',
-            'logs_filename' => $logsFilename,
-            'log_filename_templates' => [
-                Source::USER_PROMPT => '%logs_filename%/conversation/%time%_000_%id%_%source%.json',
-                Source::AUGMENTED_PROMPT => '"%logs_filename%/augmentations/%time%_%id%.json"',
-                Source::MODEL_COMPLETION => '%logs_filename%/conversation/%time%_900_%id%_%source%.json',
-            ],
+            'last_messages_filename' => $lastMessagesFilename,
         ];
+        $priority = Source::PRIORITIES[$source];
         $id = '623ee9e0-5925-4e56-8171-04d69888f4c0';
         $time = '2023-01-31T02:28:42+00:00';
-        $contentParameters = [
+        $logParameters = [
             'entry' => $entry,
-            'id' => $id,
-            'llm_engine' => $withConfig['llm_engine'],
-            'source' => $source,
             'time' => $time,
+            'priority' => $priority,
+            'id' => $id,
+            'source' => $source,
+            'llm_engine' => $withConfig['llm_engine'],
+            'last_messages_filename' => $lastMessagesFilename,
         ];
-        $content = json_encode($contentParameters);
-        $thoseParameters = array_merge($contentParameters, [
-            'logs_filename' => $logsFilename,
-        ]);
-        $logFilenameTemplate = $withConfig['log_filename_templates'][$source];
-        $logFilename = "{$logsFilename}/conversation/{$time}_{$source}_{$id}.json";
+        $logContent = json_encode($logParameters);
+        $logFilenameTemplate = Log::LOG_FILENAME_TEMPLATE;
+        $logFilename = "{$lastMessagesFilename}/{$time}_{$priority}_{$id}_{$source}.json";
 
         // Dummies
         $clock = $this->prophesize(Clock::class);
@@ -60,9 +55,9 @@ class LogTest extends BtlrServiceTestCase
             ->willReturn($time);
         $uuid->make()
             ->willReturn($id);
-        $replace->in($logFilenameTemplate, $thoseParameters)
+        $replace->in($logFilenameTemplate, $logParameters)
             ->willReturn($logFilename);
-        $writeFile->in($logFilename, $content)
+        $writeFile->in($logFilename, $logContent)
             ->shouldBeCalled();
 
         // Assertion

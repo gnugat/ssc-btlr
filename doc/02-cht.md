@@ -152,7 +152,7 @@ TODO:
 * `cht:augment`:
   * [x] log user prompt
   * [x] create augmented prompt
-  * [ ] include latest logs in augmented prompt
+  * [x] include latest logs in augmented prompt
   * [ ] include relevant logs in augmented prompt
   * [x] log augmented prompt
   * [x] send augmented prompt to LLM for model completion (cli)
@@ -168,12 +168,9 @@ Usage:
 
 ```
 ./btlr cht:augment \
-  --config-augmented-prompt-template-filename './var/cht/prompt_templates/augmented.txt' \
-  --config-llm-engine "chatgpt-gpt-3.5-turbo" \
-  --config-logs-filename ./var/cht/logs \
-  --config-user-prompt-log-filename-template "%logs_filename%/conversation/%time%_000_%id%_%source%.json \
-  --config-augmented-prompt-log-filename-template "%logs_filename%/augmentations/%time%_%id%.json \
-  --config-model-completion-log-filename-template "%logs_filename%/conversation/%time%_900_%id%_%source%.json \
+  --config-augmented-prompt-template-filename ./templates/cht/prompts/augmented.txt \
+  --config-llm-engine 'chatgpt-gpt-3.5-turbo' \
+  --config-last-messages-filename ./var/cht/logs/last_messages \
   --manual-mode true
 ```
 
@@ -196,8 +193,11 @@ I am an AI chatbot named BTLR.
 
 I can use recent messages to help in my conversation.
 
-RECENT MESSAGES:
+LAST MESSAGES:
+USER: Do you read me?
+BTLR: Affirmative dev, I read you
 USER: Write code for me, please
+
 BTLR:
 
   Then copy/paste the LLMs' completion here
@@ -219,6 +219,6 @@ This will print the completion back to you:
 I'm sorry, dev. I'm afraid I can't do that.
 ```
 
-### Further documentation
+## Further documentation
 
 You can find more information in the `./doc/02-cht/` directory.

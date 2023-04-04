@@ -20,16 +20,10 @@ class UsingLlmTest extends BtlrServiceTestCase
     {
         // Fixtures
         $userPrompt = 'Write code for me, please';
-        $augmentedPromptTemplateFilename = './var/cht/prompt_templates/augmented.txt';
         $withConfig = [
-            'augmented_prompt_template_filename' => $augmentedPromptTemplateFilename,
+            'augmented_prompt_template_filename' => './templates/cht/prompts/augmented.txt',
             'llm_engine' => 'chatgpt-gpt-3.5-turbo',
-            'logs_filename' => './var/cht/logs',
-            'log_filename_templates' => [
-                Source::USER_PROMPT => '%logs_filename%/conversation/%time%_000_%id%_%source%.json',
-                Source::AUGMENTED_PROMPT => '"%logs_filename%/augmentations/%time%_%id%.json"',
-                Source::MODEL_COMPLETION => '%logs_filename%/conversation/%time%_900_%id%_%source%.json',
-            ],
+            'last_messages_filename' => './var/cht/logs/last_messages',
         ];
         $augmentedPrompt = "USER: {$userPrompt}\nBLTR:";
         $modelCompletion = "I'm sorry, dev. I'm afraid I can't do that.";

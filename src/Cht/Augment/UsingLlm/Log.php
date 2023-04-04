@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Ssc\Btlr\Cht\Augment\UsingLlm;
 
+use Ssc\Btlr\Cht\Augment\UsingLlm\Log\Source;
 use Ssc\Btlr\Framework\Filesystem\WriteFile;
 use Ssc\Btlr\Framework\Identifier\Uuid;
 use Ssc\Btlr\Framework\Template\Replace;
@@ -11,6 +12,8 @@ use Ssc\Btlr\Framework\Time\Clock;
 
 class Log
 {
+    public const LOG_FILENAME_TEMPLATE = '%last_messages_filename%/%time%_%priority%_%id%_%source%.json';
+
     public function __construct(
         private Clock $clock,
         private Replace $replace,
@@ -24,21 +27,17 @@ class Log
         array $withConfig,
         string $source,
     ): void {
-        $contentParameters = [
+        $logParameters = [
             'entry' => $entry,
-            'id' => $this->uuid->make(),
-            'llm_engine' => $withConfig['llm_engine'],
-            'source' => $source,
             'time' => $this->clock->inFormat('Y-m-d\TH:i:sP'),
+            'priority' => Source::PRIORITIES[$source],
+            'id' => $this->uuid->make(),
+            'source' => $source,
+            'llm_engine' => $withConfig['llm_engine'],
+            'last_messages_filename' => $withConfig['last_messages_filename'],
         ];
-        $content = json_encode($contentParameters);
+        $logFilename = $this->replace->in(self::LOG_FILENAME_TEMPLATE, $logParameters);
 
-        $template = $withConfig['log_filename_templates'][$source];
-        $thoseParameters = array_merge($contentParameters, [
-            'logs_filename' => $withConfig['logs_filename'],
-        ]);
-        $logFilename = $this->replace->in($template, $thoseParameters);
-
-        $this->writeFile->in($logFilename, $content);
+        $this->writeFile->in($logFilename, json_encode($logParameters));
     }
 }
