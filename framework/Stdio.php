@@ -25,10 +25,21 @@ class Stdio
 
     public function ask(string $question): string
     {
+        $this->write->the(
+            "(Multiline mode enabled, to submit when finished typing, hit ENTER then CTRL-D)",
+            WithStyle::AS_INSTRUCTION,
+            $this->output,
+        );
+        $this->write->the(
+            self::EMPTY_LINE,
+            WithStyle::AS_REGULAR_TEXT,
+            $this->output,
+        );
+
         return $this->questionHelper->ask(
             $this->input,
             $this->output,
-            new Question("<fg=green>{$question}</>"),
+            (new Question("<fg=green>{$question}</>"))->setMultiline(true),
         );
     }
 
