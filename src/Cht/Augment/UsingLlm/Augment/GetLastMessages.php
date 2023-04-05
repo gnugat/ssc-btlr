@@ -23,10 +23,14 @@ class GetLastMessages
         foreach ($logFilenames as $logFilename) {
             $logParameters = json_decode($this->readFile->in($logFilename), true);
             if (Source::USER_PROMPT === $logParameters['source']) {
-                $lastMessages .= "USER: {$logParameters['entry']}\n";
+                $lastMessages .= 'USER'
+                    ." ({$logParameters['time']}):"
+                    ." {$logParameters['entry']}\n";
             }
             if (Source::MODEL_COMPLETION === $logParameters['source']) {
-                $lastMessages .= "BTLR: {$logParameters['entry']}\n";
+                $lastMessages .= 'BTLR'
+                    ." ({$logParameters['time']}):"
+                    ." {$logParameters['entry']}\n";
             }
         }
 

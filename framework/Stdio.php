@@ -26,7 +26,7 @@ class Stdio
     public function ask(string $question): string
     {
         $this->write->the(
-            "(Multiline mode enabled, to submit when finished typing, hit ENTER then CTRL-D)",
+            '(Multiline mode enabled, to submit when finished typing, hit ENTER then CTRL-D)',
             WithStyle::AS_INSTRUCTION,
             $this->output,
         );

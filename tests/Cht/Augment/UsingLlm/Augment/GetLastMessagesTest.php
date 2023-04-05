@@ -27,21 +27,30 @@ class GetLastMessagesTest extends BtlrServiceTestCase
             $augmentedPromptLogFilename,
             $modelCompletionLogFilename,
         ];
-        $userPromptLogEntry = 'Do you read me?';
-        $modelCompletionLogEntry = 'Affirmative dev, I read you';
-        $userPromptLogContent = json_encode([
-            'entry' => $userPromptLogEntry,
+        $userPromptLogParameters = [
+            'entry' => 'Do you read me?',
+            'time' => '1968-04-02T18:40:23+00:00',
             'source' => Source::USER_PROMPT,
-        ]);
-        $augmentedPromptLogContent = json_encode([
-            'entry' => "USER: {$userPromptLogEntry}",
+        ];
+        $userPromptLogContent = json_encode($userPromptLogParameters);
+        $augmentedPromptLogParameters = [
+            'entry' => "USER ({$userPromptLogParameters['time']}):"
+                ." {$userPromptLogParameters['entry']}\n"
+                .'BTLR:',
+            'time' => '1968-04-02T18:40:23+00:00',
             'source' => Source::AUGMENTED_PROMPT,
-        ]);
-        $modelCompletionLogContent = json_encode([
-            'entry' => $modelCompletionLogEntry,
+        ];
+        $augmentedPromptLogContent = json_encode($augmentedPromptLogParameters);
+        $modelCompletionLogParameters = [
+            'entry' => 'Affirmative dev, I read you',
+            'time' => '1968-04-02T18:40:42+00:00',
             'source' => Source::MODEL_COMPLETION,
-        ]);
-        $lastMessages = "USER: {$userPromptLogEntry}\nBTLR: {$modelCompletionLogEntry}\n";
+        ];
+        $modelCompletionLogContent = json_encode($modelCompletionLogParameters);
+        $lastMessages = "USER ({$userPromptLogParameters['time']}):"
+                ." {$userPromptLogParameters['entry']}\n"
+                ."BTLR ({$modelCompletionLogParameters['time']}):"
+                ." {$modelCompletionLogParameters['entry']}\n";
 
         // Dummies
         $findFiles = $this->prophesize(FindFiles::class);
