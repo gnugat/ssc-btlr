@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Augment\UsingLlm\Augment;
 
+use Ssc\Btlr\App\Filesystem\FindFiles;
+use Ssc\Btlr\App\Filesystem\ReadFile;
 use Ssc\Btlr\Cht\Augment\UsingLlm\Augment\GetLastMessages;
 use Ssc\Btlr\Cht\Augment\UsingLlm\Log\Source;
-use Ssc\Btlr\Framework\Filesystem\FindFiles;
-use Ssc\Btlr\Framework\Filesystem\ReadFile;
-use Ssc\Btlr\TestFramework\BtlrServiceTestCase;
+use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class GetLastMessagesTest extends BtlrServiceTestCase
 {

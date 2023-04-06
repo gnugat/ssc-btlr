@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Ssc\Btlr;
 
-use Ssc\Btlr\Framework\BtlrCommand;
-use Ssc\Btlr\Framework\BtlrCommand\ConfigureCommand;
-use Ssc\Btlr\Framework\BtlrCommand\InlineCommand;
-use Ssc\Btlr\Framework\Stdio;
-use Ssc\Btlr\Framework\Stdio\Write\WithStyle;
+use Ssc\Btlr\App\BtlrCommand;
+use Ssc\Btlr\App\BtlrCommand\ConfigureCommand;
+use Ssc\Btlr\App\BtlrCommand\InlineCommand;
+use Ssc\Btlr\App\Stdio;
+use Ssc\Btlr\App\Stdio\Write\WithStyle;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 

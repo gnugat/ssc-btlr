@@ -9,7 +9,7 @@ use Ssc\Btlr\Cht\Augment\UsingLlm\Augment;
 use Ssc\Btlr\Cht\Augment\UsingLlm\Log;
 use Ssc\Btlr\Cht\Augment\UsingLlm\Log\Source;
 use Ssc\Btlr\Cht\Augment\UsingLlm\Model;
-use Ssc\Btlr\TestFramework\BtlrServiceTestCase;
+use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class UsingLlmTest extends BtlrServiceTestCase
 {

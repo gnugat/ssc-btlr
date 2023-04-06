@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Augment\UsingLlm;
 
+use Ssc\Btlr\App\Filesystem\WriteFile;
+use Ssc\Btlr\App\Identifier\Uuid;
+use Ssc\Btlr\App\Template\Replace;
+use Ssc\Btlr\App\Time\Clock;
 use Ssc\Btlr\Cht\Augment\UsingLlm\Log;
 use Ssc\Btlr\Cht\Augment\UsingLlm\Log\Source;
-use Ssc\Btlr\Framework\Filesystem\WriteFile;
-use Ssc\Btlr\Framework\Identifier\Uuid;
-use Ssc\Btlr\Framework\Template\Replace;
-use Ssc\Btlr\Framework\Time\Clock;
-use Ssc\Btlr\TestFramework\BtlrServiceTestCase;
+use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class LogTest extends BtlrServiceTestCase
 {

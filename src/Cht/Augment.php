@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Ssc\Btlr\Cht;
 
+use Ssc\Btlr\App\BtlrCommand;
+use Ssc\Btlr\App\BtlrCommand\ConfigureCommand;
+use Ssc\Btlr\App\Stdio;
+use Ssc\Btlr\App\Stdio\Write\WithStyle;
 use Ssc\Btlr\Cht\Augment\UsingLlm;
 use Ssc\Btlr\Cht\Augment\UsingLlm\Model;
 use Ssc\Btlr\Cht\Augment\UsingLlm\Model\Engine\Cli;
-use Ssc\Btlr\Framework\BtlrCommand;
-use Ssc\Btlr\Framework\BtlrCommand\ConfigureCommand;
-use Ssc\Btlr\Framework\Stdio;
-use Ssc\Btlr\Framework\Stdio\Write\WithStyle;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 

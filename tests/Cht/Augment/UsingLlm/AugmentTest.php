@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Augment\UsingLlm;
 
+use Ssc\Btlr\App\Filesystem\ReadFile;
+use Ssc\Btlr\App\Template\Replace;
 use Ssc\Btlr\Cht\Augment\UsingLlm\Augment;
 use Ssc\Btlr\Cht\Augment\UsingLlm\Augment\GetLastMessages;
 use Ssc\Btlr\Cht\Augment\UsingLlm\Log;
 use Ssc\Btlr\Cht\Augment\UsingLlm\Log\Source;
-use Ssc\Btlr\Framework\Filesystem\ReadFile;
-use Ssc\Btlr\Framework\Template\Replace;
-use Ssc\Btlr\TestFramework\BtlrServiceTestCase;
+use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class AugmentTest extends BtlrServiceTestCase
 {

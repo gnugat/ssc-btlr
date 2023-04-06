@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Ssc\Btlr\Cht\Augment\UsingLlm\Model\Engine;
 
+use Ssc\Btlr\App\Stdio;
+use Ssc\Btlr\App\Stdio\Write\WithStyle;
 use Ssc\Btlr\Cht\Augment\UsingLlm\Model\Engine;
-use Ssc\Btlr\Framework\Stdio;
-use Ssc\Btlr\Framework\Stdio\Write\WithStyle;
 
 class Cli implements Engine
 {

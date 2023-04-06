@@ -3,7 +3,7 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-use Ssc\Btlr\Framework\BtlrApplication;
+use Ssc\Btlr\App\BtlrApplication;
 use Ssc\Btlr\ListCommands;
 
 $application = BtlrApplication::make();

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace tests\Ssc\Btlr\Cht;
 
 use Ssc\Btlr\Cht\Augment;
-use Ssc\Btlr\TestFramework\BtlrCliTestCase;
+use tests\Ssc\Btlr\AppTest\BtlrCliTestCase;
 
 class AugmentTest extends BtlrCliTestCase
 {

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace tests\Ssc\Btlr;
 
 use Ssc\Btlr\ListCommands;
-use Ssc\Btlr\TestFramework\BtlrCliTestCase;
+use tests\Ssc\Btlr\AppTest\BtlrCliTestCase;
 
 class ListCommandsTest extends BtlrCliTestCase
 {
