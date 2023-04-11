@@ -149,7 +149,7 @@ Everything here is inspired and borrowed from his tutorials, essays and code.
 
 TODO:
 
-* `cht:augment`:
+* `cht:message`:
   * [x] log user prompt
   * [x] create augmented prompt
   * [x] include latest logs in augmented prompt
@@ -167,10 +167,10 @@ TODO:
 Usage:
 
 ```
-./btlr cht:augment \
-  --config-augmented-prompt-template-filename ./templates/cht/prompts/augmented.txt \
+./btlr cht:message \
   --config-llm-engine 'chatgpt-gpt-3.5-turbo' \
-  --config-last-messages-filename ./var/cht/logs/last_messages \
+  --config-logs-filename ./var/cht/logs \
+  --config-prompt-templates-filename ./templates/cht/prompts \
   --manual-mode true
 ```
 
@@ -191,13 +191,12 @@ An augmented prompt will be created, and the following will be printed:
   Please copy/paste the following prompt to your favorite LLM:
 I am an AI chatbot named BTLR.
 
-I can use recent messages to help in my conversation.
+I can use the last messages to help in my conversation.
 
 LAST MESSAGES:
 USER: Do you read me?
 BTLR: Affirmative dev, I read you
 USER: Write code for me, please
-
 BTLR:
 
   Then copy/paste the LLMs' completion here
@@ -205,7 +204,7 @@ BTLR:
 Provide the completion:
 ```
 
-> Note: The example above is using a fictional simple augmented prompt.
+> **Note**: The example above is using a fictional simple augmented prompt.
 
 You can for example copy/paste the augmented prompt into ChatGPT,
 then copy/paste ChatGPT's completion back in the terminal, and press enter.

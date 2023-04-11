@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace tests\Ssc\Btlr\Lck;
 
 use Ssc\Btlr\Lck\GenerateKeys;
-use Ssc\Btlr\TestFramework\BtlrCliTestCase;
+use tests\Ssc\Btlr\AppTest\BtlrCliTestCase;
 
 class GenerateKeysTest extends BtlrCliTestCase
 {

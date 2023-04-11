@@ -6,9 +6,5 @@
         <testsuite name="Tests">
             <directory>tests</directory>
         </testsuite>
-
-        <testsuite name="Framework Tests">
-            <directory>tests_framework</directory>
-        </testsuite>
     </testsuites>
 </phpunit>

@@ -11,9 +11,9 @@ services:
             tags: ['console.command']
             lazy: true
             public: true
-    
-    'Ssc\Btlr\Framework\':
-        resource: '../../framework/*/'
 
     'Ssc\Btlr\':
         resource: '../../src/'
+        exclude:
+            - '../../src/App/BtlrApplication.php'
+            - '../../src/App/BtlrCommand.php'

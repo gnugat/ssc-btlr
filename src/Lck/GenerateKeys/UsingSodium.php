@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Ssc\Btlr\Lck\GenerateKeys;
 
-use Ssc\Btlr\Framework\Filesystem\FileExists;
-use Ssc\Btlr\Framework\Filesystem\WriteFile;
-use Ssc\Btlr\Framework\Sodium\CryptoBox;
+use Ssc\Btlr\App\Filesystem\FileExists;
+use Ssc\Btlr\App\Filesystem\WriteFile;
+use Ssc\Btlr\App\Sodium\CryptoBox;
 
 class UsingSodium
 {

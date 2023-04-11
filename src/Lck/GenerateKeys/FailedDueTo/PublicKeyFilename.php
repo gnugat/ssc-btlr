@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ssc\Btlr\Lck\GenerateKeys\FailedDueTo;
 
-use Ssc\Btlr\Framework\Failed;
+use Ssc\Btlr\App\Failed;
 
 class PublicKeyFilename extends Failed\DueTo
 {

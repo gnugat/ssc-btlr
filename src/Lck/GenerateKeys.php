@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Ssc\Btlr\Lck;
 
-use Ssc\Btlr\Framework\BtlrCommand;
-use Ssc\Btlr\Framework\BtlrCommand\ConfigureCommand;
-use Ssc\Btlr\Framework\Stdio;
-use Ssc\Btlr\Framework\Stdio\Write\WithStyle;
+use Ssc\Btlr\App\BtlrCommand;
+use Ssc\Btlr\App\BtlrCommand\ConfigureCommand;
+use Ssc\Btlr\App\Stdio;
+use Ssc\Btlr\App\Stdio\Write\WithStyle;
 use Ssc\Btlr\Lck\GenerateKeys\FailedDueTo;
 use Ssc\Btlr\Lck\GenerateKeys\UsingSodium;
 use Symfony\Component\Console\Input\InputInterface;
