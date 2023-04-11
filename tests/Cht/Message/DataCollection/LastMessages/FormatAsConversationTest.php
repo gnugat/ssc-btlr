@@ -42,9 +42,8 @@ class FormatAsConversationTest extends BtlrServiceTestCase
         // Assertion
         $formatAsConversation = new FormatAsConversation(
         );
-        $actualConversation = $formatAsConversation->the(
+        self::assertSame($conversation, $formatAsConversation->the(
             $logs,
-        );
-        self::assertSame($conversation, $actualConversation);
+        ));
     }
 }

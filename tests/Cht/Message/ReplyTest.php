@@ -51,10 +51,9 @@ class ReplyTest extends BtlrServiceTestCase
             $usingLlm->reveal(),
             $writeLog->reveal(),
         );
-        $response = $reply->to(
+        self::assertSame($modelCompletion, $reply->to(
             $userPrompt,
             $withConfig,
-        );
-        self::assertSame($modelCompletion, $response);
+        ));
     }
 }

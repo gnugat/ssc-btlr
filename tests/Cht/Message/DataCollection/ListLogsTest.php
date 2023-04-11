@@ -60,10 +60,9 @@ class ListLogsTest extends BtlrServiceTestCase
             $listFiles->reveal(),
             $readFile->reveal(),
         );
-        $actualLogs = $listLogs->in(
+        self::assertSame($logs, $listLogs->in(
             $logsFilename,
             $matching->reveal(),
-        );
-        self::assertSame($logs, $actualLogs);
+        ));
     }
 }

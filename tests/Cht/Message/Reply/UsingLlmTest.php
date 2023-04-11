@@ -62,9 +62,8 @@ class UsingLlmTest extends BtlrServiceTestCase
         $usingLlm->switch(
             $switchedEngine->reveal(),
         );
-        $actualCompletion = $usingLlm->complete(
+        self::assertSame($completion, $usingLlm->complete(
             $prompt,
-        );
-        self::assertSame($completion, $actualCompletion);
+        ));
     }
 }

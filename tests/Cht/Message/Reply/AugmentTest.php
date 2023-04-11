@@ -69,10 +69,9 @@ class AugmentTest extends BtlrServiceTestCase
             $readFile->reveal(),
             $replace->reveal(),
         );
-        $actualAugmentedPrompt = $augment->the(
+        self::assertSame($augmentedPrompt, $augment->the(
             $userPrompt,
             $withConfig,
-        );
-        self::assertSame($augmentedPrompt, $actualAugmentedPrompt);
+        ));
     }
 }
