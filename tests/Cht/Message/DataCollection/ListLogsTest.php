@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace tests\Ssc\Btlr\Cht\Message\Reply\Augment;
+namespace tests\Ssc\Btlr\Cht\Message\DataCollection;
 
 use Ssc\Btlr\App\Filesystem\ListFiles;
 use Ssc\Btlr\App\Filesystem\ReadFile;
+use Ssc\Btlr\Cht\Message\DataCollection\ListLogs;
 use Ssc\Btlr\Cht\Message\DataCollection\Type;
-use Ssc\Btlr\Cht\Message\Reply\Augment\ListLogs;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class ListLogsTest extends BtlrServiceTestCase

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ssc\Btlr\Cht\Message\Reply\Augment;
+namespace Ssc\Btlr\Cht\Message\DataCollection;
 
 use Ssc\Btlr\App\Filesystem\ListFiles;
 use Ssc\Btlr\App\Filesystem\ReadFile;
