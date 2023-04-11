@@ -6,8 +6,8 @@ namespace tests\Ssc\Btlr\Cht\Message\Reply\Augment;
 
 use Ssc\Btlr\App\Filesystem\ListFiles;
 use Ssc\Btlr\App\Filesystem\ReadFile;
+use Ssc\Btlr\Cht\Message\DataCollection\Type;
 use Ssc\Btlr\Cht\Message\Reply\Augment\ListLogs;
-use Ssc\Btlr\Cht\Message\Reply\Log\Type;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class ListLogsTest extends BtlrServiceTestCase

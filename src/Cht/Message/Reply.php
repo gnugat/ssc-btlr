@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Ssc\Btlr\Cht\Message;
 
+use Ssc\Btlr\Cht\Message\DataCollection\Type;
 use Ssc\Btlr\Cht\Message\DataCollection\WriteLog;
 use Ssc\Btlr\Cht\Message\Reply\Augment;
-use Ssc\Btlr\Cht\Message\Reply\Log\Type;
 use Ssc\Btlr\Cht\Message\Reply\UsingLlm;
 
 class Reply

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ssc\Btlr\Cht\Message\Reply\Log;
+namespace Ssc\Btlr\Cht\Message\DataCollection;
 
 class Type
 {

@@ -8,8 +8,8 @@ use Ssc\Btlr\App\Filesystem\WriteFile;
 use Ssc\Btlr\App\Identifier\Uuid;
 use Ssc\Btlr\App\Template\Replace;
 use Ssc\Btlr\App\Time\Clock;
+use Ssc\Btlr\Cht\Message\DataCollection\Type;
 use Ssc\Btlr\Cht\Message\DataCollection\WriteLog;
-use Ssc\Btlr\Cht\Message\Reply\Log\Type;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class WriteLogTest extends BtlrServiceTestCase

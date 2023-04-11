@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\Reply\Augment;
 
+use Ssc\Btlr\Cht\Message\DataCollection\Type;
 use Ssc\Btlr\Cht\Message\Reply\Augment\FormatAsConversation;
-use Ssc\Btlr\Cht\Message\Reply\Log\Type;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class FormatAsConversationTest extends BtlrServiceTestCase
