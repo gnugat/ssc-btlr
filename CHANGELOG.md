@@ -1,5 +1,18 @@
 # Changes between versions
 
+## 0.4.0: `cht:message` refactoring
+
+* `cht:message`:
+  * log user prompt
+  * create augmented prompt
+  * include latest logs in augmented prompt
+  * log augmented prompt
+  * send augmented prompt to LLM for model completion (cli)
+  * log model completion
+
+Removed:
+* `cht:augment`: use `cht:message` instead
+
 ## 0.3.0: `cht:augment` with Last Messages
 
 * `cht:augment`:

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Ssc\Btlr\Cht\Augment\UsingLlm;
+namespace Ssc\Btlr\Cht\Message\Reply;
 
-use Ssc\Btlr\Cht\Augment\UsingLlm\Model\Engine;
+use Ssc\Btlr\Cht\Message\Reply\UsingLlm\Engine;
 
-class Model
+class UsingLlm
 {
     public function __construct(
         private Engine $engine,

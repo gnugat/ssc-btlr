@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ssc\Btlr\App\Filesystem;
 
-class FindFiles
+class ListFiles
 {
     public function in(string $directory): array
     {

@@ -39,4 +39,4 @@ Then the next step would be to include access to external resources.
 ## History
 
 The evolution of the different prompt templates is documented in the following
-file: `./doc/02-cht/01-augment/01-prompt_templates/01-history.md`.
+file: `./doc/02-cht/01-message/01-prompt_templates/01-history.md`.

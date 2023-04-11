@@ -4,23 +4,23 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht;
 
-use Ssc\Btlr\Cht\Augment;
+use Ssc\Btlr\Cht\Message;
 use tests\Ssc\Btlr\AppTest\BtlrCliTestCase;
 
-class AugmentTest extends BtlrCliTestCase
+class MessageTest extends BtlrCliTestCase
 {
     /**
      * @test
      */
-    public function it_augments_user_prompt(): void
+    public function it_replies_to_user_prompt_using_llm(): void
     {
         $root = __DIR__.'/../..';
         $varTests = "{$root}/var/tests";
         $input = [
-            Augment::NAME,
-            '--config-augmented-prompt-template-filename' => "{$root}/templates/cht/prompts/augmented.txt",
+            Message::NAME,
             '--config-llm-engine' => 'chatgpt-gpt-3.5-turbo',
-            '--config-last-messages-filename' => "{$varTests}/var/cht/logs/last_messages",
+            '--config-logs-filename' => "{$varTests}/var/cht/logs",
+            '--config-prompt-templates-filename' => "{$root}/templates/cht/prompts",
             '--manual-mode' => 'true',
         ];
         $this->app->setInputs([

@@ -26,7 +26,7 @@ To list all the available commands, run:
 Check the documentation for each subset commands:
 
 * [lck: keep your secrets safe](./doc/01-lck.md)
-* [cht: Infinite Memory for LLMs, by augmenting prompts](./doc/02-lck.md) (*new in version 0.2.0*)
+* [cht: Infinite Memory for LLMs, by augmenting prompts](./doc/02-lck.md)
 
 You can see the current and past versions using one of the following:
 

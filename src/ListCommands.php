@@ -22,7 +22,7 @@ class ListCommands extends BtlrCommand
 
     private const COMMANDS = [
         'cht' => [
-            Cht\Augment::class,
+            Cht\Message::class,
         ],
         'lck' => [
             Lck\GenerateKeys::class,

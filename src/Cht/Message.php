@@ -8,19 +8,19 @@ use Ssc\Btlr\App\BtlrCommand;
 use Ssc\Btlr\App\BtlrCommand\ConfigureCommand;
 use Ssc\Btlr\App\Stdio;
 use Ssc\Btlr\App\Stdio\Write\WithStyle;
-use Ssc\Btlr\Cht\Augment\UsingLlm;
-use Ssc\Btlr\Cht\Augment\UsingLlm\Model;
-use Ssc\Btlr\Cht\Augment\UsingLlm\Model\Engine\Cli;
+use Ssc\Btlr\Cht\Message\Reply;
+use Ssc\Btlr\Cht\Message\Reply\UsingLlm;
+use Ssc\Btlr\Cht\Message\Reply\UsingLlm\Engine\Cli;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class Augment extends BtlrCommand
+class Message extends BtlrCommand
 {
-    public const NAME = 'cht:augment';
+    public const NAME = 'cht:message';
     public const ARGUMENTS = [
-        'config-augmented-prompt-template-filename' => './templates/cht/prompts/augmented.txt',
         'config-llm-engine' => '"chatgpt-gpt-3.5-turbo"',
-        'config-last-messages-filename' => './var/cht/logs/last_messages',
+        'config-logs-filename' => './var/cht/logs',
+        'config-prompt-templates-filename' => './templates/cht/prompts',
         'manual-mode' => 'true',
     ];
 
@@ -28,8 +28,8 @@ class Augment extends BtlrCommand
 
     public function __construct(
         private ConfigureCommand $configureCommand,
+        private Reply $reply,
         private UsingLlm $usingLlm,
-        private Model $model,
     ) {
         parent::__construct();
     }
@@ -46,7 +46,7 @@ class Augment extends BtlrCommand
         $stdio = new Stdio($input, $output);
 
         if ('true' === $input->getOption('manual-mode')) {
-            $this->model->switch(engine: new Cli($stdio));
+            $this->usingLlm->switch(engine: new Cli($stdio));
         }
 
         $stdio->write(
@@ -56,13 +56,13 @@ class Augment extends BtlrCommand
         $userPrompt = $stdio->ask("Provide your prompt:\n");
         $stdio->write(Stdio::EMPTY_LINE);
 
-        $completion = $this->usingLlm->complete($userPrompt, [
-            'augmented_prompt_template_filename' => $input->getOption('config-augmented-prompt-template-filename'),
+        $response = $this->reply->to($userPrompt, withConfig: [
             'llm_engine' => $input->getOption('config-llm-engine'),
-            'last_messages_filename' => $input->getOption('config-last-messages-filename'),
+            'logs_filename' => $input->getOption('config-logs-filename'),
+            'prompt_templates_filename' => $input->getOption('config-prompt-templates-filename'),
         ]);
-        $stdio->write('Completion:', WithStyle::AS_SUCCESS_BLOCK);
-        $stdio->write($completion, WithStyle::AS_REGULAR_TEXT);
+        $stdio->write('Response:', WithStyle::AS_SUCCESS_BLOCK);
+        $stdio->write($response, WithStyle::AS_REGULAR_TEXT);
 
         return self::SUCCESS;
     }
