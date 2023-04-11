@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\Reply;
 
+use Prophecy\Argument;
 use Ssc\Btlr\App\Filesystem\ReadFile;
 use Ssc\Btlr\App\Template\Replace;
 use Ssc\Btlr\Cht\Message\DataCollection\LastMessages\FormatAsConversation;
 use Ssc\Btlr\Cht\Message\DataCollection\ListLogs;
+use Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching\All;
 use Ssc\Btlr\Cht\Message\DataCollection\Type;
 use Ssc\Btlr\Cht\Message\Reply\Augment;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
@@ -44,13 +46,14 @@ class AugmentTest extends BtlrServiceTestCase
         $augmentedPrompt = "{$lastMessages}BTLR:\n";
 
         // Dummies
+        $all = Argument::type(All::class);
         $formatAsConversation = $this->prophesize(FormatAsConversation::class);
         $listLogs = $this->prophesize(ListLogs::class);
         $readFile = $this->prophesize(ReadFile::class);
         $replace = $this->prophesize(Replace::class);
 
         // Stubs & Mocks
-        $listLogs->in("{$withConfig['logs_filename']}/last_messages")
+        $listLogs->in("{$withConfig['logs_filename']}/last_messages", matching: $all)
             ->willReturn($lastMessagesLogs);
         $readFile->in("{$withConfig['prompt_templates_filename']}/augmented.txt")
             ->willReturn($augmentedPromptTemplate);

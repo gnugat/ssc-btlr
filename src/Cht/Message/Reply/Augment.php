@@ -8,6 +8,7 @@ use Ssc\Btlr\App\Filesystem\ReadFile;
 use Ssc\Btlr\App\Template\Replace;
 use Ssc\Btlr\Cht\Message\DataCollection\LastMessages\FormatAsConversation;
 use Ssc\Btlr\Cht\Message\DataCollection\ListLogs;
+use Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching\All;
 
 class Augment
 {
@@ -25,6 +26,7 @@ class Augment
     ): string {
         $lastMessagesLogs = $this->listLogs->in(
             "{$withConfig['logs_filename']}/last_messages",
+            matching: new All(),
         );
 
         $template = $this->readFile->in(
