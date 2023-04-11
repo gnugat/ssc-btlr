@@ -6,10 +6,10 @@ namespace tests\Ssc\Btlr\Cht\Message\Reply;
 
 use Ssc\Btlr\App\Filesystem\ReadFile;
 use Ssc\Btlr\App\Template\Replace;
+use Ssc\Btlr\Cht\Message\DataCollection\LastMessages\FormatAsConversation;
 use Ssc\Btlr\Cht\Message\DataCollection\ListLogs;
 use Ssc\Btlr\Cht\Message\DataCollection\Type;
 use Ssc\Btlr\Cht\Message\Reply\Augment;
-use Ssc\Btlr\Cht\Message\Reply\Augment\FormatAsConversation;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class AugmentTest extends BtlrServiceTestCase

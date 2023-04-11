@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace tests\Ssc\Btlr\Cht\Message\Reply\Augment;
+namespace tests\Ssc\Btlr\Cht\Message\DataCollection\LastMessages;
 
+use Ssc\Btlr\Cht\Message\DataCollection\LastMessages\FormatAsConversation;
 use Ssc\Btlr\Cht\Message\DataCollection\Type;
-use Ssc\Btlr\Cht\Message\Reply\Augment\FormatAsConversation;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class FormatAsConversationTest extends BtlrServiceTestCase
