@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Ssc\Btlr\Cht\Message\Reply;
+namespace Ssc\Btlr\Cht\Message\DataCollection;
 
 use Ssc\Btlr\App\Filesystem\WriteFile;
 use Ssc\Btlr\App\Identifier\Uuid;
 use Ssc\Btlr\App\Template\Replace;
 use Ssc\Btlr\App\Time\Clock;
 
-class Log
+class WriteLog
 {
     public const LOG_FILENAME_TEMPLATE = '%logs_filename%/%directory%/%time%_%priority%_%id%_%type%.json';
 
@@ -21,7 +21,7 @@ class Log
     ) {
     }
 
-    public function entry(
+    public function for(
         string $entry,
         array $withConfig,
         array $type,

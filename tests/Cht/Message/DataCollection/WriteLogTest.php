@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace tests\Ssc\Btlr\Cht\Message\Reply;
+namespace tests\Ssc\Btlr\Cht\Message\DataCollection;
 
 use Ssc\Btlr\App\Filesystem\WriteFile;
 use Ssc\Btlr\App\Identifier\Uuid;
 use Ssc\Btlr\App\Template\Replace;
 use Ssc\Btlr\App\Time\Clock;
-use Ssc\Btlr\Cht\Message\Reply\Log;
+use Ssc\Btlr\Cht\Message\DataCollection\WriteLog;
 use Ssc\Btlr\Cht\Message\Reply\Log\Type;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
-class LogTest extends BtlrServiceTestCase
+class WriteLogTest extends BtlrServiceTestCase
 {
     /**
      * @test
      */
-    public function it_saves_entries_on_filesystem(): void
+    public function it_writes_log_entry(): void
     {
         // Fixtures
         $entry = 'Write code for me, please';
@@ -60,19 +60,19 @@ class LogTest extends BtlrServiceTestCase
             ->willReturn($time);
         $uuid->make()
             ->willReturn($id);
-        $replace->in(Log::LOG_FILENAME_TEMPLATE, $logParameters)
+        $replace->in(WriteLog::LOG_FILENAME_TEMPLATE, $logParameters)
             ->willReturn($logFilename);
         $writeFile->in($logFilename, $logContent)
             ->shouldBeCalled();
 
         // Assertion
-        $log = new Log(
+        $writeLog = new WriteLog(
             $clock->reveal(),
             $replace->reveal(),
             $uuid->reveal(),
             $writeFile->reveal(),
         );
-        $log->entry(
+        $writeLog->for(
             $entry,
             $withConfig,
             $type,

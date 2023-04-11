@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message;
 
+use Ssc\Btlr\Cht\Message\DataCollection\WriteLog;
 use Ssc\Btlr\Cht\Message\Reply;
 use Ssc\Btlr\Cht\Message\Reply\Augment;
-use Ssc\Btlr\Cht\Message\Reply\Log;
 use Ssc\Btlr\Cht\Message\Reply\Log\Type;
 use Ssc\Btlr\Cht\Message\Reply\UsingLlm;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
@@ -30,26 +30,26 @@ class ReplyTest extends BtlrServiceTestCase
 
         // Dummies
         $augment = $this->prophesize(Augment::class);
-        $log = $this->prophesize(Log::class);
         $usingLlm = $this->prophesize(UsingLlm::class);
+        $writeLog = $this->prophesize(WriteLog::class);
 
         // Stubs & Mocks
-        $log->entry($userPrompt, $withConfig, Type::USER_PROMPT)
+        $writeLog->for($userPrompt, $withConfig, Type::USER_PROMPT)
             ->shouldBeCalled();
         $augment->the($userPrompt, $withConfig)
             ->willReturn($augmentedPrompt);
-        $log->entry($augmentedPrompt, $withConfig, Type::AUGMENTED_PROMPT)
+        $writeLog->for($augmentedPrompt, $withConfig, Type::AUGMENTED_PROMPT)
             ->shouldBeCalled();
         $usingLlm->complete($augmentedPrompt)
             ->willReturn($modelCompletion);
-        $log->entry($modelCompletion, $withConfig, Type::MODEL_COMPLETION)
+        $writeLog->for($modelCompletion, $withConfig, Type::MODEL_COMPLETION)
             ->shouldBeCalled();
 
         // Assertion
         $reply = new Reply(
             $augment->reveal(),
-            $log->reveal(),
             $usingLlm->reveal(),
+            $writeLog->reveal(),
         );
         $response = $reply->to(
             $userPrompt,
