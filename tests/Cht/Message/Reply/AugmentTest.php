@@ -9,7 +9,8 @@ use Ssc\Btlr\App\Filesystem\ReadFile;
 use Ssc\Btlr\App\Template\Replace;
 use Ssc\Btlr\Cht\Message\DataCollection\LastMessages\FormatAsConversation;
 use Ssc\Btlr\Cht\Message\DataCollection\ListLogs;
-use Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching\All;
+use Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching\From;
+use Ssc\Btlr\Cht\Message\DataCollection\Memory\Pointer;
 use Ssc\Btlr\Cht\Message\DataCollection\Type;
 use Ssc\Btlr\Cht\Message\Reply\Augment;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
@@ -29,6 +30,10 @@ class AugmentTest extends BtlrServiceTestCase
             'prompt_templates_filename' => './templates/cht/prompts',
         ];
 
+        $memoryPointer = [
+            'current' => './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.json',
+            'previous' => './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.json',
+        ];
         $lastMessagesLogs = [
             [
                 'entry' => $userPrompt,
@@ -46,14 +51,17 @@ class AugmentTest extends BtlrServiceTestCase
         $augmentedPrompt = "{$lastMessages}BTLR:\n";
 
         // Dummies
-        $all = Argument::type(All::class);
+        $from = Argument::type(From::class);
         $formatAsConversation = $this->prophesize(FormatAsConversation::class);
         $listLogs = $this->prophesize(ListLogs::class);
+        $pointer = $this->prophesize(Pointer::class);
         $readFile = $this->prophesize(ReadFile::class);
         $replace = $this->prophesize(Replace::class);
 
         // Stubs & Mocks
-        $listLogs->in("{$withConfig['logs_filename']}/last_messages", matching: $all)
+        $pointer->get($withConfig)
+            ->willReturn($memoryPointer);
+        $listLogs->in("{$withConfig['logs_filename']}/last_messages", matching: $from)
             ->willReturn($lastMessagesLogs);
         $readFile->in("{$withConfig['prompt_templates_filename']}/augmented.txt")
             ->willReturn($augmentedPromptTemplate);
@@ -66,6 +74,7 @@ class AugmentTest extends BtlrServiceTestCase
         $augment = new Augment(
             $formatAsConversation->reveal(),
             $listLogs->reveal(),
+            $pointer->reveal(),
             $readFile->reveal(),
             $replace->reveal(),
         );
