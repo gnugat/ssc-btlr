@@ -12,6 +12,7 @@ use Ssc\Btlr\Cht\Message\DataCollection\ListLogs;
 use Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching\Slice;
 use Ssc\Btlr\Cht\Message\DataCollection\LogFilename;
 use Ssc\Btlr\Cht\Message\DataCollection\Memory\Pointer;
+use Ssc\Btlr\Cht\Message\DataCollection\Memory\Pointer\Make;
 use Ssc\Btlr\Cht\Message\DataCollection\Type;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
@@ -24,6 +25,7 @@ class PointerTest extends BtlrServiceTestCase
     {
         // Fixtures
         $withConfig = [
+            'chunk_memory_size' => 15,
             'llm_engine' => 'chatgpt-gpt-3.5-turbo',
             'logs_filename' => './var/cht/logs',
             'prompt_templates_filename' => './templates/cht/prompts',
@@ -81,6 +83,7 @@ class PointerTest extends BtlrServiceTestCase
         $fileExists = $this->prophesize(FileExists::class);
         $listLogs = $this->prophesize(ListLogs::class);
         $logFilename = $this->prophesize(LogFilename::class);
+        $make = $this->prophesize(Make::class);
         $readFile = $this->prophesize(ReadFile::class);
         $writeFile = $this->prophesize(WriteFile::class);
         $slice = Argument::type(Slice::class);
@@ -88,12 +91,7 @@ class PointerTest extends BtlrServiceTestCase
         // Stubs & Mocks
         $fileExists->in($memoryPointerFilename)
             ->willReturn(true);
-
-        $listLogs->in($lastMessagesFilename, $slice)
-            ->shouldNotBeCalled();
-        $logFilename->for($logs[0], $withConfig)
-            ->shouldNotBeCalled();
-        $writeFile->in($memoryPointerFilename, json_encode($newMemoryPointer))
+        $make->brandNew($withConfig)
             ->shouldNotBeCalled();
 
         $readFile->in($memoryPointerFilename)
@@ -104,6 +102,7 @@ class PointerTest extends BtlrServiceTestCase
             $fileExists->reveal(),
             $listLogs->reveal(),
             $logFilename->reveal(),
+            $make->reveal(),
             $readFile->reveal(),
             $writeFile->reveal(),
         );
@@ -115,10 +114,11 @@ class PointerTest extends BtlrServiceTestCase
     /**
      * @test
      */
-    public function it_points_to_the_first_log_if_it_did_not_already_exist(): void
+    public function it_makes_brand_new_one_if_it_did_not_already_exist(): void
     {
         // Fixtures
         $withConfig = [
+            'chunk_memory_size' => 3,
             'llm_engine' => 'chatgpt-gpt-3.5-turbo',
             'logs_filename' => './var/cht/logs',
             'prompt_templates_filename' => './templates/cht/prompts',
@@ -163,7 +163,7 @@ class PointerTest extends BtlrServiceTestCase
             ],
         ];
         $firstLogFilename = './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.json';
-        $newMemoryPointer = [
+        $brandNewMemoryPointer = [
             'current' => $firstLogFilename,
             'previous' => $firstLogFilename,
         ];
@@ -172,6 +172,7 @@ class PointerTest extends BtlrServiceTestCase
         $fileExists = $this->prophesize(FileExists::class);
         $listLogs = $this->prophesize(ListLogs::class);
         $logFilename = $this->prophesize(LogFilename::class);
+        $make = $this->prophesize(Make::class);
         $readFile = $this->prophesize(ReadFile::class);
         $writeFile = $this->prophesize(WriteFile::class);
         $slice = Argument::type(Slice::class);
@@ -179,26 +180,22 @@ class PointerTest extends BtlrServiceTestCase
         // Stubs & Mocks
         $fileExists->in($memoryPointerFilename)
             ->willReturn(false);
-
-        $listLogs->in($lastMessagesFilename, $slice)
-            ->willReturn($logs);
-        $logFilename->for($logs[0], $withConfig)
-            ->willReturn($firstLogFilename);
-        $writeFile->in($memoryPointerFilename, json_encode($newMemoryPointer))
-            ->shouldBeCalled();
+        $make->brandNew($withConfig)
+            ->willReturn($brandNewMemoryPointer);
 
         $readFile->in($memoryPointerFilename)
-            ->willReturn(json_encode($newMemoryPointer));
+            ->shouldNotBeCalled();
 
         // Assertion
         $pointer = new Pointer(
             $fileExists->reveal(),
             $listLogs->reveal(),
             $logFilename->reveal(),
+            $make->reveal(),
             $readFile->reveal(),
             $writeFile->reveal(),
         );
-        self::assertSame($newMemoryPointer, $pointer->get(
+        self::assertSame($brandNewMemoryPointer, $pointer->get(
             $withConfig,
         ));
     }
