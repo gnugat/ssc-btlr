@@ -21,10 +21,16 @@ class Type
         'directory' => 'last_messages',
         'priority' => '900',
     ];
+    public const SUMMARY = [
+        'name' => 'summary',
+        'directory' => 'summary',
+        'priority' => '500',
+    ];
 
     public const ALL = [
         self::USER_PROMPT['name'] => self::USER_PROMPT,
         self::AUGMENTED_PROMPT['name'] => self::AUGMENTED_PROMPT,
         self::MODEL_COMPLETION['name'] => self::MODEL_COMPLETION,
+        self::SUMMARY['name'] => self::SUMMARY,
     ];
 }

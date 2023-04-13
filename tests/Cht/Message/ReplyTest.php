@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message;
 
+use Ssc\Btlr\Cht\Message\DataCollection\Memory\Consolidate;
 use Ssc\Btlr\Cht\Message\DataCollection\Type;
 use Ssc\Btlr\Cht\Message\DataCollection\WriteLog;
 use Ssc\Btlr\Cht\Message\Reply;
@@ -21,6 +22,7 @@ class ReplyTest extends BtlrServiceTestCase
         // Fixtures
         $userPrompt = 'Write code for me, please';
         $withConfig = [
+            'chunk_memory_size' => 15,
             'llm_engine' => 'chatgpt-gpt-3.5-turbo',
             'logs_filename' => './var/cht/logs',
             'prompt_templates_filename' => './templates/cht/prompts',
@@ -30,6 +32,7 @@ class ReplyTest extends BtlrServiceTestCase
 
         // Dummies
         $augment = $this->prophesize(Augment::class);
+        $consolidate = $this->prophesize(Consolidate::class);
         $usingLlm = $this->prophesize(UsingLlm::class);
         $writeLog = $this->prophesize(WriteLog::class);
 
@@ -44,10 +47,13 @@ class ReplyTest extends BtlrServiceTestCase
             ->willReturn($modelCompletion);
         $writeLog->for($modelCompletion, $withConfig, Type::MODEL_COMPLETION)
             ->shouldBeCalled();
+        $consolidate->memories($withConfig)
+            ->shouldBeCalled();
 
         // Assertion
         $reply = new Reply(
             $augment->reveal(),
+            $consolidate->reveal(),
             $usingLlm->reveal(),
             $writeLog->reveal(),
         );

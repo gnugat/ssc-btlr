@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Ssc\Btlr\Cht\Message;
 
+use Ssc\Btlr\Cht\Message\DataCollection\Memory\Consolidate;
 use Ssc\Btlr\Cht\Message\DataCollection\Type;
 use Ssc\Btlr\Cht\Message\DataCollection\WriteLog;
 use Ssc\Btlr\Cht\Message\Reply\Augment;
@@ -13,6 +14,7 @@ class Reply
 {
     public function __construct(
         private Augment $augment,
+        private Consolidate $consolidate,
         private UsingLlm $usingLlm,
         private WriteLog $writeLog,
     ) {
@@ -27,6 +29,8 @@ class Reply
 
         $modelCompletion = $this->usingLlm->complete($augmentedPrompt);
         $this->writeLog->for($modelCompletion, $withConfig, Type::MODEL_COMPLETION);
+
+        $this->consolidate->memories($withConfig);
 
         return $modelCompletion;
     }
