@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Ssc\Btlr\Cht\Message\Reply\Augment;
+namespace Ssc\Btlr\Cht\Message\DataCollection;
 
 use Ssc\Btlr\App\Filesystem\ListFiles;
 use Ssc\Btlr\App\Filesystem\ReadFile;
+use Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching;
 
 class ListLogs
 {
@@ -15,14 +16,10 @@ class ListLogs
     ) {
     }
 
-    public function in(string $logsFilename): array
+    public function in(string $logsFilename, Matching $matching): array
     {
-        $logs = [];
         $logFilenames = $this->listFiles->in($logsFilename);
-        foreach ($logFilenames as $logFilename) {
-            $logs[] = json_decode($this->readFile->in($logFilename), true);
-        }
 
-        return $logs;
+        return $matching->against($logFilenames, $this->readFile);
     }
 }

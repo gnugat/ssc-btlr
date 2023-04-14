@@ -1,0 +1,11 @@
+Write an executive summary in a SUMMARY section
+  of the following conversation report between you, BLTR, and the USER,
+  followed by a list of DETAILED NOTES as a bullet list of complete sentences,
+  then a IN FIVE WORDS section that captures its essence in less than five words,
+  and finally finish with a KEYWORDS section that define the content
+    as a comma separated list  for search engine use.
+
+Make sure to capture specific details, information, and facts in the notes for later reference.
+
+CONVERSATION REPORT:
+%conversation_report%

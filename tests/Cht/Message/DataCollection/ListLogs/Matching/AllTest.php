@@ -2,29 +2,27 @@
 
 declare(strict_types=1);
 
-namespace tests\Ssc\Btlr\Cht\Message\Reply\Augment;
+namespace tests\Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching;
 
-use Ssc\Btlr\App\Filesystem\ListFiles;
 use Ssc\Btlr\App\Filesystem\ReadFile;
-use Ssc\Btlr\Cht\Message\Reply\Augment\ListLogs;
-use Ssc\Btlr\Cht\Message\Reply\Log\Type;
+use Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching\All;
+use Ssc\Btlr\Cht\Message\DataCollection\Type;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
-class ListLogsTest extends BtlrServiceTestCase
+class AllTest extends BtlrServiceTestCase
 {
     /**
      * @test
      */
-    public function it_gets_logs(): void
+    public function it_matches_against_all(): void
     {
         // Fixtures
-        $logsFilename = './var/cht/logs/last_messages';
-
-        $logsFilenames = [
+        $filenames = [
             './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.json',
             './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.json',
             './var/cht/logs/last_messages/1968-04-02T18:40:42+00:00_900_model_completion.json',
         ];
+
         $logs = [
             [
                 'entry' => 'Do you read me?',
@@ -44,25 +42,19 @@ class ListLogsTest extends BtlrServiceTestCase
         ];
 
         // Dummies
-        $listFiles = $this->prophesize(ListFiles::class);
         $readFile = $this->prophesize(ReadFile::class);
 
         // Stubs & Mocks
-        $listFiles->in($logsFilename)
-            ->willReturn($logsFilenames);
-        foreach ($logsFilenames as $index => $logFilename) {
-            $readFile->in($logFilename)
+        foreach ($filenames as $index => $filename) {
+            $readFile->in($filename)
                 ->willReturn(json_encode($logs[$index]));
         }
 
         // Assertion
-        $listLogs = new ListLogs(
-            $listFiles->reveal(),
+        $all = new All();
+        self::assertSame($logs, $all->against(
+            $filenames,
             $readFile->reveal(),
-        );
-        $actualLogs = $listLogs->in(
-            $logsFilename,
-        );
-        self::assertSame($logs, $actualLogs);
+        ));
     }
 }

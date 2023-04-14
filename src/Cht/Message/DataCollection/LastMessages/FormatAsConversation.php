@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Ssc\Btlr\Cht\Message\Reply\Augment;
+namespace Ssc\Btlr\Cht\Message\DataCollection\LastMessages;
 
-use Ssc\Btlr\Cht\Message\Reply\Log\Type;
+use Ssc\Btlr\Cht\Message\DataCollection\Type;
 
 class FormatAsConversation
 {

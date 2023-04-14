@@ -76,6 +76,25 @@ Custom ones can be used with the following options:
 
 * `--config-prompt-templates-filename`
 
+### Config: Chunk Memory Size
+
+The value of `--chunk-memory-size` needs to be a multiple of 3,
+as for each user prompt there are currently 3 log files in last messages:
+one for the user prompt, one for the augmented prompt and one for the model
+completion.
+
+There is a Memory Pointer that will initially point to the first ever log.
+
+If `--chunk-memory-size 15` is used, whenever the number of logs after the
+memory pointer exceeds the configured Chunk Memory Size, a summary of the 
+15 logs is generated, and the Memory Pointer gets moved to the 16th message.
+
+The Last Messages section in the augmented prompt only includes logs from
+the Memory Pointer on.
+
+The Memory Extract section in the augmented prompt includes all the generated
+log summaries.
+
 ## Further documentation
 
 You can find more information in the

@@ -153,21 +153,18 @@ TODO:
   * [x] log user prompt
   * [x] create augmented prompt
   * [x] include latest logs in augmented prompt
-  * [ ] include relevant logs in augmented prompt
+  * [x] summarize and archive old messages
+  * [x] include old message summaries in augmented prompt (all)
+  * [ ] include old message summaries in augmented prompt (relevant)
   * [x] log augmented prompt
   * [x] send augmented prompt to LLM for model completion (cli)
   * [x] log model completion
-* `cht:bg:search-indexing`:
-  * [ ] compute search indexes for user prompt (keywords)
-  * [ ] compute search indexes for model completion (keywords)
-* `cht:bg:summarize-logs
-  * [ ] search for logs that haven't been summarized
-  * [ ] summarize relevant logs
 
 Usage:
 
 ```
 ./btlr cht:message \
+  --confing-chunk-memory-size 15 \
   --config-llm-engine 'chatgpt-gpt-3.5-turbo' \
   --config-logs-filename ./var/cht/logs \
   --config-prompt-templates-filename ./templates/cht/prompts \

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ssc\Btlr\Cht\Message\Reply\Log;
+namespace Ssc\Btlr\Cht\Message\DataCollection;
 
 class Type
 {
@@ -20,5 +20,17 @@ class Type
         'name' => 'model_completion',
         'directory' => 'last_messages',
         'priority' => '900',
+    ];
+    public const SUMMARY = [
+        'name' => 'summary',
+        'directory' => 'summary',
+        'priority' => '500',
+    ];
+
+    public const ALL = [
+        self::USER_PROMPT['name'] => self::USER_PROMPT,
+        self::AUGMENTED_PROMPT['name'] => self::AUGMENTED_PROMPT,
+        self::MODEL_COMPLETION['name'] => self::MODEL_COMPLETION,
+        self::SUMMARY['name'] => self::SUMMARY,
     ];
 }
