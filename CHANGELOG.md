@@ -1,5 +1,11 @@
 # Changes between versions
 
+## 0.5.0: `cht:message` with Memory Extract
+
+* `cht:message`:
+  *  summarize and archive old messages
+  *  include old message summaries in augmented prompt (all)
+
 ## 0.4.0: `cht:message` refactoring
 
 * `cht:message`:
