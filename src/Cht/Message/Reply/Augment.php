@@ -9,12 +9,14 @@ use Ssc\Btlr\App\Template\Replace;
 use Ssc\Btlr\Cht\Message\DataCollection\LastMessages\FormatAsConversation;
 use Ssc\Btlr\Cht\Message\DataCollection\ListLogs;
 use Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching\From;
+use Ssc\Btlr\Cht\Message\DataCollection\Memory\FormatAsReport;
 use Ssc\Btlr\Cht\Message\DataCollection\Memory\Pointer;
 
 class Augment
 {
     public function __construct(
         private FormatAsConversation $formatAsConversation,
+        private FormatAsReport $formatAsReport,
         private ListLogs $listLogs,
         private Pointer $pointer,
         private ReadFile $readFile,
@@ -27,6 +29,10 @@ class Augment
         array $withConfig,
     ): string {
         $memoryPointer = $this->pointer->get($withConfig);
+        $memoryExtracts = $this->listLogs->in(
+            "{$withConfig['logs_filename']}/summary",
+            matching: new From($memoryPointer['current']),
+        );
         $lastMessagesLogs = $this->listLogs->in(
             "{$withConfig['logs_filename']}/last_messages",
             matching: new From($memoryPointer['current']),
@@ -36,6 +42,7 @@ class Augment
             "{$withConfig['prompt_templates_filename']}/augmented.txt",
         );
         $augmentedPrompt = $this->replace->in($template, thoseParameters: [
+            'memory_extract' => $this->formatAsReport->the($memoryExtracts),
             'last_messages' => $this->formatAsConversation->the($lastMessagesLogs),
             'user_prompt' => $userPrompt,
         ]);
