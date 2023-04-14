@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ssc\Btlr\Cht\Message\DataCollection;
 
-use Ssc\Btlr\App\Filesystem\WriteFile;
+use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
 use Ssc\Btlr\App\Identifier\Uuid;
 use Ssc\Btlr\App\Time\Clock;
 
@@ -14,7 +14,7 @@ class WriteLog
         private Clock $clock,
         private LogFilename $logFilename,
         private Uuid $uuid,
-        private WriteFile $writeFile,
+        private WriteYamlFile $writeYamlFile,
     ) {
     }
 
@@ -35,6 +35,6 @@ class WriteLog
             'llm_engine' => $withConfig['llm_engine'],
         ];
         $filename = $this->logFilename->for($log, $withConfig);
-        $this->writeFile->in($filename, json_encode($log));
+        $this->writeYamlFile->in($filename, $log);
     }
 }

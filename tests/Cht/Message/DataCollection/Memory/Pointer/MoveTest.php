@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\DataCollection\Memory\Pointer;
 
-use Ssc\Btlr\App\Filesystem\WriteFile;
+use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
 use Ssc\Btlr\Cht\Message\DataCollection\LogFilename;
 use Ssc\Btlr\Cht\Message\DataCollection\Memory\Pointer\Move;
 use Ssc\Btlr\Cht\Message\DataCollection\Type;
@@ -19,8 +19,8 @@ class MoveTest extends BtlrServiceTestCase
     {
         // Fixtures
         $memoryPointer = [
-            'current' => './var/cht/logs/last_messages/1968-04-02T18:38:23+00:00_000_user_prompt.json',
-            'previous' => './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.json',
+            'current' => './var/cht/logs/last_messages/1968-04-02T18:38:23+00:00_000_user_prompt.yaml',
+            'previous' => './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
         ];
         $toLog = [
             'entry' => 'Write code for me, please',
@@ -34,8 +34,8 @@ class MoveTest extends BtlrServiceTestCase
             'prompt_templates_filename' => './templates/cht/prompts',
         ];
 
-        $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.json";
-        $toLogFilename = './var/cht/logs/last_messages/1968-04-02T18:44:23+00:00_000_user_prompt.json';
+        $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.yaml";
+        $toLogFilename = './var/cht/logs/last_messages/1968-04-02T18:44:23+00:00_000_user_prompt.yaml';
         $movedMemoryPointer = [
             'current' => $toLogFilename,
             'previous' => $memoryPointer['current'],
@@ -43,18 +43,18 @@ class MoveTest extends BtlrServiceTestCase
 
         // Dummies
         $logFilename = $this->prophesize(LogFilename::class);
-        $writeFile = $this->prophesize(WriteFile::class);
+        $writeYamlFile = $this->prophesize(WriteYamlFile::class);
 
         // Stubs & Mocks
         $logFilename->for($toLog, $withConfig)
             ->willReturn($toLogFilename);
-        $writeFile->in($memoryPointerFilename, json_encode($movedMemoryPointer))
+        $writeYamlFile->in($memoryPointerFilename, $movedMemoryPointer)
             ->shouldBeCalled();
 
         // Assertion
         $move = new Move(
             $logFilename->reveal(),
-            $writeFile->reveal(),
+            $writeYamlFile->reveal(),
         );
         $move->the(
             $memoryPointer,

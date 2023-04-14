@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Ssc\Btlr\Cht\Message\DataCollection\Memory\Pointer;
 
-use Ssc\Btlr\App\Filesystem\WriteFile;
+use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
 use Ssc\Btlr\Cht\Message\DataCollection\LogFilename;
 
 class Move
 {
     public function __construct(
         private LogFilename $logFilename,
-        private WriteFile $writeFile,
+        private WriteYamlFile $writeYamlFile,
     ) {
     }
 
@@ -20,11 +20,11 @@ class Move
         array $toLog,
         array $withConfig,
     ): void {
-        $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.json";
+        $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.yaml";
 
         $pointer['previous'] = $pointer['current'];
         $pointer['current'] = $this->logFilename->for($toLog, $withConfig);
 
-        $this->writeFile->in($memoryPointerFilename, json_encode($pointer));
+        $this->writeYamlFile->in($memoryPointerFilename, $pointer);
     }
 }

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\DataCollection;
 
+use Ssc\Btlr\App\Filesystem\Format\ReadYamlFile;
 use Ssc\Btlr\App\Filesystem\ListFiles;
-use Ssc\Btlr\App\Filesystem\ReadFile;
 use Ssc\Btlr\Cht\Message\DataCollection\ListLogs;
 use Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching;
 use Ssc\Btlr\Cht\Message\DataCollection\Type;
@@ -22,9 +22,9 @@ class ListLogsTest extends BtlrServiceTestCase
         $logsFilename = './var/cht/logs/last_messages';
 
         $logsFilenames = [
-            './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.json',
-            './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.json',
-            './var/cht/logs/last_messages/1968-04-02T18:40:42+00:00_900_model_completion.json',
+            './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
+            './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.yaml',
+            './var/cht/logs/last_messages/1968-04-02T18:40:42+00:00_900_model_completion.yaml',
         ];
         $logs = [
             [
@@ -47,18 +47,18 @@ class ListLogsTest extends BtlrServiceTestCase
         // Dummies
         $listFiles = $this->prophesize(ListFiles::class);
         $matching = $this->prophesize(Matching::class);
-        $readFile = $this->prophesize(ReadFile::class);
+        $readYamlFile = $this->prophesize(ReadYamlFile::class);
 
         // Stubs & Mocks
         $listFiles->in($logsFilename)
             ->willReturn($logsFilenames);
-        $matching->against($logsFilenames, $readFile)
+        $matching->against($logsFilenames, $readYamlFile)
             ->willReturn($logs);
 
         // Assertion
         $listLogs = new ListLogs(
             $listFiles->reveal(),
-            $readFile->reveal(),
+            $readYamlFile->reveal(),
         );
         self::assertSame($logs, $listLogs->in(
             $logsFilename,

@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching;
 
-use Ssc\Btlr\App\Filesystem\ReadFile;
+use Ssc\Btlr\App\Filesystem\Format\ReadYamlFile;
 use Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching;
 
 class All implements Matching
 {
-    public function against(array $filenames, ReadFile $readFile): array
+    public function against(array $filenames, ReadYamlFile $readYamlFile): array
     {
         return array_map(
-            static fn ($filename) => json_decode($readFile->in($filename), true),
+            static fn ($filename) => $readYamlFile->in($filename),
             $filenames,
         );
     }

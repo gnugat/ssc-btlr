@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\DataCollection;
 
-use Ssc\Btlr\App\Filesystem\WriteFile;
+use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
 use Ssc\Btlr\App\Identifier\Uuid;
 use Ssc\Btlr\App\Time\Clock;
 use Ssc\Btlr\Cht\Message\DataCollection\LogFilename;
@@ -46,14 +46,14 @@ class WriteLogTest extends BtlrServiceTestCase
             ."_{$type['priority']}"
             ."_{$id}"
             ."_{$type['name']}"
-            .'.json';
-        $logContent = json_encode($log);
+            .'.yaml';
+        $logContent = $log;
 
         // Dummies
         $clock = $this->prophesize(Clock::class);
         $logFilename = $this->prophesize(LogFilename::class);
         $uuid = $this->prophesize(Uuid::class);
-        $writeFile = $this->prophesize(WriteFile::class);
+        $writeYamlFile = $this->prophesize(WriteYamlFile::class);
 
         // Stubs & Mocks
         $clock->inFormat('Y-m-d\TH:i:sP')
@@ -62,7 +62,7 @@ class WriteLogTest extends BtlrServiceTestCase
             ->willReturn($id);
         $logFilename->for($log, $withConfig)
             ->willReturn($filename);
-        $writeFile->in($filename, $logContent)
+        $writeYamlFile->in($filename, $logContent)
             ->shouldBeCalled();
 
         // Assertion
@@ -70,7 +70,7 @@ class WriteLogTest extends BtlrServiceTestCase
             $clock->reveal(),
             $logFilename->reveal(),
             $uuid->reveal(),
-            $writeFile->reveal(),
+            $writeYamlFile->reveal(),
         );
         $writeLog->for(
             $entry,

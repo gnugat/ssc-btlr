@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace tests\Ssc\Btlr\Cht\Message\DataCollection\Memory\Pointer;
 
 use Prophecy\Argument;
-use Ssc\Btlr\App\Filesystem\WriteFile;
+use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
 use Ssc\Btlr\Cht\Message\DataCollection\ListLogs;
 use Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching\Slice;
 use Ssc\Btlr\Cht\Message\DataCollection\LogFilename;
@@ -29,7 +29,7 @@ class MakeTest extends BtlrServiceTestCase
         ];
 
         $lastMessagesFilename = "{$withConfig['logs_filename']}/last_messages";
-        $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.json";
+        $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.yaml";
         $logs = [
             [
                 'entry' => 'Do you read me?',
@@ -66,7 +66,7 @@ class MakeTest extends BtlrServiceTestCase
                 'type' => Type::MODEL_COMPLETION['name'],
             ],
         ];
-        $firstLogFilename = './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.json';
+        $firstLogFilename = './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml';
         $brandNewMemoryPointer = [
             'current' => $firstLogFilename,
             'previous' => $firstLogFilename,
@@ -76,21 +76,21 @@ class MakeTest extends BtlrServiceTestCase
         $listLogs = $this->prophesize(ListLogs::class);
         $logFilename = $this->prophesize(LogFilename::class);
         $slice = Argument::type(Slice::class);
-        $writeFile = $this->prophesize(WriteFile::class);
+        $writeYamlFile = $this->prophesize(WriteYamlFile::class);
 
         // Stubs & Mocks
         $listLogs->in($lastMessagesFilename, $slice)
             ->willReturn($logs);
         $logFilename->for($logs[0], $withConfig)
             ->willReturn($firstLogFilename);
-        $writeFile->in($memoryPointerFilename, json_encode($brandNewMemoryPointer))
+        $writeYamlFile->in($memoryPointerFilename, $brandNewMemoryPointer)
             ->shouldBeCalled();
 
         // Assertion
         $make = new Make(
             $listLogs->reveal(),
             $logFilename->reveal(),
-            $writeFile->reveal(),
+            $writeYamlFile->reveal(),
         );
         self::assertSame($brandNewMemoryPointer, $make->brandNew(
             $withConfig,

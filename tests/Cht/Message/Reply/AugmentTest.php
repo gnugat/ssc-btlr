@@ -33,8 +33,8 @@ class AugmentTest extends BtlrServiceTestCase
         ];
 
         $memoryPointer = [
-            'current' => './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.json',
-            'previous' => './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.json',
+            'current' => './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
+            'previous' => './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
         ];
         $memoryExtracts = [
             [

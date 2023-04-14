@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ssc\Btlr\Cht\Message\DataCollection\Memory\Pointer;
 
-use Ssc\Btlr\App\Filesystem\WriteFile;
+use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
 use Ssc\Btlr\Cht\Message\DataCollection\ListLogs;
 use Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching\Slice;
 use Ssc\Btlr\Cht\Message\DataCollection\LogFilename;
@@ -14,14 +14,14 @@ class Make
     public function __construct(
         private ListLogs $listLogs,
         private LogFilename $logFilename,
-        private WriteFile $writeFile,
+        private WriteYamlFile $writeYamlFile,
     ) {
     }
 
     public function brandNew(
         array $withConfig,
     ): array {
-        $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.json";
+        $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.yaml";
         $lastMessagesFilename = "{$withConfig['logs_filename']}/last_messages";
         $logs = $this->listLogs->in(
             $lastMessagesFilename,
@@ -32,7 +32,7 @@ class Make
             'current' => $filename,
             'previous' => $filename,
         ];
-        $this->writeFile->in($memoryPointerFilename, json_encode($brandNewMemoryPointer));
+        $this->writeYamlFile->in($memoryPointerFilename, $brandNewMemoryPointer);
 
         return $brandNewMemoryPointer;
     }

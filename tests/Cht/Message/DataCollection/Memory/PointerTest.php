@@ -4,13 +4,9 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\DataCollection\Memory;
 
-use Prophecy\Argument;
 use Ssc\Btlr\App\Filesystem\FileExists;
-use Ssc\Btlr\App\Filesystem\ReadFile;
-use Ssc\Btlr\App\Filesystem\WriteFile;
-use Ssc\Btlr\Cht\Message\DataCollection\ListLogs;
-use Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching\Slice;
-use Ssc\Btlr\Cht\Message\DataCollection\LogFilename;
+use Ssc\Btlr\App\Filesystem\Format\ReadYamlFile;
+use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
 use Ssc\Btlr\Cht\Message\DataCollection\Memory\Pointer;
 use Ssc\Btlr\Cht\Message\DataCollection\Memory\Pointer\Make;
 use Ssc\Btlr\Cht\Message\DataCollection\Type;
@@ -32,7 +28,7 @@ class PointerTest extends BtlrServiceTestCase
         ];
 
         $lastMessagesFilename = "{$withConfig['logs_filename']}/last_messages";
-        $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.json";
+        $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.yaml";
         $logs = [
             [
                 'entry' => 'Do you read me?',
@@ -69,24 +65,20 @@ class PointerTest extends BtlrServiceTestCase
                 'type' => Type::MODEL_COMPLETION['name'],
             ],
         ];
-        $firstLogFilename = './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.json';
+        $firstLogFilename = './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml';
         $newMemoryPointer = [
             'current' => $firstLogFilename,
             'previous' => $firstLogFilename,
         ];
         $memoryPointer = [
-            'current' => './var/cht/logs/last_messages/1968-04-02T18:42:32+00:00_900_model_completion.json',
-            'previous' => './var/cht/logs/last_messages/1968-04-02T18:39:23+00:00_000_user_prompt.json',
+            'current' => './var/cht/logs/last_messages/1968-04-02T18:42:32+00:00_900_model_completion.yaml',
+            'previous' => './var/cht/logs/last_messages/1968-04-02T18:39:23+00:00_000_user_prompt.yaml',
         ];
 
         // Dummies
         $fileExists = $this->prophesize(FileExists::class);
-        $listLogs = $this->prophesize(ListLogs::class);
-        $logFilename = $this->prophesize(LogFilename::class);
         $make = $this->prophesize(Make::class);
-        $readFile = $this->prophesize(ReadFile::class);
-        $writeFile = $this->prophesize(WriteFile::class);
-        $slice = Argument::type(Slice::class);
+        $readYamlFile = $this->prophesize(ReadYamlFile::class);
 
         // Stubs & Mocks
         $fileExists->in($memoryPointerFilename)
@@ -94,17 +86,14 @@ class PointerTest extends BtlrServiceTestCase
         $make->brandNew($withConfig)
             ->shouldNotBeCalled();
 
-        $readFile->in($memoryPointerFilename)
-            ->willReturn(json_encode($memoryPointer));
+        $readYamlFile->in($memoryPointerFilename)
+            ->willReturn($memoryPointer);
 
         // Assertion
         $pointer = new Pointer(
             $fileExists->reveal(),
-            $listLogs->reveal(),
-            $logFilename->reveal(),
             $make->reveal(),
-            $readFile->reveal(),
-            $writeFile->reveal(),
+            $readYamlFile->reveal(),
         );
         self::assertSame($memoryPointer, $pointer->get(
             $withConfig,
@@ -125,7 +114,7 @@ class PointerTest extends BtlrServiceTestCase
         ];
 
         $lastMessagesFilename = "{$withConfig['logs_filename']}/last_messages";
-        $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.json";
+        $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.yaml";
         $logs = [
             [
                 'entry' => 'Do you read me?',
@@ -162,7 +151,7 @@ class PointerTest extends BtlrServiceTestCase
                 'type' => Type::MODEL_COMPLETION['name'],
             ],
         ];
-        $firstLogFilename = './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.json';
+        $firstLogFilename = './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml';
         $brandNewMemoryPointer = [
             'current' => $firstLogFilename,
             'previous' => $firstLogFilename,
@@ -170,12 +159,9 @@ class PointerTest extends BtlrServiceTestCase
 
         // Dummies
         $fileExists = $this->prophesize(FileExists::class);
-        $listLogs = $this->prophesize(ListLogs::class);
-        $logFilename = $this->prophesize(LogFilename::class);
         $make = $this->prophesize(Make::class);
-        $readFile = $this->prophesize(ReadFile::class);
-        $writeFile = $this->prophesize(WriteFile::class);
-        $slice = Argument::type(Slice::class);
+        $readYamlFile = $this->prophesize(ReadYamlFile::class);
+        $writeYamlFile = $this->prophesize(WriteYamlFile::class);
 
         // Stubs & Mocks
         $fileExists->in($memoryPointerFilename)
@@ -183,17 +169,14 @@ class PointerTest extends BtlrServiceTestCase
         $make->brandNew($withConfig)
             ->willReturn($brandNewMemoryPointer);
 
-        $readFile->in($memoryPointerFilename)
+        $readYamlFile->in($memoryPointerFilename)
             ->shouldNotBeCalled();
 
         // Assertion
         $pointer = new Pointer(
             $fileExists->reveal(),
-            $listLogs->reveal(),
-            $logFilename->reveal(),
             $make->reveal(),
-            $readFile->reveal(),
-            $writeFile->reveal(),
+            $readYamlFile->reveal(),
         );
         self::assertSame($brandNewMemoryPointer, $pointer->get(
             $withConfig,

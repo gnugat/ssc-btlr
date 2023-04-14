@@ -46,7 +46,7 @@ class LogFilenameTest extends BtlrServiceTestCase
             ."_{$parameters['priority']}"
             ."_{$parameters['id']}"
             ."_{$parameters['type']}"
-            .'.json';
+            .'.yaml';
 
         // Dummies
         $replace = $this->prophesize(Replace::class);

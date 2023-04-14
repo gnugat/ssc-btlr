@@ -34,8 +34,8 @@ class ConsolidateTest extends BtlrServiceTestCase
         ];
 
         $memoryPointer = [
-            'current' => './var/cht/logs/last_messages/1968-04-02T18:38:23+00:00_000_user_prompt.json',
-            'previous' => './var/cht/logs/last_messages/1968-04-02T18:38:23+00:00_000_user_prompt.json',
+            'current' => './var/cht/logs/last_messages/1968-04-02T18:38:23+00:00_000_user_prompt.yaml',
+            'previous' => './var/cht/logs/last_messages/1968-04-02T18:38:23+00:00_000_user_prompt.yaml',
         ];
         $newLogs = [
             [
@@ -168,8 +168,8 @@ class ConsolidateTest extends BtlrServiceTestCase
         ];
 
         $memoryPointer = [
-            'current' => './var/cht/logs/last_messages/1968-04-02T18:38:23+00:00_000_user_prompt.json',
-            'previous' => './var/cht/logs/last_messages/1968-04-02T18:38:23+00:00_000_user_prompt.json',
+            'current' => './var/cht/logs/last_messages/1968-04-02T18:38:23+00:00_000_user_prompt.yaml',
+            'previous' => './var/cht/logs/last_messages/1968-04-02T18:38:23+00:00_000_user_prompt.yaml',
         ];
         $newLogs = [
             [

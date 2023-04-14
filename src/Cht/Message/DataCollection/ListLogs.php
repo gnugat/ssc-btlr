@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Ssc\Btlr\Cht\Message\DataCollection;
 
+use Ssc\Btlr\App\Filesystem\Format\ReadYamlFile;
 use Ssc\Btlr\App\Filesystem\ListFiles;
-use Ssc\Btlr\App\Filesystem\ReadFile;
 use Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching;
 
 class ListLogs
 {
     public function __construct(
         private ListFiles $listFiles,
-        private ReadFile $readFile,
+        private ReadYamlFile $readYamlFile,
     ) {
     }
 
@@ -20,6 +20,6 @@ class ListLogs
     {
         $logFilenames = $this->listFiles->in($logsFilename);
 
-        return $matching->against($logFilenames, $this->readFile);
+        return $matching->against($logFilenames, $this->readYamlFile);
     }
 }

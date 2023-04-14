@@ -8,7 +8,7 @@ use Ssc\Btlr\App\Template\Replace;
 
 class LogFilename
 {
-    public const TEMPLATE = '%logs_filename%/%directory%/%time%_%priority%_%id%_%type%.json';
+    public const TEMPLATE = '%logs_filename%/%directory%/%time%_%priority%_%id%_%type%.yaml';
 
     public function __construct(
         private Replace $replace,
