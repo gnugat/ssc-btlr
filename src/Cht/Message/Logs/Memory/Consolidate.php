@@ -48,7 +48,10 @@ class Consolidate
             'conversation_report' => $this->formatAsConversation->the($logsToSummarize),
         ]);
         $summary = $this->usingLlm->complete($prompt);
-        $this->writeLog->for($summary, $withConfig, Type::SUMMARY);
+        $this->writeLog->for([
+            'entry' => $summary,
+            'llm_engine' => $withConfig['llm_engine'],
+        ], Type::SUMMARY, $withConfig);
 
         $toFirstUnsummarizedLog = $newLogs[$withConfig['chunk_memory_size']];
         $this->move->the($memoryPointer, $toFirstUnsummarizedLog, $withConfig);

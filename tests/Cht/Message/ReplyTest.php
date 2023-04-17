@@ -27,8 +27,19 @@ class ReplyTest extends BtlrServiceTestCase
             'logs_filename' => './var/cht/logs',
             'prompt_templates_filename' => './templates/cht/prompts',
         ];
+
+        $userPromptData = [
+            'entry' => $userPrompt,
+        ];
         $augmentedPrompt = "USER: {$userPrompt}\nBLTR:";
+        $augmentedPromptData = [
+            'entry' => $augmentedPrompt,
+        ];
         $modelCompletion = "I'm sorry, dev. I'm afraid I can't do that.";
+        $modelCompletionData = [
+            'entry' => $modelCompletion,
+            'llm_engine' => $withConfig['llm_engine'],
+        ];
 
         // Dummies
         $augment = $this->prophesize(Augment::class);
@@ -37,15 +48,15 @@ class ReplyTest extends BtlrServiceTestCase
         $writeLog = $this->prophesize(WriteLog::class);
 
         // Stubs & Mocks
-        $writeLog->for($userPrompt, $withConfig, Type::USER_PROMPT)
+        $writeLog->for($userPromptData, Type::USER_PROMPT, $withConfig)
             ->shouldBeCalled();
         $augment->the($userPrompt, $withConfig)
             ->willReturn($augmentedPrompt);
-        $writeLog->for($augmentedPrompt, $withConfig, Type::AUGMENTED_PROMPT)
+        $writeLog->for($augmentedPromptData, Type::AUGMENTED_PROMPT, $withConfig)
             ->shouldBeCalled();
         $usingLlm->complete($augmentedPrompt)
             ->willReturn($modelCompletion);
-        $writeLog->for($modelCompletion, $withConfig, Type::MODEL_COMPLETION)
+        $writeLog->for($modelCompletionData, Type::MODEL_COMPLETION, $withConfig)
             ->shouldBeCalled();
         $consolidate->memories($withConfig)
             ->shouldBeCalled();

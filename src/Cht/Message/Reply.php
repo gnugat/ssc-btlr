@@ -22,13 +22,20 @@ class Reply
 
     public function to(string $userPrompt, array $withConfig): string
     {
-        $this->writeLog->for($userPrompt, $withConfig, Type::USER_PROMPT);
+        $this->writeLog->for([
+            'entry' => $userPrompt,
+        ], Type::USER_PROMPT, $withConfig);
 
         $augmentedPrompt = $this->augment->the($userPrompt, $withConfig);
-        $this->writeLog->for($augmentedPrompt, $withConfig, Type::AUGMENTED_PROMPT);
+        $this->writeLog->for([
+            'entry' => $augmentedPrompt,
+        ], Type::AUGMENTED_PROMPT, $withConfig);
 
         $modelCompletion = $this->usingLlm->complete($augmentedPrompt);
-        $this->writeLog->for($modelCompletion, $withConfig, Type::MODEL_COMPLETION);
+        $this->writeLog->for([
+            'entry' => $modelCompletion,
+            'llm_engine' => $withConfig['llm_engine'],
+        ], Type::MODEL_COMPLETION, $withConfig);
 
         $this->consolidate->memories($withConfig);
 

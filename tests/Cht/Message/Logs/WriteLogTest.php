@@ -20,32 +20,33 @@ class WriteLogTest extends BtlrServiceTestCase
     public function it_writes_log_entry(): void
     {
         // Fixtures
-        $entry = 'Write code for me, please';
+        $data = [
+            'entry' => 'Write code for me, please',
+        ];
         $withConfig = [
             'chunk_memory_size' => 15,
             'llm_engine' => 'chatgpt-gpt-3.5-turbo',
             'logs_filename' => './var/cht/logs',
             'prompt_templates_filename' => './templates/cht/prompts',
         ];
-        $type = Type::USER_PROMPT;
+        $forType = Type::USER_PROMPT;
 
         $time = '2023-01-31T02:28:42+00:00';
         $id = '623ee9e0-5925-4e56-8171-04d69888f4c0';
 
         $log = [
-            'entry' => $entry,
+            'entry' => $data['entry'],
             'time' => $time,
-            'priority' => $type['priority'],
             'id' => $id,
-            'type' => $type['name'],
-            'llm_engine' => $withConfig['llm_engine'],
+            'type' => $forType['name'],
+            'priority' => $forType['priority'],
         ];
         $filename = "{$withConfig['logs_filename']}"
-            ."/{$type['directory']}"
+            ."/{$forType['directory']}"
             ."/{$time}"
-            ."_{$type['priority']}"
+            ."_{$forType['priority']}"
             ."_{$id}"
-            ."_{$type['name']}"
+            ."_{$forType['name']}"
             .'.yaml';
         $logContent = $log;
 
@@ -73,9 +74,9 @@ class WriteLogTest extends BtlrServiceTestCase
             $writeYamlFile->reveal(),
         );
         $writeLog->for(
-            $entry,
+            $data,
+            $forType,
             $withConfig,
-            $type,
         );
     }
 }

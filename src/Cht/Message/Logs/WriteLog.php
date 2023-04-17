@@ -19,22 +19,16 @@ class WriteLog
     }
 
     public function for(
-        string $entry,
+        array $data,
+        array $forType,
         array $withConfig,
-        array $type,
     ): void {
-        $time = $this->clock->inFormat('Y-m-d\TH:i:sP');
-        $id = $this->uuid->make();
+        $data['time'] = $this->clock->inFormat('Y-m-d\TH:i:sP');
+        $data['id'] = $this->uuid->make();
+        $data['priority'] = $forType['priority'];
+        $data['type'] = $forType['name'];
 
-        $log = [
-            'entry' => $entry,
-            'time' => $time,
-            'priority' => $type['priority'],
-            'id' => $id,
-            'type' => $type['name'],
-            'llm_engine' => $withConfig['llm_engine'],
-        ];
-        $filename = $this->makeFilename->for($log, $withConfig);
-        $this->writeYamlFile->in($filename, $log);
+        $filename = $this->makeFilename->for($data, $withConfig);
+        $this->writeYamlFile->in($filename, $data);
     }
 }

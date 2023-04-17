@@ -106,6 +106,10 @@ class ConsolidateTest extends BtlrServiceTestCase
         $prompt = 'Sum up this:'
             ."\n{$conversationReport}";
         $summary = 'User requested code, BTLR seemed unresponsive yet acknowledged user.';
+        $data = [
+            'entry' => $summary,
+            'llm_engine' => $withConfig['llm_engine'],
+        ];
 
         // Dummies
         $formatAsConversation = $this->prophesize(FormatAsConversation::class);
@@ -132,7 +136,7 @@ class ConsolidateTest extends BtlrServiceTestCase
             ->willReturn($prompt);
         $usingLlm->complete($prompt)
             ->willReturn($summary);
-        $writeLog->for($summary, $withConfig, Type::SUMMARY)
+        $writeLog->for($data, Type::SUMMARY, $withConfig)
             ->shouldBeCalled();
 
         $move->the($memoryPointer, $newLogs[6], $withConfig)
