@@ -27,7 +27,7 @@ class PointerTest extends BtlrServiceTestCase
             'prompt_templates_filename' => './templates/cht/prompts',
         ];
 
-        $lastMessagesFilename = "{$withConfig['logs_filename']}/last_messages";
+        $lastMessagesFilename = "{$withConfig['logs_filename']}/messages";
         $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.yaml";
         $logs = [
             [
@@ -65,14 +65,14 @@ class PointerTest extends BtlrServiceTestCase
                 'type' => Type::MODEL_COMPLETION['name'],
             ],
         ];
-        $firstMakeFilename = './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml';
+        $firstMakeFilename = './var/cht/logs/messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml';
         $newMemoryPointer = [
             'current' => $firstMakeFilename,
             'previous' => $firstMakeFilename,
         ];
         $memoryPointer = [
-            'current' => './var/cht/logs/last_messages/1968-04-02T18:42:32+00:00_900_model_completion.yaml',
-            'previous' => './var/cht/logs/last_messages/1968-04-02T18:39:23+00:00_000_user_prompt.yaml',
+            'current' => './var/cht/logs/messages/1968-04-02T18:42:32+00:00_900_model_completion.yaml',
+            'previous' => './var/cht/logs/messages/1968-04-02T18:39:23+00:00_000_user_prompt.yaml',
         ];
 
         // Dummies
@@ -113,7 +113,7 @@ class PointerTest extends BtlrServiceTestCase
             'prompt_templates_filename' => './templates/cht/prompts',
         ];
 
-        $lastMessagesFilename = "{$withConfig['logs_filename']}/last_messages";
+        $lastMessagesFilename = "{$withConfig['logs_filename']}/messages";
         $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.yaml";
         $logs = [
             [
@@ -151,7 +151,7 @@ class PointerTest extends BtlrServiceTestCase
                 'type' => Type::MODEL_COMPLETION['name'],
             ],
         ];
-        $firstMakeFilename = './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml';
+        $firstMakeFilename = './var/cht/logs/messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml';
         $brandNewMemoryPointer = [
             'current' => $firstMakeFilename,
             'previous' => $firstMakeFilename,

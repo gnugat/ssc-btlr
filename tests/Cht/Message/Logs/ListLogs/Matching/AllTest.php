@@ -18,9 +18,9 @@ class AllTest extends BtlrServiceTestCase
     {
         // Fixtures
         $filenames = [
-            './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-02T18:40:42+00:00_900_model_completion.yaml',
+            './var/cht/logs/messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
+            './var/cht/logs/messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.yaml',
+            './var/cht/logs/messages/1968-04-02T18:40:42+00:00_900_model_completion.yaml',
         ];
 
         $logs = [

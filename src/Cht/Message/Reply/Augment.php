@@ -34,7 +34,7 @@ class Augment
             matching: new From($memoryPointer['current']),
         );
         $lastMessagesLogs = $this->listLogs->in(
-            "{$withConfig['logs_filename']}/last_messages",
+            "{$withConfig['logs_filename']}/messages",
             matching: new From($memoryPointer['current']),
         );
 

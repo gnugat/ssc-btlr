@@ -23,7 +23,7 @@ class ConsolidateTest extends BtlrServiceTestCase
     /**
      * @test
      */
-    public function it_sums_up_last_messages_that_have_not_been_yet(): void
+    public function it_sums_up_messages_that_have_not_been_yet(): void
     {
         // Fixtures
         $withConfig = [
@@ -34,8 +34,8 @@ class ConsolidateTest extends BtlrServiceTestCase
         ];
 
         $memoryPointer = [
-            'current' => './var/cht/logs/last_messages/1968-04-02T18:38:23+00:00_000_user_prompt.yaml',
-            'previous' => './var/cht/logs/last_messages/1968-04-02T18:38:23+00:00_000_user_prompt.yaml',
+            'current' => './var/cht/logs/messages/1968-04-02T18:38:23+00:00_000_user_prompt.yaml',
+            'previous' => './var/cht/logs/messages/1968-04-02T18:38:23+00:00_000_user_prompt.yaml',
         ];
         $newLogs = [
             [
@@ -125,7 +125,7 @@ class ConsolidateTest extends BtlrServiceTestCase
         // Stubs & Mocks
         $pointer->get($withConfig)
             ->willReturn($memoryPointer);
-        $listLogs->in("{$withConfig['logs_filename']}/last_messages", matching: $from)
+        $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from)
             ->willReturn($newLogs);
 
         $readFile->in("{$withConfig['prompt_templates_filename']}/summary.txt")
@@ -172,8 +172,8 @@ class ConsolidateTest extends BtlrServiceTestCase
         ];
 
         $memoryPointer = [
-            'current' => './var/cht/logs/last_messages/1968-04-02T18:38:23+00:00_000_user_prompt.yaml',
-            'previous' => './var/cht/logs/last_messages/1968-04-02T18:38:23+00:00_000_user_prompt.yaml',
+            'current' => './var/cht/logs/messages/1968-04-02T18:38:23+00:00_000_user_prompt.yaml',
+            'previous' => './var/cht/logs/messages/1968-04-02T18:38:23+00:00_000_user_prompt.yaml',
         ];
         $newLogs = [
             [
@@ -240,7 +240,7 @@ class ConsolidateTest extends BtlrServiceTestCase
         // Stubs & Mocks
         $pointer->get($withConfig)
             ->willReturn($memoryPointer);
-        $listLogs->in("{$withConfig['logs_filename']}/last_messages", matching: $from)
+        $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from)
             ->willReturn($newLogs);
 
         $readFile->in("{$withConfig['prompt_templates_filename']}/summary.txt")

@@ -33,8 +33,8 @@ class AugmentTest extends BtlrServiceTestCase
         ];
 
         $memoryPointer = [
-            'current' => './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
-            'previous' => './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
+            'current' => './var/cht/logs/messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
+            'previous' => './var/cht/logs/messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
         ];
         $memoryExtracts = [
             [
@@ -75,7 +75,7 @@ class AugmentTest extends BtlrServiceTestCase
             ->willReturn($memoryPointer);
         $listLogs->in("{$withConfig['logs_filename']}/summary", matching: $from)
             ->willReturn($memoryExtracts);
-        $listLogs->in("{$withConfig['logs_filename']}/last_messages", matching: $from)
+        $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from)
             ->willReturn($lastMessagesLogs);
         $readFile->in("{$withConfig['prompt_templates_filename']}/augmented.txt")
             ->willReturn($augmentedPromptTemplate);

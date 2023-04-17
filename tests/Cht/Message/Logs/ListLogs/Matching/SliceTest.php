@@ -21,9 +21,9 @@ class SliceTest extends BtlrServiceTestCase
         $length = null;
 
         $filenames = [
-            './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-02T18:40:42+00:00_900_model_completion.yaml',
+            './var/cht/logs/messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
+            './var/cht/logs/messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.yaml',
+            './var/cht/logs/messages/1968-04-02T18:40:42+00:00_900_model_completion.yaml',
         ];
 
         $logs = [
@@ -74,15 +74,15 @@ class SliceTest extends BtlrServiceTestCase
         $length = 3;
 
         $filenames = [
-            './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-02T18:40:42+00:00_900_model_completion.yaml',
-            './var/cht/logs/last_messages/1968-04-03T19:57:23+00:00_000_user_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-03T19:57:23+00:00_500_augmented_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-03T19:57:42+00:00_900_model_completion.yaml',
-            './var/cht/logs/last_messages/1968-04-04T06:13:37+00:00_000_user_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-04T06:13:37+00:00_500_augmented_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-04T06:44:23+00:00_900_model_completion.yaml',
+            './var/cht/logs/messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
+            './var/cht/logs/messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.yaml',
+            './var/cht/logs/messages/1968-04-02T18:40:42+00:00_900_model_completion.yaml',
+            './var/cht/logs/messages/1968-04-03T19:57:23+00:00_000_user_prompt.yaml',
+            './var/cht/logs/messages/1968-04-03T19:57:23+00:00_500_augmented_prompt.yaml',
+            './var/cht/logs/messages/1968-04-03T19:57:42+00:00_900_model_completion.yaml',
+            './var/cht/logs/messages/1968-04-04T06:13:37+00:00_000_user_prompt.yaml',
+            './var/cht/logs/messages/1968-04-04T06:13:37+00:00_500_augmented_prompt.yaml',
+            './var/cht/logs/messages/1968-04-04T06:44:23+00:00_900_model_completion.yaml',
         ];
         $matchingLogToFilenameIndexes = [
             0 => 0,
@@ -138,18 +138,18 @@ class SliceTest extends BtlrServiceTestCase
         $length = 3;
 
         $filenames = [
-            './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-02T18:40:42+00:00_900_model_completion.yaml',
-            './var/cht/logs/last_messages/1968-04-03T19:57:23+00:00_000_user_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-03T19:57:23+00:00_500_augmented_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-03T19:57:42+00:00_900_model_completion.yaml',
-            './var/cht/logs/last_messages/1968-04-04T06:13:37+00:00_000_user_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-04T06:13:37+00:00_500_augmented_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-04T06:44:23+00:00_900_model_completion.yaml',
-            './var/cht/logs/last_messages/1968-04-04T06:58:00+00:00_000_user_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-04T06:59:00+00:00_500_augmented_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-04T07:00:00+00:00_900_model_completion.yaml',
+            './var/cht/logs/messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
+            './var/cht/logs/messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.yaml',
+            './var/cht/logs/messages/1968-04-02T18:40:42+00:00_900_model_completion.yaml',
+            './var/cht/logs/messages/1968-04-03T19:57:23+00:00_000_user_prompt.yaml',
+            './var/cht/logs/messages/1968-04-03T19:57:23+00:00_500_augmented_prompt.yaml',
+            './var/cht/logs/messages/1968-04-03T19:57:42+00:00_900_model_completion.yaml',
+            './var/cht/logs/messages/1968-04-04T06:13:37+00:00_000_user_prompt.yaml',
+            './var/cht/logs/messages/1968-04-04T06:13:37+00:00_500_augmented_prompt.yaml',
+            './var/cht/logs/messages/1968-04-04T06:44:23+00:00_900_model_completion.yaml',
+            './var/cht/logs/messages/1968-04-04T06:58:00+00:00_000_user_prompt.yaml',
+            './var/cht/logs/messages/1968-04-04T06:59:00+00:00_500_augmented_prompt.yaml',
+            './var/cht/logs/messages/1968-04-04T07:00:00+00:00_900_model_completion.yaml',
         ];
         $matchingLogToFilenameIndexes = [
             0 => 6,
@@ -205,15 +205,15 @@ class SliceTest extends BtlrServiceTestCase
         $length = null;
 
         $filenames = [
-            './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-02T18:40:42+00:00_900_model_completion.yaml',
-            './var/cht/logs/last_messages/1968-04-03T19:57:23+00:00_000_user_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-03T19:57:23+00:00_500_augmented_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-03T19:57:42+00:00_900_model_completion.yaml',
-            './var/cht/logs/last_messages/1968-04-04T06:13:37+00:00_000_user_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-04T06:13:37+00:00_500_augmented_prompt.yaml',
-            './var/cht/logs/last_messages/1968-04-04T06:44:23+00:00_900_model_completion.yaml',
+            './var/cht/logs/messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
+            './var/cht/logs/messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.yaml',
+            './var/cht/logs/messages/1968-04-02T18:40:42+00:00_900_model_completion.yaml',
+            './var/cht/logs/messages/1968-04-03T19:57:23+00:00_000_user_prompt.yaml',
+            './var/cht/logs/messages/1968-04-03T19:57:23+00:00_500_augmented_prompt.yaml',
+            './var/cht/logs/messages/1968-04-03T19:57:42+00:00_900_model_completion.yaml',
+            './var/cht/logs/messages/1968-04-04T06:13:37+00:00_000_user_prompt.yaml',
+            './var/cht/logs/messages/1968-04-04T06:13:37+00:00_500_augmented_prompt.yaml',
+            './var/cht/logs/messages/1968-04-04T06:44:23+00:00_900_model_completion.yaml',
         ];
         $matchingLogToFilenameIndexes = [
             0 => 6,

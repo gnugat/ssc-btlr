@@ -19,8 +19,8 @@ class MoveTest extends BtlrServiceTestCase
     {
         // Fixtures
         $memoryPointer = [
-            'current' => './var/cht/logs/last_messages/1968-04-02T18:38:23+00:00_000_user_prompt.yaml',
-            'previous' => './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
+            'current' => './var/cht/logs/messages/1968-04-02T18:38:23+00:00_000_user_prompt.yaml',
+            'previous' => './var/cht/logs/messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
         ];
         $toLog = [
             'entry' => 'Write code for me, please',
@@ -35,7 +35,7 @@ class MoveTest extends BtlrServiceTestCase
         ];
 
         $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.yaml";
-        $toMakeFilename = './var/cht/logs/last_messages/1968-04-02T18:44:23+00:00_000_user_prompt.yaml';
+        $toMakeFilename = './var/cht/logs/messages/1968-04-02T18:44:23+00:00_000_user_prompt.yaml';
         $movedMemoryPointer = [
             'current' => $toMakeFilename,
             'previous' => $memoryPointer['current'],

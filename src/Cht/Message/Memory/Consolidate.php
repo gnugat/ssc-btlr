@@ -33,7 +33,7 @@ class Consolidate
     ): void {
         $memoryPointer = $this->pointer->get($withConfig);
         $newLogs = $this->listLogs->in(
-            "{$withConfig['logs_filename']}/last_messages",
+            "{$withConfig['logs_filename']}/messages",
             matching: new From($memoryPointer['current']),
         );
         if (count($newLogs) <= $withConfig['chunk_memory_size']) {

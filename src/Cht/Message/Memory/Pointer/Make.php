@@ -22,7 +22,7 @@ class Make
         array $withConfig,
     ): array {
         $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.yaml";
-        $lastMessagesFilename = "{$withConfig['logs_filename']}/last_messages";
+        $lastMessagesFilename = "{$withConfig['logs_filename']}/messages";
         $logs = $this->listLogs->in(
             $lastMessagesFilename,
             matching: new Slice(0, 1),
