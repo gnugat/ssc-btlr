@@ -73,7 +73,7 @@ class AugmentTest extends BtlrServiceTestCase
         // Stubs & Mocks
         $pointer->get($withConfig)
             ->willReturn($memoryPointer);
-        $listLogs->in("{$withConfig['logs_filename']}/summary", matching: $from)
+        $listLogs->in("{$withConfig['logs_filename']}/summaries", matching: $from)
             ->willReturn($memoryExtracts);
         $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from)
             ->willReturn($lastMessagesLogs);

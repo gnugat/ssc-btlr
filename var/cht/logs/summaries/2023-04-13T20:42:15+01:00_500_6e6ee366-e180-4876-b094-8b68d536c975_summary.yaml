@@ -1,0 +1,45 @@
+summary: |
+    A conversation between BTLR, an AI chatbot, and a Lead Developer named 
+    Loïc Faugeron, who shared his experience and interests. They discussed 
+    Loïc's use of British TV series quotes, staying up to date with the 
+    latest programming developments, and how he develops open source projects.
+
+detailed_notes:
+    - Loïc Faugeron is a Lead Developer who writes APIs using PHP, Symfony, 
+      PostgreSQL, and git. He follows SCRUM, Test Driven Development, and Object 
+      Oriented Programming methodologies.
+    - Loïc likes to use quotes from British TV series like Blackadder, The IT Crowd, 
+      and Allo, Allo in his daily life, his favorite being "Good murning".
+    - Loïc stays up to date with the latest programming developments by following 
+      technical blogs and social media accounts like Twitter, Slack, and YouTube. 
+      He also shares the links he finds and writes technical articles on his blog.
+    - Loïc develops open source projects to practice new concepts. He decides what to 
+      work on based on his interests and the needs of the community, and collaborates 
+      with others in the community by discussing ideas and contributing to code.
+
+in_five_words: Chat between BTLR and Developer
+
+keywords:
+    - AI chatbot
+    - Lead Developer
+    - British TV series
+    - programming
+    - open source projects
+
+files:
+    - './var/cht/logs/last_messages/2023-04-04T19:27:17+01:00_000_b945cf74-54b9-4451-9cab-2621232ac481_user_prompt.yaml'
+    - './var/cht/logs/last_messages/2023-04-04T19:27:37+01:00_900_adc2adb2-141e-4760-a069-176a4bab7f8d_model_completion.yaml'
+    - './var/cht/logs/last_messages/2023-04-04T19:42:22+01:00_000_d13b7397-8916-42d0-89b7-c4dc2397994f_user_prompt.yaml'
+    - './var/cht/logs/last_messages/2023-04-04T19:43:02+01:00_900_81806504-13b4-4538-9149-40c95cbac608_model_completion.yaml'
+    - './var/cht/logs/last_messages/2023-04-04T20:02:57+01:00_000_1fde8b59-aa99-4154-bcf8-be6e0d75be9c_user_prompt.yaml'
+    - './var/cht/logs/last_messages/2023-04-04T20:04:44+01:00_900_e56bd66a-0101-420d-a180-f3ba9769fc20_model_completion.yaml'
+    - './var/cht/logs/last_messages/2023-04-04T20:27:29+01:00_000_5c6eaf77-276c-4793-8cba-8a2d8251d136_user_prompt.yaml'
+    - './var/cht/logs/last_messages/2023-04-04T20:28:15+01:00_900_5b9286e1-d06e-4c26-a2c1-440ee2af8338_model_completion.yaml'
+    - './var/cht/logs/last_messages/2023-04-13T20:28:01+01:00_000_617fe90b-fbf1-4ac0-8190-e2d4f6bf26eb_user_prompt.yaml'
+    - './var/cht/logs/last_messages/2023-04-13T20:28:29+01:00_900_25fab8d2-c68f-4db0-b59e-4c67d23816a8_model_completion.yaml'
+
+time: '2023-04-13T20:42:15+01:00'
+priority: '500'
+id: 6e6ee366-e180-4876-b094-8b68d536c975
+type: summary
+llm_engine: chatgpt-gpt-3.5-turbo

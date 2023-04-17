@@ -23,7 +23,7 @@ class Type
     ];
     public const SUMMARY = [
         'name' => 'summary',
-        'directory' => 'summary',
+        'directory' => 'summaries',
         'priority' => '500',
     ];
 

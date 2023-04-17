@@ -30,7 +30,7 @@ class Augment
     ): string {
         $memoryPointer = $this->pointer->get($withConfig);
         $memoryExtracts = $this->listLogs->in(
-            "{$withConfig['logs_filename']}/summary",
+            "{$withConfig['logs_filename']}/summaries",
             matching: new From($memoryPointer['current']),
         );
         $lastMessagesLogs = $this->listLogs->in(
