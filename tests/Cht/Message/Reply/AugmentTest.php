@@ -7,12 +7,12 @@ namespace tests\Ssc\Btlr\Cht\Message\Reply;
 use Prophecy\Argument;
 use Ssc\Btlr\App\Filesystem\ReadFile;
 use Ssc\Btlr\App\Template\Replace;
-use Ssc\Btlr\Cht\Message\DataCollection\LastMessages\FormatAsConversation;
-use Ssc\Btlr\Cht\Message\DataCollection\ListLogs;
-use Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching\From;
-use Ssc\Btlr\Cht\Message\DataCollection\Memory\FormatAsReport;
-use Ssc\Btlr\Cht\Message\DataCollection\Memory\Pointer;
-use Ssc\Btlr\Cht\Message\DataCollection\Type;
+use Ssc\Btlr\Cht\Message\Logs\LastMessages\FormatAsConversation;
+use Ssc\Btlr\Cht\Message\Logs\ListLogs;
+use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\From;
+use Ssc\Btlr\Cht\Message\Logs\Memory\FormatAsReport;
+use Ssc\Btlr\Cht\Message\Logs\Memory\Pointer;
+use Ssc\Btlr\Cht\Message\Logs\Type;
 use Ssc\Btlr\Cht\Message\Reply\Augment;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 

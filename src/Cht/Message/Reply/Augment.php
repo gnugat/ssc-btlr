@@ -6,11 +6,11 @@ namespace Ssc\Btlr\Cht\Message\Reply;
 
 use Ssc\Btlr\App\Filesystem\ReadFile;
 use Ssc\Btlr\App\Template\Replace;
-use Ssc\Btlr\Cht\Message\DataCollection\LastMessages\FormatAsConversation;
-use Ssc\Btlr\Cht\Message\DataCollection\ListLogs;
-use Ssc\Btlr\Cht\Message\DataCollection\ListLogs\Matching\From;
-use Ssc\Btlr\Cht\Message\DataCollection\Memory\FormatAsReport;
-use Ssc\Btlr\Cht\Message\DataCollection\Memory\Pointer;
+use Ssc\Btlr\Cht\Message\Logs\LastMessages\FormatAsConversation;
+use Ssc\Btlr\Cht\Message\Logs\ListLogs;
+use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\From;
+use Ssc\Btlr\Cht\Message\Logs\Memory\FormatAsReport;
+use Ssc\Btlr\Cht\Message\Logs\Memory\Pointer;
 
 class Augment
 {
