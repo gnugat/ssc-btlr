@@ -7,13 +7,13 @@ namespace Ssc\Btlr\Cht\Message\Logs\Memory\Pointer;
 use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\Slice;
-use Ssc\Btlr\Cht\Message\Logs\LogFilename;
+use Ssc\Btlr\Cht\Message\Logs\MakeFilename;
 
 class Make
 {
     public function __construct(
         private ListLogs $listLogs,
-        private LogFilename $logFilename,
+        private MakeFilename $makeFilename,
         private WriteYamlFile $writeYamlFile,
     ) {
     }
@@ -27,7 +27,7 @@ class Make
             $lastMessagesFilename,
             matching: new Slice(0, 1),
         );
-        $filename = $this->logFilename->for($logs[0], $withConfig);
+        $filename = $this->makeFilename->for($logs[0], $withConfig);
         $brandNewMemoryPointer = [
             'current' => $filename,
             'previous' => $filename,

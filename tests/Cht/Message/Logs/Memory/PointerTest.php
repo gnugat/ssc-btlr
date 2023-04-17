@@ -65,10 +65,10 @@ class PointerTest extends BtlrServiceTestCase
                 'type' => Type::MODEL_COMPLETION['name'],
             ],
         ];
-        $firstLogFilename = './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml';
+        $firstMakeFilename = './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml';
         $newMemoryPointer = [
-            'current' => $firstLogFilename,
-            'previous' => $firstLogFilename,
+            'current' => $firstMakeFilename,
+            'previous' => $firstMakeFilename,
         ];
         $memoryPointer = [
             'current' => './var/cht/logs/last_messages/1968-04-02T18:42:32+00:00_900_model_completion.yaml',
@@ -151,10 +151,10 @@ class PointerTest extends BtlrServiceTestCase
                 'type' => Type::MODEL_COMPLETION['name'],
             ],
         ];
-        $firstLogFilename = './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml';
+        $firstMakeFilename = './var/cht/logs/last_messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml';
         $brandNewMemoryPointer = [
-            'current' => $firstLogFilename,
-            'previous' => $firstLogFilename,
+            'current' => $firstMakeFilename,
+            'previous' => $firstMakeFilename,
         ];
 
         // Dummies

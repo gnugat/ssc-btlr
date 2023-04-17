@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace tests\Ssc\Btlr\Cht\Message\Logs\Memory\Pointer;
 
 use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
-use Ssc\Btlr\Cht\Message\Logs\LogFilename;
+use Ssc\Btlr\Cht\Message\Logs\MakeFilename;
 use Ssc\Btlr\Cht\Message\Logs\Memory\Pointer\Move;
 use Ssc\Btlr\Cht\Message\Logs\Type;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
@@ -35,25 +35,25 @@ class MoveTest extends BtlrServiceTestCase
         ];
 
         $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.yaml";
-        $toLogFilename = './var/cht/logs/last_messages/1968-04-02T18:44:23+00:00_000_user_prompt.yaml';
+        $toMakeFilename = './var/cht/logs/last_messages/1968-04-02T18:44:23+00:00_000_user_prompt.yaml';
         $movedMemoryPointer = [
-            'current' => $toLogFilename,
+            'current' => $toMakeFilename,
             'previous' => $memoryPointer['current'],
         ];
 
         // Dummies
-        $logFilename = $this->prophesize(LogFilename::class);
+        $makeFilename = $this->prophesize(MakeFilename::class);
         $writeYamlFile = $this->prophesize(WriteYamlFile::class);
 
         // Stubs & Mocks
-        $logFilename->for($toLog, $withConfig)
-            ->willReturn($toLogFilename);
+        $makeFilename->for($toLog, $withConfig)
+            ->willReturn($toMakeFilename);
         $writeYamlFile->in($memoryPointerFilename, $movedMemoryPointer)
             ->shouldBeCalled();
 
         // Assertion
         $move = new Move(
-            $logFilename->reveal(),
+            $makeFilename->reveal(),
             $writeYamlFile->reveal(),
         );
         $move->the(

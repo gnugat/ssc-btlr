@@ -12,7 +12,7 @@ class WriteLog
 {
     public function __construct(
         private Clock $clock,
-        private LogFilename $logFilename,
+        private MakeFilename $makeFilename,
         private Uuid $uuid,
         private WriteYamlFile $writeYamlFile,
     ) {
@@ -34,7 +34,7 @@ class WriteLog
             'type' => $type['name'],
             'llm_engine' => $withConfig['llm_engine'],
         ];
-        $filename = $this->logFilename->for($log, $withConfig);
+        $filename = $this->makeFilename->for($log, $withConfig);
         $this->writeYamlFile->in($filename, $log);
     }
 }

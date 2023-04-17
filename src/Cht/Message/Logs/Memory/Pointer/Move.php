@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Ssc\Btlr\Cht\Message\Logs\Memory\Pointer;
 
 use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
-use Ssc\Btlr\Cht\Message\Logs\LogFilename;
+use Ssc\Btlr\Cht\Message\Logs\MakeFilename;
 
 class Move
 {
     public function __construct(
-        private LogFilename $logFilename,
+        private MakeFilename $makeFilename,
         private WriteYamlFile $writeYamlFile,
     ) {
     }
@@ -23,7 +23,7 @@ class Move
         $memoryPointerFilename = "{$withConfig['logs_filename']}/memory_pointer.yaml";
 
         $pointer['previous'] = $pointer['current'];
-        $pointer['current'] = $this->logFilename->for($toLog, $withConfig);
+        $pointer['current'] = $this->makeFilename->for($toLog, $withConfig);
 
         $this->writeYamlFile->in($memoryPointerFilename, $pointer);
     }

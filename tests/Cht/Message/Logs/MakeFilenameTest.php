@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace tests\Ssc\Btlr\Cht\Message\Logs;
 
 use Ssc\Btlr\App\Template\Replace;
-use Ssc\Btlr\Cht\Message\Logs\LogFilename;
+use Ssc\Btlr\Cht\Message\Logs\MakeFilename;
 use Ssc\Btlr\Cht\Message\Logs\Type;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
-class LogFilenameTest extends BtlrServiceTestCase
+class MakeFilenameTest extends BtlrServiceTestCase
 {
     /**
      * @test
@@ -52,14 +52,14 @@ class LogFilenameTest extends BtlrServiceTestCase
         $replace = $this->prophesize(Replace::class);
 
         // Stubs & Mocks
-        $replace->in(LogFilename::TEMPLATE, $parameters)
+        $replace->in(MakeFilename::TEMPLATE, $parameters)
             ->willReturn($filename);
 
         // Assertion
-        $logFilename = new LogFilename(
+        $makeFilename = new MakeFilename(
             $replace->reveal(),
         );
-        self::assertSame($filename, $logFilename->for(
+        self::assertSame($filename, $makeFilename->for(
             $log,
             $withConfig,
         ));

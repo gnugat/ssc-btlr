@@ -18,8 +18,8 @@ class ListLogs
 
     public function in(string $logsFilename, Matching $matching): array
     {
-        $logFilenames = $this->listFiles->in($logsFilename);
+        $makeFilenames = $this->listFiles->in($logsFilename);
 
-        return $matching->against($logFilenames, $this->readYamlFile);
+        return $matching->against($makeFilenames, $this->readYamlFile);
     }
 }

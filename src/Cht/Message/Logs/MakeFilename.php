@@ -6,7 +6,7 @@ namespace Ssc\Btlr\Cht\Message\Logs;
 
 use Ssc\Btlr\App\Template\Replace;
 
-class LogFilename
+class MakeFilename
 {
     public const TEMPLATE = '%logs_filename%/%directory%/%time%_%priority%_%id%_%type%.yaml';
 

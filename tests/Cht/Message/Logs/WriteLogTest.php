@@ -7,7 +7,7 @@ namespace tests\Ssc\Btlr\Cht\Message\Logs;
 use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
 use Ssc\Btlr\App\Identifier\Uuid;
 use Ssc\Btlr\App\Time\Clock;
-use Ssc\Btlr\Cht\Message\Logs\LogFilename;
+use Ssc\Btlr\Cht\Message\Logs\MakeFilename;
 use Ssc\Btlr\Cht\Message\Logs\Type;
 use Ssc\Btlr\Cht\Message\Logs\WriteLog;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
@@ -51,7 +51,7 @@ class WriteLogTest extends BtlrServiceTestCase
 
         // Dummies
         $clock = $this->prophesize(Clock::class);
-        $logFilename = $this->prophesize(LogFilename::class);
+        $makeFilename = $this->prophesize(MakeFilename::class);
         $uuid = $this->prophesize(Uuid::class);
         $writeYamlFile = $this->prophesize(WriteYamlFile::class);
 
@@ -60,7 +60,7 @@ class WriteLogTest extends BtlrServiceTestCase
             ->willReturn($time);
         $uuid->make()
             ->willReturn($id);
-        $logFilename->for($log, $withConfig)
+        $makeFilename->for($log, $withConfig)
             ->willReturn($filename);
         $writeYamlFile->in($filename, $logContent)
             ->shouldBeCalled();
@@ -68,7 +68,7 @@ class WriteLogTest extends BtlrServiceTestCase
         // Assertion
         $writeLog = new WriteLog(
             $clock->reveal(),
-            $logFilename->reveal(),
+            $makeFilename->reveal(),
             $uuid->reveal(),
             $writeYamlFile->reveal(),
         );
