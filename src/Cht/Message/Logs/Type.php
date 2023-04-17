@@ -13,7 +13,7 @@ class Type
     ];
     public const AUGMENTED_PROMPT = [
         'name' => 'augmented_prompt',
-        'directory' => 'messages',
+        'directory' => 'prompts',
         'priority' => '500',
     ];
     public const MODEL_COMPLETION = [
