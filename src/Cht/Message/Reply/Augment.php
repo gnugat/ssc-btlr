@@ -9,7 +9,7 @@ use Ssc\Btlr\App\Template\Replace;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\From;
 use Ssc\Btlr\Cht\Message\Logs\Messages\FormatAsConversation;
-use Ssc\Btlr\Cht\Message\Memory\FormatAsReport;
+use Ssc\Btlr\Cht\Message\Logs\Summaries\FormatAsReport;
 use Ssc\Btlr\Cht\Message\Memory\Pointer;
 
 class Augment

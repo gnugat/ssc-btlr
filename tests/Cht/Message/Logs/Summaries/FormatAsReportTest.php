@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace tests\Ssc\Btlr\Cht\Message\Memory;
+namespace tests\Ssc\Btlr\Cht\Message\Logs\Summaries;
 
+use Ssc\Btlr\Cht\Message\Logs\Summaries\FormatAsReport;
 use Ssc\Btlr\Cht\Message\Logs\Type;
-use Ssc\Btlr\Cht\Message\Memory\FormatAsReport;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class FormatAsReportTest extends BtlrServiceTestCase
