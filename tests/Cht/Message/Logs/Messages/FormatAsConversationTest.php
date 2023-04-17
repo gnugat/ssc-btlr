@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace tests\Ssc\Btlr\Cht\Message\Logs\LastMessages;
+namespace tests\Ssc\Btlr\Cht\Message\Logs\Messages;
 
-use Ssc\Btlr\Cht\Message\Logs\LastMessages\FormatAsConversation;
+use Ssc\Btlr\Cht\Message\Logs\Messages\FormatAsConversation;
 use Ssc\Btlr\Cht\Message\Logs\Type;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ssc\Btlr\Cht\Message\Logs\LastMessages;
+namespace Ssc\Btlr\Cht\Message\Logs\Messages;
 
 use Ssc\Btlr\Cht\Message\Logs\Type;
 
