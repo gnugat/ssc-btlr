@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace tests\Ssc\Btlr\Cht\Message\Reply;
 
 use Prophecy\Argument;
-use Ssc\Btlr\App\Filesystem\ReadFile;
-use Ssc\Btlr\App\Template\Replace;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\From;
 use Ssc\Btlr\Cht\Message\Logs\Messages\FormatAsConversation;
@@ -14,6 +12,7 @@ use Ssc\Btlr\Cht\Message\Logs\Summaries\FormatAsReport;
 use Ssc\Btlr\Cht\Message\Logs\Type;
 use Ssc\Btlr\Cht\Message\Memory\Pointer;
 use Ssc\Btlr\Cht\Message\Reply\Augment;
+use Ssc\Btlr\Cht\Message\Templates\Prompts\Template;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class AugmentTest extends BtlrServiceTestCase
@@ -53,13 +52,12 @@ class AugmentTest extends BtlrServiceTestCase
         ];
         $lastMessages = "USER ({$lastMessagesLogs[0]['time']}:"
             ." {$lastMessagesLogs[0]['entry']}\n";
-        $augmentedPromptTemplate = "%last_messages%BTLR:\n";
         $augmentedPromptParameters = [
             'memory_extract' => $report,
             'last_messages' => $lastMessages,
             'user_prompt' => $userPrompt,
         ];
-        $augmentedPrompt = "{$lastMessages}BTLR:\n";
+        $augmentedPrompt = "LAST MESSAGES:\n{$lastMessages}\nBTLR:\n";
 
         // Dummies
         $from = Argument::type(From::class);
@@ -67,8 +65,7 @@ class AugmentTest extends BtlrServiceTestCase
         $formatAsReport = $this->prophesize(FormatAsReport::class);
         $listLogs = $this->prophesize(ListLogs::class);
         $pointer = $this->prophesize(Pointer::class);
-        $readFile = $this->prophesize(ReadFile::class);
-        $replace = $this->prophesize(Replace::class);
+        $template = $this->prophesize(Template::class);
 
         // Stubs & Mocks
         $pointer->get($withConfig)
@@ -77,13 +74,11 @@ class AugmentTest extends BtlrServiceTestCase
             ->willReturn($memoryExtracts);
         $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from)
             ->willReturn($lastMessagesLogs);
-        $readFile->in("{$withConfig['prompt_templates_filename']}/augmented.txt")
-            ->willReturn($augmentedPromptTemplate);
         $formatAsReport->the($memoryExtracts)
             ->willReturn($report);
         $formatAsConversation->the($lastMessagesLogs)
             ->willReturn($lastMessages);
-        $replace->in($augmentedPromptTemplate, $augmentedPromptParameters)
+        $template->replace($augmentedPromptParameters, Type::AUGMENTED_PROMPT, $withConfig)
             ->willReturn($augmentedPrompt);
 
         // Assertion
@@ -92,8 +87,7 @@ class AugmentTest extends BtlrServiceTestCase
             $formatAsReport->reveal(),
             $listLogs->reveal(),
             $pointer->reveal(),
-            $readFile->reveal(),
-            $replace->reveal(),
+            $template->reveal(),
         );
         self::assertSame($augmentedPrompt, $augment->the(
             $userPrompt,

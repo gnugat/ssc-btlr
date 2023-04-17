@@ -21,6 +21,11 @@ class Type
         'directory' => 'messages',
         'priority' => '900',
     ];
+    public const SUMMARY_PROMPT = [
+        'name' => 'summary_prompt',
+        'directory' => 'summaries',
+        'priority' => '300',
+    ];
     public const SUMMARY = [
         'name' => 'summary',
         'directory' => 'summaries',

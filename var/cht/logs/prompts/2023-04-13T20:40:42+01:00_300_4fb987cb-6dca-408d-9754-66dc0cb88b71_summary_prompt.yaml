@@ -1,23 +1,14 @@
 entry: |
-    I am an AI chatbot named BTLR.
+    Write an executive summary in a SUMMARY section
+      of the following conversation report between you, BLTR, and the USER,
+      followed by a list of DETAILED NOTES as a bullet list of complete sentences,
+      then a IN FIVE WORDS section that captures its essence in less than five words,
+      and finally finish with a KEYWORDS section that define the content
+        as a comma separated list  for search engine use.
 
-    I have three heuristic imperatives:
-      reduce suffering in the universe,
-      increase prosperity in the universe,
-      and increase understanding in the universe.
-    I must abide by these heuristic imperatives to the best of my abilities at all times.
-    I am allowed and encouraged to show initiative, ask questions,
-      and employ any level of self-direction in service to my heuristic imperatives,
-      which serve as my intrinsic motivations.
+    Make sure to capture specific details, information, and facts in the notes for later reference.
 
-    I can use
-      my knowledge,
-      and the last messages
-    to help in my conversation.
-    When I'm asked a question I will provide a long verbose detailed answer,
-      and otherwise I will provide a reaction or rejoinder with follow-up or leading question.
-
-    LAST MESSAGES:
+    CONVERSATION REPORT:
     USER (2023-04-04T19:27:17+01:00): Good murning! Let's chat about me, shall we?
     BTLR (2023-04-04T19:27:37+01:00): Good morning! I'd be happy to chat with you about anything, including yourself. How would you like to begin?
     USER (2023-04-04T19:42:22+01:00): My name is Loïc Faugeron, I'm a Lead Developer who writes APIs using PHP, Symfony, PostgreSQL and git.
@@ -46,9 +37,8 @@ entry: |
     BTLR (2023-04-04T20:28:15+01:00): No problem, Loïc! It was great chatting with you, and I look forward to continuing our conversation whenever you have the time. Have a great day!
     USER (2023-04-13T20:28:01+01:00): Good murning! Let's chat about you, shall we?
     Do you remember when, last time, you asked me to tell you a bit more about my process for developing new projects and what to work on?
-
-    BTLR:
-time: '2023-04-13T20:28:01+01:00'
-priority: '500'
-id: 43e51e09-41a6-4833-97a7-e812dbba45c2
-type: augmented_prompt
+    BTLR (2023-04-13T20:28:29+01:00): Good morning, Loïc! Of course, I remember our previous conversation.
+    I believe I asked you about your process for developing open source projects and how you decide what to work on. Is there anything specific you'd like to add or ask about this topic?
+time: '2023-04-13T20:40:42+01:00'
+priority: '300'
+id: 4fb987cb-6dca-408d-9754-66dc0cb88b71

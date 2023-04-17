@@ -32,9 +32,6 @@ class ReplyTest extends BtlrServiceTestCase
             'entry' => $userPrompt,
         ];
         $augmentedPrompt = "USER: {$userPrompt}\nBLTR:";
-        $augmentedPromptData = [
-            'entry' => $augmentedPrompt,
-        ];
         $modelCompletion = "I'm sorry, dev. I'm afraid I can't do that.";
         $modelCompletionData = [
             'entry' => $modelCompletion,
@@ -52,8 +49,6 @@ class ReplyTest extends BtlrServiceTestCase
             ->shouldBeCalled();
         $augment->the($userPrompt, $withConfig)
             ->willReturn($augmentedPrompt);
-        $writeLog->for($augmentedPromptData, Type::AUGMENTED_PROMPT, $withConfig)
-            ->shouldBeCalled();
         $usingLlm->complete($augmentedPrompt)
             ->willReturn($modelCompletion);
         $writeLog->for($modelCompletionData, Type::MODEL_COMPLETION, $withConfig)

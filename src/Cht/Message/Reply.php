@@ -27,9 +27,6 @@ class Reply
         ], Type::USER_PROMPT, $withConfig);
 
         $augmentedPrompt = $this->augment->the($userPrompt, $withConfig);
-        $this->writeLog->for([
-            'entry' => $augmentedPrompt,
-        ], Type::AUGMENTED_PROMPT, $withConfig);
 
         $modelCompletion = $this->usingLlm->complete($augmentedPrompt);
         $this->writeLog->for([

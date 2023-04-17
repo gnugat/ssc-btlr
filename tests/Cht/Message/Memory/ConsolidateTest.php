@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace tests\Ssc\Btlr\Cht\Message\Memory;
 
 use Prophecy\Argument;
-use Ssc\Btlr\App\Filesystem\ReadFile;
-use Ssc\Btlr\App\Template\Replace;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\From;
 use Ssc\Btlr\Cht\Message\Logs\Messages\FormatAsConversation;
@@ -16,6 +14,7 @@ use Ssc\Btlr\Cht\Message\Memory\Consolidate;
 use Ssc\Btlr\Cht\Message\Memory\Pointer;
 use Ssc\Btlr\Cht\Message\Memory\Pointer\Move;
 use Ssc\Btlr\Cht\Message\Reply\UsingLlm;
+use Ssc\Btlr\Cht\Message\Templates\Prompts\Template;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class ConsolidateTest extends BtlrServiceTestCase
@@ -94,8 +93,6 @@ class ConsolidateTest extends BtlrServiceTestCase
             ],
         ];
         $logsToSummarize = array_slice($newLogs, 0, $withConfig['chunk_memory_size']);
-        $template = 'Sum up this:'
-            ."\n%conversation_report%";
         $conversationReport = 'USER (1968-04-02T18:38:23+00:00): Write code for me, please'
             ."\nBTLR (1968-04-02T18:38:42+00:00): ..."
             ."\nUSER (1968-04-02T18:40:23+00:00): Do you read me?"
@@ -117,8 +114,7 @@ class ConsolidateTest extends BtlrServiceTestCase
         $listLogs = $this->prophesize(ListLogs::class);
         $move = $this->prophesize(Move::class);
         $pointer = $this->prophesize(Pointer::class);
-        $readFile = $this->prophesize(ReadFile::class);
-        $replace = $this->prophesize(Replace::class);
+        $template = $this->prophesize(Template::class);
         $usingLlm = $this->prophesize(UsingLlm::class);
         $writeLog = $this->prophesize(WriteLog::class);
 
@@ -128,11 +124,9 @@ class ConsolidateTest extends BtlrServiceTestCase
         $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from)
             ->willReturn($newLogs);
 
-        $readFile->in("{$withConfig['prompt_templates_filename']}/summary.txt")
-            ->willReturn($template);
         $formatAsConversation->the($logsToSummarize)
             ->willReturn($conversationReport);
-        $replace->in($template, $thoseParameters)
+        $template->replace($thoseParameters, Type::SUMMARY_PROMPT, $withConfig)
             ->willReturn($prompt);
         $usingLlm->complete($prompt)
             ->willReturn($summary);
@@ -148,8 +142,7 @@ class ConsolidateTest extends BtlrServiceTestCase
             $listLogs->reveal(),
             $move->reveal(),
             $pointer->reveal(),
-            $readFile->reveal(),
-            $replace->reveal(),
+            $template->reveal(),
             $usingLlm->reveal(),
             $writeLog->reveal(),
         );
@@ -212,8 +205,6 @@ class ConsolidateTest extends BtlrServiceTestCase
             ],
         ];
         $logsToSummarize = array_slice($newLogs, 0, $withConfig['chunk_memory_size']);
-        $template = 'Sum up this:'
-            ."\n%conversation_extract%";
         $conversationExtract = 'USER (1968-04-02T18:38:23+00:00): Write code for me, please'
             ."\nBTLR (1968-04-02T18:38:42+00:00): ..."
             ."\nUSER (1968-04-02T18:40:23+00:00): Do you read me?"
@@ -232,8 +223,7 @@ class ConsolidateTest extends BtlrServiceTestCase
         $listLogs = $this->prophesize(ListLogs::class);
         $move = $this->prophesize(Move::class);
         $pointer = $this->prophesize(Pointer::class);
-        $readFile = $this->prophesize(ReadFile::class);
-        $replace = $this->prophesize(Replace::class);
+        $template = $this->prophesize(Template::class);
         $usingLlm = $this->prophesize(UsingLlm::class);
         $writeLog = $this->prophesize(WriteLog::class);
 
@@ -243,11 +233,9 @@ class ConsolidateTest extends BtlrServiceTestCase
         $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from)
             ->willReturn($newLogs);
 
-        $readFile->in("{$withConfig['prompt_templates_filename']}/summary.txt")
-            ->shouldNotBeCalled();
         $formatAsConversation->the($logsToSummarize)
             ->shouldNotBeCalled();
-        $replace->in($template, $thoseParameters)
+        $template->replace($thoseParameters, Type::SUMMARY_PROMPT, $withConfig)
             ->shouldNotBeCalled();
         $usingLlm->complete($prompt)
             ->shouldNotBeCalled();
@@ -263,8 +251,7 @@ class ConsolidateTest extends BtlrServiceTestCase
             $listLogs->reveal(),
             $move->reveal(),
             $pointer->reveal(),
-            $readFile->reveal(),
-            $replace->reveal(),
+            $template->reveal(),
             $usingLlm->reveal(),
             $writeLog->reveal(),
         );

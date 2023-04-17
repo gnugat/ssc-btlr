@@ -100,5 +100,3 @@ entry: |
 time: '2023-04-14T07:33:30+01:00'
 priority: '500'
 id: dc9bb0ec-28dc-40b8-bd3f-12c903ed35d4
-type: augmented_prompt
-llm_engine: chatgpt-gpt-3.5-turbo

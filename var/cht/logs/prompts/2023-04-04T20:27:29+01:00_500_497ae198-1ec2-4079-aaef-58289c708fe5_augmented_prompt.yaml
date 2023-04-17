@@ -49,4 +49,3 @@ time: '2023-04-04T20:27:29+01:00'
 priority: '500'
 id: 497ae198-1ec2-4079-aaef-58289c708fe5
 type: augmented_prompt
-llm_engine: chatgpt-gpt-3.5-turbo
