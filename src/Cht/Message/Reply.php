@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Ssc\Btlr\Cht\Message;
 
-use Ssc\Btlr\Cht\Message\Logs\Memory\Consolidate;
 use Ssc\Btlr\Cht\Message\Logs\Type;
 use Ssc\Btlr\Cht\Message\Logs\WriteLog;
+use Ssc\Btlr\Cht\Message\Memory\Consolidate;
 use Ssc\Btlr\Cht\Message\Reply\Augment;
 use Ssc\Btlr\Cht\Message\Reply\UsingLlm;
 

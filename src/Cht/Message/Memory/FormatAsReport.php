@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ssc\Btlr\Cht\Message\Logs\Memory;
+namespace Ssc\Btlr\Cht\Message\Memory;
 
 use Ssc\Btlr\Cht\Message\Logs\Type;
 

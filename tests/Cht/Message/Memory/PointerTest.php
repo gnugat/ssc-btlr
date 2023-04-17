@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace tests\Ssc\Btlr\Cht\Message\Logs\Memory;
+namespace tests\Ssc\Btlr\Cht\Message\Memory;
 
 use Ssc\Btlr\App\Filesystem\FileExists;
 use Ssc\Btlr\App\Filesystem\Format\ReadYamlFile;
 use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
-use Ssc\Btlr\Cht\Message\Logs\Memory\Pointer;
-use Ssc\Btlr\Cht\Message\Logs\Memory\Pointer\Make;
 use Ssc\Btlr\Cht\Message\Logs\Type;
+use Ssc\Btlr\Cht\Message\Memory\Pointer;
+use Ssc\Btlr\Cht\Message\Memory\Pointer\Make;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class PointerTest extends BtlrServiceTestCase

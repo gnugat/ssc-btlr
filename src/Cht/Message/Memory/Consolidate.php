@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Ssc\Btlr\Cht\Message\Logs\Memory;
+namespace Ssc\Btlr\Cht\Message\Memory;
 
 use Ssc\Btlr\App\Filesystem\ReadFile;
 use Ssc\Btlr\App\Template\Replace;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\From;
-use Ssc\Btlr\Cht\Message\Logs\Memory\Pointer\Move;
 use Ssc\Btlr\Cht\Message\Logs\Messages\FormatAsConversation;
 use Ssc\Btlr\Cht\Message\Logs\Type;
 use Ssc\Btlr\Cht\Message\Logs\WriteLog;
+use Ssc\Btlr\Cht\Message\Memory\Pointer\Move;
 use Ssc\Btlr\Cht\Message\Reply\UsingLlm;
 
 class Consolidate

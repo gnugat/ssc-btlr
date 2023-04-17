@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace tests\Ssc\Btlr\Cht\Message\Logs\Memory\Pointer;
+namespace tests\Ssc\Btlr\Cht\Message\Memory\Pointer;
 
 use Prophecy\Argument;
 use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\Slice;
 use Ssc\Btlr\Cht\Message\Logs\MakeFilename;
-use Ssc\Btlr\Cht\Message\Logs\Memory\Pointer\Make;
 use Ssc\Btlr\Cht\Message\Logs\Type;
+use Ssc\Btlr\Cht\Message\Memory\Pointer\Make;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class MakeTest extends BtlrServiceTestCase

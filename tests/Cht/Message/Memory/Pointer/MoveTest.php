@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace tests\Ssc\Btlr\Cht\Message\Logs\Memory\Pointer;
+namespace tests\Ssc\Btlr\Cht\Message\Memory\Pointer;
 
 use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
 use Ssc\Btlr\Cht\Message\Logs\MakeFilename;
-use Ssc\Btlr\Cht\Message\Logs\Memory\Pointer\Move;
 use Ssc\Btlr\Cht\Message\Logs\Type;
+use Ssc\Btlr\Cht\Message\Memory\Pointer\Move;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class MoveTest extends BtlrServiceTestCase

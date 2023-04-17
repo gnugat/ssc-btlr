@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Ssc\Btlr\Cht\Message\Logs\Memory;
+namespace Ssc\Btlr\Cht\Message\Memory;
 
 use Ssc\Btlr\App\Filesystem\FileExists;
 use Ssc\Btlr\App\Filesystem\Format\ReadYamlFile;
-use Ssc\Btlr\Cht\Message\Logs\Memory\Pointer\Make;
+use Ssc\Btlr\Cht\Message\Memory\Pointer\Make;
 
 class Pointer
 {

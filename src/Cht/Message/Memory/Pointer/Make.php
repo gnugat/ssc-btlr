@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ssc\Btlr\Cht\Message\Logs\Memory\Pointer;
+namespace Ssc\Btlr\Cht\Message\Memory\Pointer;
 
 use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
