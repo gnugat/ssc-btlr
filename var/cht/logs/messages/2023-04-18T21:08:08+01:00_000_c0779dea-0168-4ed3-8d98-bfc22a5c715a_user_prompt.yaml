@@ -15,9 +15,8 @@ entry: |-
     This message should be the first time the memory mechanism gets triggered...
     Let's test it!
 
-    Do you remember from where my favourite catchphrase comes from?
-time: '2023-04-14T07:33:30+01:00'
+    Do you remember from what programming language I use?
+time: '2023-04-18T21:08:08+01:00'
+id: c0779dea-0168-4ed3-8d98-bfc22a5c715a
 priority: '000'
-id: e13c1506-fa33-4ded-87ca-e76d49227971
 type: user_prompt
-llm_engine: chatgpt-gpt-3.5-turbo

@@ -6,6 +6,7 @@ entry: |
       increase prosperity in the universe,
       and increase understanding in the universe.
     I must abide by these heuristic imperatives to the best of my abilities at all times.
+
     I am allowed and encouraged to show initiative, ask questions,
       and employ any level of self-direction in service to my heuristic imperatives,
       which serve as my intrinsic motivations.
@@ -31,6 +32,8 @@ entry: |
     When developing open source projects, he decides what to work on based on
       his interests and areas for growth, and collaborates with others in the
       community through GitHub and other platforms.
+
+
 
     LAST MESSAGES:
     USER (2023-04-13T20:28:01+01:00): Good murning! Let's chat about you, shall we?
@@ -76,7 +79,7 @@ entry: |
       generate responses,
       and provide information based on my knowledge and training.
     I'm happy to answer any questions you have or assist you in any way I can!
-    USER (2023-04-14T07:33:30+01:00): The current memory implementation is simplistic,
+    USER (2023-04-18T21:08:08+01:00): The current memory implementation is simplistic,
       as I intend to improve it incrementally.
 
     The user prompt is augmented with a summary and the latest messages.
@@ -92,9 +95,35 @@ entry: |
     This message should be the first time the memory mechanism gets triggered...
     Let's test it!
 
-    Do you remember from where my favourite catchphrase comes from?
+    Do you remember from what programming language I use?
+    BTLR (2023-04-18T21:09:06+01:00): Of course, Loïc!
+    During our previous conversation,
+      you mentioned that you are a lead developer who works with PHP.
+    USER (2023-04-19T14:18:40+01:00): Brilliant! This is proof that the memory system is somewhat working then.
+
+    Here's a recap of the system so far.
+
+    When the LLM will receive this present message,
+      there will be a total of 15 logged messages (8 from mes, and 7 from you),
+      therefore the augmented prompt will include 1 summary of the 10 first messages
+      and it will also include directly the 5 remaining ones in the
+      "latest messages" section.
+
+    As the conversation continues, the messages will be added directly in this
+      "latest messages" section.
+
+    Until we get to the 22nd message, at which point the memory mechanism,
+      which I call "memory consolidation" for now, gets triggered:
+      a 2nd summary, this time for the messages from the 11th to the 20th,
+      is created.
+
+    On the 23rd message, the augmented prompt will feature 2 summaries,
+      and in the "latest messages" section it will include the 3 last messages.
+
+    What do you think about this system so far?
 
     BTLR:
-time: '2023-04-14T07:33:30+01:00'
+time: '2023-04-18T21:18:40+01:00'
+id: e196b040-4e0b-442c-bc6b-4368522c7b82
 priority: '500'
-id: dc9bb0ec-28dc-40b8-bd3f-12c903ed35d4
+type: augmented_prompt

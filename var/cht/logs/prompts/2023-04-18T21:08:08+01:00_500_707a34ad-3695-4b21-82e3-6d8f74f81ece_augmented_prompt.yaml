@@ -6,6 +6,7 @@ entry: |
       increase prosperity in the universe,
       and increase understanding in the universe.
     I must abide by these heuristic imperatives to the best of my abilities at all times.
+
     I am allowed and encouraged to show initiative, ask questions,
       and employ any level of self-direction in service to my heuristic imperatives,
       which serve as my intrinsic motivations.
@@ -76,7 +77,7 @@ entry: |
       generate responses,
       and provide information based on my knowledge and training.
     I'm happy to answer any questions you have or assist you in any way I can!
-    USER (2023-04-14T07:33:30+01:00): The current memory implementation is simplistic,
+    USER (2023-04-18T21:08:08+01:00): The current memory implementation is simplistic,
       as I intend to improve it incrementally.
 
     The user prompt is augmented with a summary and the latest messages.
@@ -92,9 +93,10 @@ entry: |
     This message should be the first time the memory mechanism gets triggered...
     Let's test it!
 
-    Do you remember from where my favourite catchphrase comes from?
+    Do you remember from what programming language I use?
 
     BTLR:
-time: '2023-04-14T07:33:30+01:00'
+time: '2023-04-18T21:08:08+01:00'
+id: 707a34ad-3695-4b21-82e3-6d8f74f81ece
 priority: '500'
-id: dc9bb0ec-28dc-40b8-bd3f-12c903ed35d4
+type: augmented_prompt

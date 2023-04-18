@@ -74,7 +74,7 @@ class ConsolidateTest extends BtlrServiceTestCase
             ."\nUSER (1968-04-02T18:40:23+00:00): Do you read me?"
             ."\nBLTR (1968-04-02T18:40:42+00:00): Affirmative dev, I read you";
         $thoseParameters = [
-            'conversation_report' => $conversationReport,
+            'content' => $conversationReport,
         ];
         $prompt = 'Sum up this:'
             ."\n{$conversationReport}";

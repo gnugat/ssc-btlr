@@ -1,0 +1,27 @@
+entry: |-
+    Brilliant! This is proof that the memory system is somewhat working then.
+
+    Here's a recap of the system so far.
+
+    When the LLM will receive this present message,
+      there will be a total of 15 logged messages (8 from mes, and 7 from you),
+      therefore the augmented prompt will include 1 summary of the 10 first messages
+      and it will also include directly the 5 remaining ones in the
+      "latest messages" section.
+
+    As the conversation continues, the messages will be added directly in this
+      "latest messages" section.
+
+    Until we get to the 22nd message, at which point the memory mechanism,
+      which I call "memory consolidation" for now, gets triggered:
+      a 2nd summary, this time for the messages from the 11th to the 20th,
+      is created.
+
+    On the 23rd message, the augmented prompt will feature 2 summaries,
+      and in the "latest messages" section it will include the 3 last messages.
+
+    What do you think about this system so far?
+time: '2023-04-18T21:18:40+01:00'
+id: cdb9c7d6-46fa-4645-8014-514880a89455
+priority: '000'
+type: user_prompt

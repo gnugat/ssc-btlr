@@ -40,7 +40,7 @@ class Consolidate
 
         $logsToSummarize = array_slice($newLogs, 0, $withConfig['chunk_memory_size']);
         $summaryPrompt = $this->template->replace([
-            'conversation_report' => $this->formatAsConversation->the($logsToSummarize),
+            'content' => $this->formatAsConversation->the($logsToSummarize),
         ], Type::SUMMARY_PROMPT, $withConfig);
         $summary = $this->usingLlm->complete($summaryPrompt);
         $this->writeLog->for([
