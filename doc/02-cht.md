@@ -164,7 +164,7 @@ Usage:
 
 ```
 ./btlr cht:message \
-  --confing-chunk-memory-size 15 \
+  --confing-chunk-memory-size 10 \
   --config-llm-engine 'chatgpt-gpt-3.5-turbo' \
   --config-logs-filename ./var/cht/logs \
   --config-prompt-templates-filename ./templates/cht/prompts \

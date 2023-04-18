@@ -25,7 +25,7 @@ class AugmentTest extends BtlrServiceTestCase
         // Fixtures
         $userPrompt = 'Write code for me, please';
         $withConfig = [
-            'chunk_memory_size' => 15,
+            'chunk_memory_size' => 10,
             'llm_engine' => 'chatgpt-gpt-3.5-turbo',
             'logs_filename' => './var/cht/logs',
             'prompt_templates_filename' => './templates/cht/prompts',

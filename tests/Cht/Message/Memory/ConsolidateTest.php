@@ -26,7 +26,7 @@ class ConsolidateTest extends BtlrServiceTestCase
     {
         // Fixtures
         $withConfig = [
-            'chunk_memory_size' => 6,
+            'chunk_memory_size' => 3,
             'llm_engine' => 'chatgpt-gpt-3.5-turbo',
             'logs_filename' => './var/cht/logs',
             'prompt_templates_filename' => './templates/cht/prompts',
@@ -43,12 +43,6 @@ class ConsolidateTest extends BtlrServiceTestCase
                 'type' => Type::USER_PROMPT['name'],
             ],
             [
-                'entry' => 'USER (1968-04-02T18:38:23+00:00): Write code for me, please'
-                    ."\nBLTR:",
-                'time' => '1968-04-02T18:38:23+00:00',
-                'type' => Type::AUGMENTED_PROMPT['name'],
-            ],
-            [
                 'entry' => '...',
                 'time' => '1968-04-02T18:38:42+00:00',
                 'type' => Type::MODEL_COMPLETION['name'],
@@ -59,14 +53,6 @@ class ConsolidateTest extends BtlrServiceTestCase
                 'type' => Type::USER_PROMPT['name'],
             ],
             [
-                'entry' => 'USER (1968-04-02T18:38:23+00:00): Write code for me, please'
-                    ."\nBTLR (1968-04-02T18:38:42+00:00): ..."
-                    ."\nUSER (1968-04-02T18:40:23+00:00): Do you read me?"
-                    ."\nBLTR:",
-                'time' => '1968-04-02T18:40:23+00:00',
-                'type' => Type::AUGMENTED_PROMPT['name'],
-            ],
-            [
                 'entry' => 'Affirmative dev, I read you',
                 'time' => '1968-04-02T18:40:42+00:00',
                 'type' => Type::MODEL_COMPLETION['name'],
@@ -75,16 +61,6 @@ class ConsolidateTest extends BtlrServiceTestCase
                 'entry' => 'Write code for me, please',
                 'time' => '1968-04-02T18:42:23+00:00',
                 'type' => Type::USER_PROMPT['name'],
-            ],
-            [
-                'entry' => 'USER (1968-04-02T18:38:23+00:00): Write code for me, please'
-                    ."\nBTLR (1968-04-02T18:38:42+00:00): ..."
-                    ."\nUSER (1968-04-02T18:40:23+00:00): Do you read me?"
-                    ."\nBLTR (1968-04-02T18:40:42+00:00): Affirmative dev, I read you"
-                    ."\nUSER (1968-04-02T18:42:23+00:00): Write code for me, please"
-                    ."\nBLTR:",
-                'time' => '1968-04-02T18:42:23+00:00',
-                'type' => Type::AUGMENTED_PROMPT['name'],
             ],
             [
                 'entry' => "I'm afraid I can't do that, dev",
@@ -133,7 +109,7 @@ class ConsolidateTest extends BtlrServiceTestCase
         $writeLog->for($data, Type::SUMMARY, $withConfig)
             ->shouldBeCalled();
 
-        $move->the($memoryPointer, $newLogs[6], $withConfig)
+        $move->the($memoryPointer, $newLogs[$withConfig['chunk_memory_size']], $withConfig)
             ->shouldBeCalled();
 
         // Assertion
