@@ -1,5 +1,10 @@
 # Changes between versions
 
+## 0.6.0: `cht:message` YAML
+
+* `cht:message`:
+  * switched from JSON to YAML
+
 ## 0.5.0: `cht:message` with Memory Extract
 
 * `cht:message`:

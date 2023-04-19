@@ -1,0 +1,52 @@
+entry: |
+    Loïc Faugeron is a Lead Developer with extensive experience in PHP,
+      Symfony, PostgreSQL and git, who follows SCRUM, Test Driven Development
+      and Object Oriented Programming methodologies.
+    He enjoys incorporating quotes from British TV series such as Blackadder,
+      The IT Crowd, and Allo, Allo into his daily life.
+    Loïc stays up to date with the latest developments in his field by
+      following technical blogs and social media accounts, and he also
+      contributes to the community by sharing his knowledge, writing technical
+      articles on his blog, and developing open source projects.
+    When developing open source projects, he decides what to work on based on
+      his interests and areas for growth, and collaborates with others in the
+      community through GitHub and other platforms.
+detailed_notes:
+    - Loïc Faugeron is a Lead Developer with experience in PHP, Symfony,
+      PostgreSQL, and git, and follows SCRUM, Test Driven Development and
+      Object Oriented Programming methodologies.
+    - Loïc enjoys incorporating quotes from British TV series such as
+      Blackadder, The IT Crowd, and Allo, Allo into his daily life.
+    - To stay up to date with the latest developments in his field, Loïc
+      follows technical blogs and social media accounts, and he also
+      contributes to the community by sharing his knowledge, writing technical
+      articles on his blog, and developing open source projects.
+    - When developing open source projects, Loïc decides what to work on
+      based on his interests and areas for growth, and collaborates with others
+      in the community through GitHub and other platforms.
+in_five_words: "Chat with lead developer Loïc"
+keywords:
+    - Loïc Faugeron
+    - lead developer
+    - PHP
+    - Symfony
+    - PostgreSQL
+    - git
+    - SCRUM
+    - TDD
+    - OOP
+    - catchphrases
+    - British TV shows
+    - Blackadder
+    - The IT Crowd
+    - Allo Allo
+    - technical blogs
+    - social media
+    - open source projects
+    - GitHub
+    - Collaboration
+time: '2023-04-13T20:42:15+01:00'
+priority: '500'
+id: 6e6ee366-e180-4876-b094-8b68d536c975
+type: summary
+llm_engine: chatgpt-gpt-3.5-turbo

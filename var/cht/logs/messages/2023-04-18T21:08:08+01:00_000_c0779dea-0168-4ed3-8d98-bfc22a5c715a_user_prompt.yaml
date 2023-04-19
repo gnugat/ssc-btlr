@@ -1,0 +1,22 @@
+entry: |-
+    The current memory implementation is simplistic,
+      as I intend to improve it incrementally.
+
+    The user prompt is augmented with a summary and the latest messages.
+
+    Once there are 12 latest messages
+      (that's 6 user prompts and 6 model completions),
+      the 10 first ones are summarized and archived.
+
+    On the next user prompt, the summary section gets updated,
+      and the latest messages section reverts back to 3 messages
+      (the 2 old ones that didn't get archived, and the new user prompt).
+
+    This message should be the first time the memory mechanism gets triggered...
+    Let's test it!
+
+    Do you remember from what programming language I use?
+time: '2023-04-18T21:08:08+01:00'
+id: c0779dea-0168-4ed3-8d98-bfc22a5c715a
+priority: '000'
+type: user_prompt

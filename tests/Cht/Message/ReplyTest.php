@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message;
 
-use Ssc\Btlr\Cht\Message\DataCollection\Memory\Consolidate;
-use Ssc\Btlr\Cht\Message\DataCollection\Type;
-use Ssc\Btlr\Cht\Message\DataCollection\WriteLog;
+use Ssc\Btlr\Cht\Message\Logs\Type;
+use Ssc\Btlr\Cht\Message\Logs\WriteLog;
+use Ssc\Btlr\Cht\Message\Memory\Consolidate;
 use Ssc\Btlr\Cht\Message\Reply;
 use Ssc\Btlr\Cht\Message\Reply\Augment;
 use Ssc\Btlr\Cht\Message\Reply\UsingLlm;
@@ -22,13 +22,21 @@ class ReplyTest extends BtlrServiceTestCase
         // Fixtures
         $userPrompt = 'Write code for me, please';
         $withConfig = [
-            'chunk_memory_size' => 15,
+            'chunk_memory_size' => 10,
             'llm_engine' => 'chatgpt-gpt-3.5-turbo',
             'logs_filename' => './var/cht/logs',
             'prompt_templates_filename' => './templates/cht/prompts',
         ];
+
+        $userPromptData = [
+            'entry' => $userPrompt,
+        ];
         $augmentedPrompt = "USER: {$userPrompt}\nBLTR:";
         $modelCompletion = "I'm sorry, dev. I'm afraid I can't do that.";
+        $modelCompletionData = [
+            'entry' => $modelCompletion,
+            'llm_engine' => $withConfig['llm_engine'],
+        ];
 
         // Dummies
         $augment = $this->prophesize(Augment::class);
@@ -37,15 +45,13 @@ class ReplyTest extends BtlrServiceTestCase
         $writeLog = $this->prophesize(WriteLog::class);
 
         // Stubs & Mocks
-        $writeLog->for($userPrompt, $withConfig, Type::USER_PROMPT)
+        $writeLog->for($userPromptData, Type::USER_PROMPT, $withConfig)
             ->shouldBeCalled();
         $augment->the($userPrompt, $withConfig)
             ->willReturn($augmentedPrompt);
-        $writeLog->for($augmentedPrompt, $withConfig, Type::AUGMENTED_PROMPT)
-            ->shouldBeCalled();
         $usingLlm->complete($augmentedPrompt)
             ->willReturn($modelCompletion);
-        $writeLog->for($modelCompletion, $withConfig, Type::MODEL_COMPLETION)
+        $writeLog->for($modelCompletionData, Type::MODEL_COMPLETION, $withConfig)
             ->shouldBeCalled();
         $consolidate->memories($withConfig)
             ->shouldBeCalled();
