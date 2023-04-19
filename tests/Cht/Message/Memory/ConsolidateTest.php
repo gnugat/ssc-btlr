@@ -15,6 +15,7 @@ use Ssc\Btlr\Cht\Message\Memory\Pointer;
 use Ssc\Btlr\Cht\Message\Memory\Pointer\Move;
 use Ssc\Btlr\Cht\Message\Reply\UsingLlm;
 use Ssc\Btlr\Cht\Message\Templates\Prompts\Template;
+use Symfony\Component\Yaml\Yaml;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class ConsolidateTest extends BtlrServiceTestCase
@@ -78,11 +79,11 @@ class ConsolidateTest extends BtlrServiceTestCase
         ];
         $prompt = 'Sum up this:'
             ."\n{$conversationReport}";
-        $summary = 'User requested code, BTLR seemed unresponsive yet acknowledged user.';
         $data = [
-            'entry' => $summary,
+            'entry' => 'User requested code, BTLR seemed unresponsive yet acknowledged user.',
             'llm_engine' => $withConfig['llm_engine'],
         ];
+        $summary = Yaml::dump($data);
 
         // Dummies
         $formatAsConversation = $this->prophesize(FormatAsConversation::class);

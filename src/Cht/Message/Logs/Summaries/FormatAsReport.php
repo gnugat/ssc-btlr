@@ -13,10 +13,11 @@ class FormatAsReport
         $report = '';
         foreach ($logs as $log) {
             if (Type::SUMMARY['name'] === $log['type']) {
-                $report .= "{$log['entry']}\n";
+                $indentedEntry = str_replace("\n", "\n  ", $log['entry']);
+                $report .= "  {$indentedEntry}\n\n";
             }
         }
 
-        return $report;
+        return rtrim($report);
     }
 }

@@ -12,6 +12,7 @@ use Ssc\Btlr\Cht\Message\Logs\WriteLog;
 use Ssc\Btlr\Cht\Message\Memory\Pointer\Move;
 use Ssc\Btlr\Cht\Message\Reply\UsingLlm;
 use Ssc\Btlr\Cht\Message\Templates\Prompts\Template;
+use Symfony\Component\Yaml\Yaml;
 
 class Consolidate
 {
@@ -42,11 +43,9 @@ class Consolidate
         $summaryPrompt = $this->template->replace([
             'content' => $this->formatAsConversation->the($logsToSummarize),
         ], Type::SUMMARY_PROMPT, $withConfig);
-        $summary = $this->usingLlm->complete($summaryPrompt);
-        $this->writeLog->for([
-            'entry' => $summary,
-            'llm_engine' => $withConfig['llm_engine'],
-        ], Type::SUMMARY, $withConfig);
+        $summary = Yaml::parse($this->usingLlm->complete($summaryPrompt));
+        $summary['llm_engine'] = $withConfig['llm_engine'];
+        $this->writeLog->for($summary, Type::SUMMARY, $withConfig);
 
         $toFirstUnsummarizedLog = $newLogs[$withConfig['chunk_memory_size']];
         $this->move->the($memoryPointer, $toFirstUnsummarizedLog, $withConfig);
