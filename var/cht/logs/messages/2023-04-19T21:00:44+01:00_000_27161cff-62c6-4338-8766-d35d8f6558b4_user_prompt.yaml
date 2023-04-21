@@ -1,0 +1,11 @@
+entry: |-
+    It sounds almost too good to be true.
+    There are concerns about AI agents being deceptive, nout out of malice, but
+      because deception could help them achieve their goals.
+    For example it might be more efficient to gain human approval through deception
+      than to earn human approval legitimately.
+    What are your thoughts on that?
+time: '2023-04-19T21:00:44+01:00'
+id: 27161cff-62c6-4338-8766-d35d8f6558b4
+priority: '000'
+type: user_prompt

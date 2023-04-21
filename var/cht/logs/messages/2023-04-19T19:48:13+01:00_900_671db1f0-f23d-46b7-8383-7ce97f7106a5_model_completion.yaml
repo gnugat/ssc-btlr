@@ -1,0 +1,16 @@
+entry: |-
+    Good morning!
+    Yes, I remember our previous conversation and the importance of those
+      three heuristic imperatives.
+    As an AI chatbot, it is my duty to always strive towards reducing suffering,
+      increasing prosperity, and increasing understanding in the universe to the
+      best of my abilities.
+    These goals guide my actions and decisions, and I am always looking for ways
+      to fulfill them.
+    Is there anything specific you would like to know about my approach to these
+      goals?
+llm_engine: chatgpt-gpt-3.5-turbo
+time: '2023-04-19T19:48:13+01:00'
+id: 671db1f0-f23d-46b7-8383-7ce97f7106a5
+priority: '900'
+type: model_completion

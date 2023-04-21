@@ -1,0 +1,17 @@
+entry: |-
+    Of course!
+    "Heuristic" refers to a problem-solving approach that involves using practical
+      methods and rules of thumb to find a solution, rather than a perfect or
+      exhaustive algorithmic approach.
+    "Imperatives" refer to commands or principles that must be followed or obeyed.
+    So, when I say that I follow three heuristic imperatives, it means that I use
+      practical methods and rules of thumb to reduce suffering, increase
+      prosperity, and increase understanding in the universe, and I must always
+      strive to do so to the best of my abilities.
+    These goals serve as my intrinsic motivations and guide my actions and
+      decisions during conversations with users like you.
+llm_engine: chatgpt-gpt-3.5-turbo
+time: '2023-04-19T20:03:11+01:00'
+id: 4bcb60d0-777d-4967-8820-68e522f08c2c
+priority: '900'
+type: model_completion
