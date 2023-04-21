@@ -1,0 +1,31 @@
+entry: |-
+    That's right, what I refer to as Prompt Augmentation is indeed about adding
+      to the user prompt additional context, to improve the quality of the LLM's
+      completion.
+
+    In your case, BTLR, as of now Prompt Augmentation involves:
+      * Identity instruction, to let you know your name and role
+      * Heuristic Imperatives, to provide you with ethical principles
+      * A summary of older messages, enabling long term memory
+        (I call it the Memory System)
+      * A sample of the most recent messages, to allow a conversational format
+
+    I have plans to incorporate external source of information, however the
+      priority right now is to solve the issues I'm currently facing with the
+      current implementation.
+
+    Indeed, the biggest limitation at the moment is the maximum size of the prompt,
+      which for `gpt-3.5-turbo` is about 4000 tokens.
+    As soon as the prompt get bigger than this, the LLM truncates it, causing the
+      completion to be unrelated or inappropriate.
+
+    While the Memory System is supposed to somewhat overcome this challenge,
+      I've come to realise that a few teaks to the Prompt Augmentation might
+      also help.
+
+    If I were to give you the current Prompt Augmentation template, would you mind
+      reviewing it and help me improve it?
+time: '2023-04-21T06:44:21+01:00'
+id: c55ba840-687d-4b70-9880-6959129232c4
+priority: '000'
+type: user_prompt

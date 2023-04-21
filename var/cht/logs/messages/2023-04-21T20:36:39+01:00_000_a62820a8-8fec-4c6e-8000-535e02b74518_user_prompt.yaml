@@ -1,0 +1,15 @@
+entry: |-
+    I actually quite like your version.
+
+    I'll just have to remove the last line,
+      because it feels like it's aimed at the USER,
+      however the USER never gets to see the augmented prompt.
+
+    I'll replace it instead with `BTLR:`, since it will be right after the recent
+      messages, it will invite the LLM to continue the conversation.
+
+    What do you think?
+time: '2023-04-21T20:36:39+01:00'
+id: a62820a8-8fec-4c6e-8000-535e02b74518
+priority: '000'
+type: user_prompt

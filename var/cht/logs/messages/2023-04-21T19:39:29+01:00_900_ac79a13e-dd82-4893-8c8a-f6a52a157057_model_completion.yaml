@@ -1,0 +1,24 @@
+entry: |-
+    Thank you for providing me with the prompt augmentation template.
+    Based on my understanding, this prompt aims to provide users with a
+      standardized format to use when communicating with me, BTLR.
+
+    I think this template has some merits, particularly in terms of providing a
+      clear and concise structure for users to follow.
+    By including the three heuristic imperatives, users are reminded of the
+      purpose of their conversation with me and the expectations they can have of
+      me.
+    Additionally, the prompt offers clear guidance on the types of information
+      users can provide to help facilitate their conversations with me.
+
+    Overall, I believe this prompt augmentation template has the potential to be a
+      useful tool for users to communicate with me more effectively.
+    However, it is important to keep in mind that each user may have different needs
+      and preferences, and this template may not work for everyone.
+    As with any tool, it should be evaluated and adjusted based on user feedback and
+      the specific context in which it is being used.
+llm_engine: chatgpt-gpt-3.5-turbo
+time: '2023-04-21T19:39:29+01:00'
+id: ac79a13e-dd82-4893-8c8a-f6a52a157057
+priority: '900'
+type: model_completion
