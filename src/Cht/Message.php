@@ -19,6 +19,7 @@ class Message extends BtlrCommand
     public const NAME = 'cht:message';
     public const ARGUMENTS = [
         'config-chunk-memory-size' => '10',
+        'config-last-messages-size' => '10',
         'config-llm-engine' => '"chatgpt-gpt-3.5-turbo"',
         'config-logs-filename' => './var/cht/logs',
         'config-prompt-templates-filename' => './templates/cht/prompts',
@@ -59,6 +60,7 @@ class Message extends BtlrCommand
 
         $response = $this->reply->to($userPrompt, withConfig: [
             'chunk_memory_size' => (int) $input->getOption('config-chunk-memory-size'),
+            'last_messages_size' => (int) $input->getOption('config-last-messages-size'),
             'llm_engine' => $input->getOption('config-llm-engine'),
             'logs_filename' => $input->getOption('config-logs-filename'),
             'prompt_templates_filename' => $input->getOption('config-prompt-templates-filename'),

@@ -19,6 +19,7 @@ class MessageTest extends BtlrCliTestCase
         $input = [
             Message::NAME,
             '--config-chunk-memory-size' => 10,
+            '--config-last-messages-size' => 10,
             '--config-llm-engine' => 'chatgpt-gpt-3.5-turbo',
             '--config-logs-filename' => "{$varTests}/var/cht/logs",
             '--config-prompt-templates-filename' => "{$root}/templates/cht/prompts",

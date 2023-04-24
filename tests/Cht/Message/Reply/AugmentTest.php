@@ -8,6 +8,7 @@ use Prophecy\Argument;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\From;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Subset\All;
+use Ssc\Btlr\Cht\Message\Logs\ListLogs\Subset\Last;
 use Ssc\Btlr\Cht\Message\Logs\Messages\FormatAsConversation;
 use Ssc\Btlr\Cht\Message\Logs\Summaries\FormatAsReport;
 use Ssc\Btlr\Cht\Message\Logs\Type;
@@ -27,6 +28,7 @@ class AugmentTest extends BtlrServiceTestCase
         $userPrompt = 'Write code for me, please';
         $withConfig = [
             'chunk_memory_size' => 10,
+            'last_messages_size' => 10,
             'llm_engine' => 'chatgpt-gpt-3.5-turbo',
             'logs_filename' => './var/cht/logs',
             'prompt_templates_filename' => './templates/cht/prompts',
@@ -63,6 +65,7 @@ class AugmentTest extends BtlrServiceTestCase
         // Dummies
         $from = Argument::type(From::class);
         $all = Argument::type(All::class);
+        $last = Argument::type(Last::class);
         $formatAsConversation = $this->prophesize(FormatAsConversation::class);
         $formatAsReport = $this->prophesize(FormatAsReport::class);
         $listLogs = $this->prophesize(ListLogs::class);
@@ -74,7 +77,7 @@ class AugmentTest extends BtlrServiceTestCase
             ->willReturn($memoryPointer);
         $listLogs->in("{$withConfig['logs_filename']}/summaries", matching: $from, subset: $all)
             ->willReturn($memoryExtracts);
-        $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from, subset: $all)
+        $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from, subset: $last)
             ->willReturn($lastMessagesLogs);
         $formatAsReport->the($memoryExtracts)
             ->willReturn($report);

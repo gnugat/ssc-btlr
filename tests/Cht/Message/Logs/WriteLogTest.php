@@ -25,6 +25,7 @@ class WriteLogTest extends BtlrServiceTestCase
         ];
         $withConfig = [
             'chunk_memory_size' => 10,
+            'last_messages_size' => 10,
             'llm_engine' => 'chatgpt-gpt-3.5-turbo',
             'logs_filename' => './var/cht/logs',
             'prompt_templates_filename' => './templates/cht/prompts',
