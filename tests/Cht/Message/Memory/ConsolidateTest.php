@@ -7,6 +7,7 @@ namespace tests\Ssc\Btlr\Cht\Message\Memory;
 use Prophecy\Argument;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\From;
+use Ssc\Btlr\Cht\Message\Logs\ListLogs\Subset\All;
 use Ssc\Btlr\Cht\Message\Logs\Messages\FormatAsConversation;
 use Ssc\Btlr\Cht\Message\Logs\Type;
 use Ssc\Btlr\Cht\Message\Logs\WriteLog;
@@ -88,6 +89,7 @@ class ConsolidateTest extends BtlrServiceTestCase
         // Dummies
         $formatAsConversation = $this->prophesize(FormatAsConversation::class);
         $from = Argument::type(From::class);
+        $all = Argument::type(All::class);
         $listLogs = $this->prophesize(ListLogs::class);
         $move = $this->prophesize(Move::class);
         $pointer = $this->prophesize(Pointer::class);
@@ -98,7 +100,7 @@ class ConsolidateTest extends BtlrServiceTestCase
         // Stubs & Mocks
         $pointer->get($withConfig)
             ->willReturn($memoryPointer);
-        $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from)
+        $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from, subset: $all)
             ->willReturn($newLogs);
 
         $formatAsConversation->the($logsToSummarize)
@@ -196,6 +198,7 @@ class ConsolidateTest extends BtlrServiceTestCase
 
         // Dummies
         $formatAsConversation = $this->prophesize(FormatAsConversation::class);
+        $all = Argument::type(All::class);
         $from = Argument::type(From::class);
         $listLogs = $this->prophesize(ListLogs::class);
         $move = $this->prophesize(Move::class);
@@ -207,7 +210,7 @@ class ConsolidateTest extends BtlrServiceTestCase
         // Stubs & Mocks
         $pointer->get($withConfig)
             ->willReturn($memoryPointer);
-        $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from)
+        $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from, subset: $all)
             ->willReturn($newLogs);
 
         $formatAsConversation->the($logsToSummarize)

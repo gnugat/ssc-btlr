@@ -7,6 +7,7 @@ namespace Ssc\Btlr\Cht\Message\Memory\Pointer;
 use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\Slice;
+use Ssc\Btlr\Cht\Message\Logs\ListLogs\Subset\All;
 use Ssc\Btlr\Cht\Message\Logs\MakeFilename;
 
 class Make
@@ -26,6 +27,7 @@ class Make
         $logs = $this->listLogs->in(
             $lastMessagesFilename,
             matching: new Slice(0, 1),
+            subset: new All(),
         );
         $filename = $this->makeFilename->for($logs[0], $withConfig);
         $brandNewMemoryPointer = [

@@ -8,6 +8,7 @@ use Prophecy\Argument;
 use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\Slice;
+use Ssc\Btlr\Cht\Message\Logs\ListLogs\Subset\All;
 use Ssc\Btlr\Cht\Message\Logs\MakeFilename;
 use Ssc\Btlr\Cht\Message\Logs\Type;
 use Ssc\Btlr\Cht\Message\Memory\Pointer\Make;
@@ -76,10 +77,11 @@ class MakeTest extends BtlrServiceTestCase
         $listLogs = $this->prophesize(ListLogs::class);
         $makeFilename = $this->prophesize(MakeFilename::class);
         $slice = Argument::type(Slice::class);
+        $all = Argument::type(All::class);
         $writeYamlFile = $this->prophesize(WriteYamlFile::class);
 
         // Stubs & Mocks
-        $listLogs->in($lastMessagesFilename, $slice)
+        $listLogs->in($lastMessagesFilename, matching: $slice, subset: $all)
             ->willReturn($logs);
         $makeFilename->for($logs[0], $withConfig)
             ->willReturn($firstMakeFilename);

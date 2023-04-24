@@ -6,6 +6,7 @@ namespace Ssc\Btlr\Cht\Message\Reply;
 
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\From;
+use Ssc\Btlr\Cht\Message\Logs\ListLogs\Subset\All;
 use Ssc\Btlr\Cht\Message\Logs\Messages\FormatAsConversation;
 use Ssc\Btlr\Cht\Message\Logs\Summaries\FormatAsReport;
 use Ssc\Btlr\Cht\Message\Logs\Type;
@@ -31,10 +32,12 @@ class Augment
         $memoryExtracts = $this->listLogs->in(
             "{$withConfig['logs_filename']}/summaries",
             matching: new From($memoryPointer['current']),
+            subset: new All(),
         );
         $lastMessagesLogs = $this->listLogs->in(
             "{$withConfig['logs_filename']}/messages",
             matching: new From($memoryPointer['current']),
+            subset: new All(),
         );
 
         return $this->template->replace([

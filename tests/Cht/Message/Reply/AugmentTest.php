@@ -7,6 +7,7 @@ namespace tests\Ssc\Btlr\Cht\Message\Reply;
 use Prophecy\Argument;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\From;
+use Ssc\Btlr\Cht\Message\Logs\ListLogs\Subset\All;
 use Ssc\Btlr\Cht\Message\Logs\Messages\FormatAsConversation;
 use Ssc\Btlr\Cht\Message\Logs\Summaries\FormatAsReport;
 use Ssc\Btlr\Cht\Message\Logs\Type;
@@ -61,6 +62,7 @@ class AugmentTest extends BtlrServiceTestCase
 
         // Dummies
         $from = Argument::type(From::class);
+        $all = Argument::type(All::class);
         $formatAsConversation = $this->prophesize(FormatAsConversation::class);
         $formatAsReport = $this->prophesize(FormatAsReport::class);
         $listLogs = $this->prophesize(ListLogs::class);
@@ -70,9 +72,9 @@ class AugmentTest extends BtlrServiceTestCase
         // Stubs & Mocks
         $pointer->get($withConfig)
             ->willReturn($memoryPointer);
-        $listLogs->in("{$withConfig['logs_filename']}/summaries", matching: $from)
+        $listLogs->in("{$withConfig['logs_filename']}/summaries", matching: $from, subset: $all)
             ->willReturn($memoryExtracts);
-        $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from)
+        $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from, subset: $all)
             ->willReturn($lastMessagesLogs);
         $formatAsReport->the($memoryExtracts)
             ->willReturn($report);
