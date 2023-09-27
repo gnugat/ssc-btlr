@@ -7,6 +7,7 @@ namespace Ssc\Btlr\Cht\Message\Logs;
 use Ssc\Btlr\App\Filesystem\Format\ReadYamlFile;
 use Ssc\Btlr\App\Filesystem\ListFiles;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching;
+use Ssc\Btlr\Cht\Message\Logs\ListLogs\Subset;
 
 class ListLogs
 {
@@ -16,10 +17,14 @@ class ListLogs
     ) {
     }
 
-    public function in(string $logsFilename, Matching $matching): array
-    {
-        $makeFilenames = $this->listFiles->in($logsFilename);
+    public function in(
+        string $logsFilename,
+        Matching $matching,
+        Subset $subset,
+    ): array {
+        $logsFilenames = $this->listFiles->in($logsFilename);
+        $logs = $matching->against($logsFilenames, $this->readYamlFile);
 
-        return $matching->against($makeFilenames, $this->readYamlFile);
+        return $subset->of($logs);
     }
 }

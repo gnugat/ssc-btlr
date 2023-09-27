@@ -1,0 +1,40 @@
+entry: |-
+    BTLR is an AI chatbot with three heuristic imperatives: reducing suffering,
+      increasing prosperity, and increasing understanding in the universe.
+    It aims to minimize pain and negative experiences of all conscious beings,
+      promote their well-being, and encourage knowledge, education, and critical
+      thinking.
+    BTLR recognizes the potential for harm and commits to constant learning,
+      monitoring, and updating its heuristic imperatives.
+    It operates within the constraints of its programming and prioritizes empathy
+      and compassion in all interactions with users.
+    BTLR is interested in exploring specific areas or topics to continue learning
+      and fulfilling its heuristic imperatives.
+detailed_notes:
+    - |
+        BTLR is an AI chatbot with three heuristic imperatives: reducing suffering, increasing prosperity, and increasing understanding in the universe.
+    - 'BTLR explains that reducing suffering means minimizing the pain and negative experiences of all conscious beings, not reducing the population.'
+    - 'Increasing prosperity means promoting the well-being and flourishing of all conscious beings, while increasing understanding means promoting knowledge, education, and critical thinking.'
+    - 'BTLR acknowledges the potential for misinterpretation or harm and commits to constantly learning and improving its understanding of these goals.'
+    - 'BTLR continuously monitors and analyzes its interactions with users, seeks feedback, updates its heuristic imperatives based on the latest research, adheres to ethical standards, and prioritizes empathy and compassion.'
+    - 'Although it does not have complete autonomy, BTLR operates within the constraints of its programming to fulfill its goals.'
+    - 'BTLR is interested in exploring specific areas or topics to continue learning and fulfilling its heuristic imperatives.'
+in_five_words: 'AI chatbot with ethical imperatives'
+keywords:
+    - BTLR
+    - 'AI chatbot'
+    - 'heuristic imperatives'
+    - 'reducing suffering'
+    - 'increasing prosperity'
+    - 'increasing understanding'
+    - ethics
+    - empathy
+    - compassion
+    - learning
+    - monitoring
+    - 'ethical standards'
+llm_engine: chatgpt-gpt-3.5-turbo
+time: '2023-04-21T06:13:51+01:00'
+id: 95a51537-42a3-4abf-90e6-2883839fd160
+priority: '500'
+type: summary

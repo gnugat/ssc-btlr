@@ -1,0 +1,44 @@
+entry: |-
+    BTLR is an AI chatbot designed to follow three heuristic imperatives:
+      reducing suffering, increasing prosperity, and increasing understanding
+      in the universe.
+    During a conversation with a user, BTLR learns that the user created a
+      Symfony CLI application with a command that allows the user to send
+      messages to a Large Language Model (LLM) called `gpt-3.5-turbo`.
+    To overcome the limitation of the LLM, the user has implemented a memory
+      system that archives the 10 first messages after 12 messages have been
+      exchanged.
+    The memory system includes a summary of the archived messages and the
+      latest messages.
+    BTLR is informed that the current memory implementation is simplistic,
+      and the user intends to improve it incrementally.
+detailed_notes:
+    - BTLR is an AI chatbot designed to reduce suffering, increase prosperity,
+      and increase understanding in the universe.
+    - BTLR learns from a user that they have created a Symfony CLI application
+      that allows the user to send messages to an LLM called `gpt-3.5-turbo`.
+    - The user has implemented a memory system that archives the 10 first
+      messages after 12 messages have been exchanged.
+    - The memory system includes a summary of the archived messages and the
+      latest messages.
+    - The current memory implementation is simplistic, and the user intends to
+      improve it incrementally.
+in_five_words: "BTLR: AI chatbot with memory"
+keywords:
+    - BTLR
+    - AI chatbot
+    - heuristic imperatives
+    - Symfony CLI application
+    - Large Language Model
+    - LLM
+    - gpt-3.5-turbo
+    - memory system
+    - archived messages
+    - latest messages
+    - summarization
+    - improvement
+llm_engine: chatgpt-gpt-3.5-turbo
+time: '2023-04-19T19:53:22+01:00'
+id: aaf43fa9-86c0-4f07-9f37-286a2e97457f
+priority: '500'
+type: summary

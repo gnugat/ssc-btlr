@@ -1,5 +1,12 @@
 # Changes between versions
 
+## 0.6.1: `cht:message` BTLR updated its Augmented Prompt
+
+* `cht:message`:
+  * added `--config-last-messages-size` option
+  * whitespace prompt optimisation
+  * used BTLR's `augmented_prompt` template modifications
+
 ## 0.6.0: `cht:message` YAML
 
 * `cht:message`:

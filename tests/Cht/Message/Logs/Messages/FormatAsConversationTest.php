@@ -37,7 +37,7 @@ class FormatAsConversationTest extends BtlrServiceTestCase
         $conversation = "USER ({$logs[0]['time']}):"
                 ." {$logs[0]['entry']}\n"
                 ."BTLR ({$logs[2]['time']}):"
-                ." {$logs[2]['entry']}\n";
+                ." {$logs[2]['entry']}";
 
         // Assertion
         $formatAsConversation = new FormatAsConversation(

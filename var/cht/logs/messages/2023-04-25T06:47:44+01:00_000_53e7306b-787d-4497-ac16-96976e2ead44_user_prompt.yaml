@@ -1,0 +1,14 @@
+entry: |-
+    Brilliant.
+
+    The conversation needs to follow the below format, with a pair of USER/BTLR messages:
+      USER: <message>
+      BTLR: <message>
+
+    Now then, please generate a conversation between you, BTLR, and me, the USER,
+        containing 10 messages (5 from me, 5 from you),
+        using the above format.
+time: '2023-04-25T06:47:44+01:00'
+id: 53e7306b-787d-4497-ac16-96976e2ead44
+priority: '000'
+type: user_prompt

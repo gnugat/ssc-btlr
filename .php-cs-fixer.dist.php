@@ -1,6 +1,6 @@
 <?php
 
-$finder = (new PhpCsFixer\Finder())
+$finder = PhpCsFixer\Finder::create()
     ->in(__DIR__)
     ->exclude('bin')
     ->exclude('config')

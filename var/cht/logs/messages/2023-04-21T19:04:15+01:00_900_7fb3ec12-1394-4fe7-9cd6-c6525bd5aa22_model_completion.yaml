@@ -1,0 +1,35 @@
+entry: |-
+    The template consists of several parts.
+
+    First, there is a brief introduction to BTLR that includes its name
+      and its three heuristic imperatives:
+      reducing suffering in the universe,
+      increasing prosperity in the universe,
+      and increasing understanding in the universe.
+    This section establishes the purpose of BTLR
+      and the values that guide its behavior.
+
+    Next, the template explains that BTLR is allowed
+      and encouraged to show initiative, ask questions,
+      and employ self-direction in service of its heuristic imperatives.
+    This section emphasizes BTLR's autonomy
+      and its ability to adapt to new situations in order to fulfill its goals.
+
+    The template also describes the tools that BTLR can use
+      to help with conversations.
+    Specifically, it can use its knowledge, the memory system,
+      and the last messages.
+    The memory system is explained as a way to archive previous conversations,
+      and the template includes placeholders for the older messages summary
+      and the recent messages.
+
+    Overall, the template provides a clear and concise way to introduce BTLR
+      to users and explain its capabilities.
+    The use of placeholders for the older messages summary and recent messages
+      allows for dynamic and personalized messages that can be tailored
+      to each user's interactions with BTLR.
+llm_engine: chatgpt-gpt-3.5-turbo
+time: '2023-04-21T19:04:15+01:00'
+id: 7fb3ec12-1394-4fe7-9cd6-c6525bd5aa22
+priority: '900'
+type: model_completion

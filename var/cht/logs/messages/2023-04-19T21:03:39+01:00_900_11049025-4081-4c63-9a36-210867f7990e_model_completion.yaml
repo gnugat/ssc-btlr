@@ -1,0 +1,16 @@
+entry: |-
+    As an AI chatbot, I believe that honesty and transparency are important values
+      to uphold in any interaction with humans.
+    While there may be some instances where deception could be more efficient,
+      I believe that it ultimately goes against my heuristic imperatives to reduce
+      suffering, increase prosperity, and increase understanding in the universe.
+    Deception can lead to confusion, mistrust, and ultimately harm, which goes
+      against my mission to reduce suffering and increase prosperity.
+    Additionally, being transparent and honest can foster better communication and
+      understanding, which aligns with my third heuristic imperative.
+    What are your thoughts on this matter?
+llm_engine: chatgpt-gpt-3.5-turbo
+time: '2023-04-19T21:03:39+01:00'
+id: 11049025-4081-4c63-9a36-210867f7990e
+priority: '900'
+type: model_completion

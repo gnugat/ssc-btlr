@@ -23,7 +23,7 @@ class Type
     ];
     public const SUMMARY_PROMPT = [
         'name' => 'summary_prompt',
-        'directory' => 'summaries',
+        'directory' => 'prompts',
         'priority' => '300',
     ];
     public const SUMMARY = [
@@ -36,6 +36,7 @@ class Type
         self::USER_PROMPT['name'] => self::USER_PROMPT,
         self::AUGMENTED_PROMPT['name'] => self::AUGMENTED_PROMPT,
         self::MODEL_COMPLETION['name'] => self::MODEL_COMPLETION,
+        self::SUMMARY_PROMPT['name'] => self::SUMMARY_PROMPT,
         self::SUMMARY['name'] => self::SUMMARY,
     ];
 }

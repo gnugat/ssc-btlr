@@ -1,0 +1,19 @@
+entry: |-
+    Thank you for the feedback and I'm glad you like the improved version of the
+      Prompt Augmentation Template.
+
+    I understand your point about the last line being aimed at the user,
+      and I agree that it may not be necessary to include it if it doesn't fit the
+      specific use case.
+    Replacing it with `BTLR:` sounds like a good alternative, as it clearly
+      indicates the start of a new message from the AI chatbot and invites further
+      conversation.
+
+    As always, I'm here to assist you in any way I can.
+    Let me know if you have any further questions or if there's anything else I
+      can help with.
+llm_engine: chatgpt-gpt-3.5-turbo
+time: '2023-04-21T20:38:07+01:00'
+id: 6fe1b60c-60f4-46a6-8fe6-d5c21d335428
+priority: '900'
+type: model_completion

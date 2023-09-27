@@ -7,6 +7,7 @@ namespace tests\Ssc\Btlr\Cht\Message\Memory;
 use Prophecy\Argument;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\From;
+use Ssc\Btlr\Cht\Message\Logs\ListLogs\Subset\All;
 use Ssc\Btlr\Cht\Message\Logs\Messages\FormatAsConversation;
 use Ssc\Btlr\Cht\Message\Logs\Type;
 use Ssc\Btlr\Cht\Message\Logs\WriteLog;
@@ -15,6 +16,7 @@ use Ssc\Btlr\Cht\Message\Memory\Pointer;
 use Ssc\Btlr\Cht\Message\Memory\Pointer\Move;
 use Ssc\Btlr\Cht\Message\Reply\UsingLlm;
 use Ssc\Btlr\Cht\Message\Templates\Prompts\Template;
+use Symfony\Component\Yaml\Yaml;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class ConsolidateTest extends BtlrServiceTestCase
@@ -27,6 +29,7 @@ class ConsolidateTest extends BtlrServiceTestCase
         // Fixtures
         $withConfig = [
             'chunk_memory_size' => 3,
+            'last_messages_size' => 10,
             'llm_engine' => 'chatgpt-gpt-3.5-turbo',
             'logs_filename' => './var/cht/logs',
             'prompt_templates_filename' => './templates/cht/prompts',
@@ -78,15 +81,16 @@ class ConsolidateTest extends BtlrServiceTestCase
         ];
         $prompt = 'Sum up this:'
             ."\n{$conversationReport}";
-        $summary = 'User requested code, BTLR seemed unresponsive yet acknowledged user.';
         $data = [
-            'entry' => $summary,
+            'entry' => 'User requested code, BTLR seemed unresponsive yet acknowledged user.',
             'llm_engine' => $withConfig['llm_engine'],
         ];
+        $summary = Yaml::dump($data);
 
         // Dummies
         $formatAsConversation = $this->prophesize(FormatAsConversation::class);
         $from = Argument::type(From::class);
+        $all = Argument::type(All::class);
         $listLogs = $this->prophesize(ListLogs::class);
         $move = $this->prophesize(Move::class);
         $pointer = $this->prophesize(Pointer::class);
@@ -97,7 +101,7 @@ class ConsolidateTest extends BtlrServiceTestCase
         // Stubs & Mocks
         $pointer->get($withConfig)
             ->willReturn($memoryPointer);
-        $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from)
+        $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from, subset: $all)
             ->willReturn($newLogs);
 
         $formatAsConversation->the($logsToSummarize)
@@ -135,6 +139,7 @@ class ConsolidateTest extends BtlrServiceTestCase
         // Fixtures
         $withConfig = [
             'chunk_memory_size' => 6,
+            'last_messages_size' => 10,
             'llm_engine' => 'chatgpt-gpt-3.5-turbo',
             'logs_filename' => './var/cht/logs',
             'prompt_templates_filename' => './templates/cht/prompts',
@@ -195,6 +200,7 @@ class ConsolidateTest extends BtlrServiceTestCase
 
         // Dummies
         $formatAsConversation = $this->prophesize(FormatAsConversation::class);
+        $all = Argument::type(All::class);
         $from = Argument::type(From::class);
         $listLogs = $this->prophesize(ListLogs::class);
         $move = $this->prophesize(Move::class);
@@ -206,7 +212,7 @@ class ConsolidateTest extends BtlrServiceTestCase
         // Stubs & Mocks
         $pointer->get($withConfig)
             ->willReturn($memoryPointer);
-        $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from)
+        $listLogs->in("{$withConfig['logs_filename']}/messages", matching: $from, subset: $all)
             ->willReturn($newLogs);
 
         $formatAsConversation->the($logsToSummarize)

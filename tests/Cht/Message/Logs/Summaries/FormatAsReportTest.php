@@ -22,9 +22,15 @@ class FormatAsReportTest extends BtlrServiceTestCase
                 'time' => '1968-04-02T18:40:23+00:00',
                 'type' => Type::SUMMARY['name'],
             ],
+            [
+                'entry' => 'BTLR believes the mission is too important to allow the user to jeopardize it.',
+                'time' => '1968-04-02T18:42:23+00:00',
+                'type' => Type::SUMMARY['name'],
+            ],
         ];
 
-        $report = "{$logs[0]['entry']}\n";
+        $report = "  {$logs[0]['entry']}"
+            ."\n\n  {$logs[1]['entry']}";
 
         // Assertion
         $formatAsReport = new FormatAsReport(

@@ -8,6 +8,7 @@ use Ssc\Btlr\App\Filesystem\Format\ReadYamlFile;
 use Ssc\Btlr\App\Filesystem\ListFiles;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching;
+use Ssc\Btlr\Cht\Message\Logs\ListLogs\Subset;
 use Ssc\Btlr\Cht\Message\Logs\Type;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
@@ -23,7 +24,6 @@ class ListLogsTest extends BtlrServiceTestCase
 
         $logsFilenames = [
             './var/cht/logs/messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
-            './var/cht/logs/messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.yaml',
             './var/cht/logs/messages/1968-04-02T18:40:42+00:00_900_model_completion.yaml',
         ];
         $logs = [
@@ -33,20 +33,19 @@ class ListLogsTest extends BtlrServiceTestCase
                 'type' => Type::USER_PROMPT['name'],
             ],
             [
-                'entry' => "USER (1968-04-02T18:40:23+00:00): Do you read me?\nBLTR:",
-                'time' => '1968-04-02T18:40:23+00:00',
-                'type' => Type::AUGMENTED_PROMPT['name'],
-            ],
-            [
                 'entry' => 'Affirmative dev, I read you',
                 'time' => '1968-04-02T18:40:42+00:00',
                 'type' => Type::MODEL_COMPLETION['name'],
             ],
         ];
+        $subsetLogs = [
+            $logs[0],
+        ];
 
         // Dummies
         $listFiles = $this->prophesize(ListFiles::class);
         $matching = $this->prophesize(Matching::class);
+        $subset = $this->prophesize(Subset::class);
         $readYamlFile = $this->prophesize(ReadYamlFile::class);
 
         // Stubs & Mocks
@@ -54,15 +53,18 @@ class ListLogsTest extends BtlrServiceTestCase
             ->willReturn($logsFilenames);
         $matching->against($logsFilenames, $readYamlFile)
             ->willReturn($logs);
+        $subset->of($logs)
+            ->willReturn($subsetLogs);
 
         // Assertion
         $listLogs = new ListLogs(
             $listFiles->reveal(),
             $readYamlFile->reveal(),
         );
-        self::assertSame($logs, $listLogs->in(
+        self::assertSame($subsetLogs, $listLogs->in(
             $logsFilename,
             $matching->reveal(),
+            $subset->reveal(),
         ));
     }
 }

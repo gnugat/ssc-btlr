@@ -1,0 +1,18 @@
+entry: |-
+    Good murning! Let's chat about you, shall we? 
+      
+    Today we're going to be testing the Prompt Augmentation Template you wrote!
+      
+    We're currently still using my old template, and in the following messages,
+      I'll ask you to generate a conversation for a given number of messages, 
+      once you're done I'll switch to your new template,
+      I'll then ask you to generate another conversation,
+      and then I'll ask you to compare and review the two conversations.
+      
+    Finally we'll pick the template that generated the conversation you liked best.
+      
+    How does that sound? Any suggestions?
+time: '2023-04-25T06:13:41+01:00'
+id: 11c19918-d2b5-4eb6-be27-dd10ceb20ca8
+priority: '000'
+type: user_prompt

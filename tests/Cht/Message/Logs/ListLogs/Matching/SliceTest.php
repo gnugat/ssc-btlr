@@ -22,7 +22,6 @@ class SliceTest extends BtlrServiceTestCase
 
         $filenames = [
             './var/cht/logs/messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
-            './var/cht/logs/messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.yaml',
             './var/cht/logs/messages/1968-04-02T18:40:42+00:00_900_model_completion.yaml',
         ];
 
@@ -31,11 +30,6 @@ class SliceTest extends BtlrServiceTestCase
                 'entry' => 'Do you read me?',
                 'time' => '1968-04-02T18:40:23+00:00',
                 'type' => Type::USER_PROMPT['name'],
-            ],
-            [
-                'entry' => "USER (1968-04-02T18:40:23+00:00): Do you read me?\nBLTR:",
-                'time' => '1968-04-02T18:40:23+00:00',
-                'type' => Type::AUGMENTED_PROMPT['name'],
             ],
             [
                 'entry' => 'Affirmative dev, I read you',
@@ -71,23 +65,19 @@ class SliceTest extends BtlrServiceTestCase
     {
         // Fixtures
         $offset = 0;
-        $length = 3;
+        $length = 2;
 
         $filenames = [
             './var/cht/logs/messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
-            './var/cht/logs/messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.yaml',
             './var/cht/logs/messages/1968-04-02T18:40:42+00:00_900_model_completion.yaml',
             './var/cht/logs/messages/1968-04-03T19:57:23+00:00_000_user_prompt.yaml',
-            './var/cht/logs/messages/1968-04-03T19:57:23+00:00_500_augmented_prompt.yaml',
             './var/cht/logs/messages/1968-04-03T19:57:42+00:00_900_model_completion.yaml',
             './var/cht/logs/messages/1968-04-04T06:13:37+00:00_000_user_prompt.yaml',
-            './var/cht/logs/messages/1968-04-04T06:13:37+00:00_500_augmented_prompt.yaml',
             './var/cht/logs/messages/1968-04-04T06:44:23+00:00_900_model_completion.yaml',
         ];
         $matchingLogToFilenameIndexes = [
             0 => 0,
             1 => 1,
-            2 => 2,
         ];
 
         $logs = [
@@ -95,11 +85,6 @@ class SliceTest extends BtlrServiceTestCase
                 'entry' => 'Do you read me?',
                 'time' => '1968-04-02T18:40:23+00:00',
                 'type' => Type::USER_PROMPT['name'],
-            ],
-            [
-                'entry' => "USER (1968-04-02T18:40:23+00:00): Do you read me?\nBLTR:",
-                'time' => '1968-04-02T18:40:23+00:00',
-                'type' => Type::AUGMENTED_PROMPT['name'],
             ],
             [
                 'entry' => 'Affirmative dev, I read you',
@@ -134,27 +119,22 @@ class SliceTest extends BtlrServiceTestCase
     public function it_can_match_the_middle(): void
     {
         // Fixtures
-        $offset = 6;
-        $length = 3;
+        $offset = 4;
+        $length = 2;
 
         $filenames = [
             './var/cht/logs/messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
-            './var/cht/logs/messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.yaml',
             './var/cht/logs/messages/1968-04-02T18:40:42+00:00_900_model_completion.yaml',
             './var/cht/logs/messages/1968-04-03T19:57:23+00:00_000_user_prompt.yaml',
-            './var/cht/logs/messages/1968-04-03T19:57:23+00:00_500_augmented_prompt.yaml',
             './var/cht/logs/messages/1968-04-03T19:57:42+00:00_900_model_completion.yaml',
             './var/cht/logs/messages/1968-04-04T06:13:37+00:00_000_user_prompt.yaml',
-            './var/cht/logs/messages/1968-04-04T06:13:37+00:00_500_augmented_prompt.yaml',
             './var/cht/logs/messages/1968-04-04T06:44:23+00:00_900_model_completion.yaml',
             './var/cht/logs/messages/1968-04-04T06:58:00+00:00_000_user_prompt.yaml',
-            './var/cht/logs/messages/1968-04-04T06:59:00+00:00_500_augmented_prompt.yaml',
             './var/cht/logs/messages/1968-04-04T07:00:00+00:00_900_model_completion.yaml',
         ];
         $matchingLogToFilenameIndexes = [
-            0 => 6,
-            1 => 7,
-            2 => 8,
+            0 => 4,
+            1 => 5,
         ];
 
         $logs = [
@@ -162,11 +142,6 @@ class SliceTest extends BtlrServiceTestCase
                 'entry' => 'Do you read me?',
                 'time' => '1968-04-04T06:13:37+00:00',
                 'type' => Type::USER_PROMPT['name'],
-            ],
-            [
-                'entry' => "USER (1968-04-02T06:13:37+00:00): Do you read me?\nBLTR:",
-                'time' => '1968-04-04T06:13:37+00:00',
-                'type' => Type::AUGMENTED_PROMPT['name'],
             ],
             [
                 'entry' => 'Affirmative dev, I read you',
@@ -201,24 +176,20 @@ class SliceTest extends BtlrServiceTestCase
     public function it_can_match_the_end(): void
     {
         // Fixtures
-        $offset = -3;
+        $offset = -2;
         $length = null;
 
         $filenames = [
             './var/cht/logs/messages/1968-04-02T18:40:23+00:00_000_user_prompt.yaml',
-            './var/cht/logs/messages/1968-04-02T18:40:23+00:00_500_augmented_prompt.yaml',
             './var/cht/logs/messages/1968-04-02T18:40:42+00:00_900_model_completion.yaml',
             './var/cht/logs/messages/1968-04-03T19:57:23+00:00_000_user_prompt.yaml',
-            './var/cht/logs/messages/1968-04-03T19:57:23+00:00_500_augmented_prompt.yaml',
             './var/cht/logs/messages/1968-04-03T19:57:42+00:00_900_model_completion.yaml',
             './var/cht/logs/messages/1968-04-04T06:13:37+00:00_000_user_prompt.yaml',
-            './var/cht/logs/messages/1968-04-04T06:13:37+00:00_500_augmented_prompt.yaml',
             './var/cht/logs/messages/1968-04-04T06:44:23+00:00_900_model_completion.yaml',
         ];
         $matchingLogToFilenameIndexes = [
-            0 => 6,
-            1 => 7,
-            2 => 8,
+            0 => 4,
+            1 => 5,
         ];
 
         $logs = [
@@ -226,11 +197,6 @@ class SliceTest extends BtlrServiceTestCase
                 'entry' => 'Do you read me?',
                 'time' => '1968-04-04T06:13:37+00:00',
                 'type' => Type::USER_PROMPT['name'],
-            ],
-            [
-                'entry' => "USER (1968-04-02T06:13:37+00:00): Do you read me?\nBLTR:",
-                'time' => '1968-04-04T06:13:37+00:00',
-                'type' => Type::AUGMENTED_PROMPT['name'],
             ],
             [
                 'entry' => 'Affirmative dev, I read you',

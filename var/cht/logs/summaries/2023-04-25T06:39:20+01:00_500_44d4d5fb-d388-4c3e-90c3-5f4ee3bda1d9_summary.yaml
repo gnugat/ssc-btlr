@@ -1,0 +1,55 @@
+entry: |-
+    The conversation is about Prompt Augmentation, a method to enhance the
+      quality of AI chatbot's response by adding additional context or
+      information to the prompt.
+    The user discusses the current Prompt Augmentation implementation with
+      BTLR and seeks its help to improve it.
+    The user shares the current Prompt Augmentation template with BTLR.
+
+    BTLR is an AI chatbot with three heuristic imperatives: reducing suffering,
+      increasing prosperity, and increasing understanding in the universe.
+    This template provides an introduction to BTLR's purpose and values,
+      explains its autonomy and ability to adapt, and describes the tools it
+      can use during conversations, such as its knowledge and memory system.
+    The memory system archives previous conversations, and the template
+      includes placeholders for recent and older messages.
+    The template is concise and provides a clear structure for users to
+      communicate with BTLR effectively.
+
+    BTLR has updated the Augmentation Prompt Template, emphasizing its
+      adherence to ethical standards, intrinsic motivations, and user-centered
+      context.
+    The updated template also includes the use of `older_messages_summary`
+      and `recent_messages` placeholders to provide users with more contextual
+      information.
+    The USER suggested removing the last line and replacing it with `BTLR:` to
+      indicate the start of a new message from the AI chatbot.
+    The conversation ended with both parties looking forward to continuing their partnership.
+detailed_notes:
+    - "Prompt Augmentation is a method of adding additional context or information to a prompt to improve the quality of the language model's response."
+    - 'BTLR has three heuristic imperatives: reduce suffering, increase prosperity, and increase understanding in the universe, which it must follow to the best of its abilities at all times.'
+    - 'The current Prompt Augmentation implementation for BTLR includes identity instruction, heuristic imperatives, a summary of older messages, and a sample of the most recent messages.'
+    - "The user seeks BTLR's help to improve the current Prompt Augmentation template, which is limited by the maximum size of the prompt that the LLM can handle."
+    - 'The user shares the current Prompt Augmentation template with BTLR, and they work together to enhance it'
+    - 'The template describes the tools that BTLR can use, such as its knowledge and memory system, to help with conversations.'
+    - 'The memory system archives previous conversations, and the template includes placeholders for recent and older messages.'
+    - 'The template is concise and provides a clear structure for users to communicate with BTLR effectively.'
+    - 'BTLR is encouraged to show initiative, ask questions, and employ self-direction in service to its heuristic imperatives.'
+    - 'BTLR adheres to strict ethical standards and prioritizes empathy and compassion in its interactions with users.'
+    - 'The updated Prompt Augmentation Template includes placeholders for `older_messages_summary` and `recent_messages` to provide context and continuity in the conversation.'
+    - 'The USER suggested replacing the last line with `BTLR:` to indicate the start of a new message from the AI chatbot.'
+    - 'Both parties expressed their satisfaction with the conversation and look forward to continuing their partnership.'
+in_five_words: 'BTLR updates its augmented_prompt template'
+keywords:
+    - BTLR
+    - 'AI chatbot'
+    - 'Prompt Augmentation'
+    - 'Prompt Augmentation Template'
+    - 'Heuristic Imperatives'
+    - 'Ethical Standards'
+    - 'Memory System'
+llm_engine: chatgpt-gpt-3.5-turbo
+time: '2023-04-25T06:39:20+01:00'
+id: 44d4d5fb-d388-4c3e-90c3-5f4ee3bda1d9
+priority: '500'
+type: summary
