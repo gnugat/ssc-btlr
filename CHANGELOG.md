@@ -1,5 +1,14 @@
 # Changes between versions
 
+## 0.7.0 Introducing `cdr:generate-class-from-template`
+
+* `cdr:generate-class-from-template`:
+  * Find class filename based on the given FQCN and composer's autoload config
+  * Retrieve namespace placeholder value from the given FQCN
+  * Retrieve class name placeholder value from the given FQCN
+  * Read template file content and replace its placeholders, to generate code
+  * Write generated code in filename
+
 ## 0.6.1: `cht:message` BTLR updated its Augmented Prompt
 
 * `cht:message`:

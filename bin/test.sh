@@ -44,7 +44,13 @@ echo ''
 
 composer --quiet dump-autoload --optimize --apcu
 rm -rf var/tests
+
+# Cht
 mkdir -p var/tests/var/cht/logs/summaries
+
+# Fixtures
+mkdir -p ./var/tests/
+cp -r ./fixtures ./var/tests/
 
 vendor/bin/phpunit $_STOP_ON_FAILURE && \
     PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run

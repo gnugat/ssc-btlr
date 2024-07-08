@@ -16,11 +16,15 @@ class ListCommands extends BtlrCommand
 {
     public const NAME = 'list-commands';
     public const ARGUMENTS = [
+        'cdr' => null,
         'cht' => null,
         'lck' => null,
     ];
 
     private const COMMANDS = [
+        'cdr' => [
+            Cdr\GenerateClassFromTemplate::class,
+        ],
         'cht' => [
             Cht\Message::class,
         ],
