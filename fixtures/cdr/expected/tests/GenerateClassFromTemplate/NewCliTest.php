@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace tests\SscBtlr\CdrGenerateClassFromTemplate\Folder;
+namespace tests\SscBtlr\Cdr\GenerateClassFromTemplate;
 
-use SscBtlr\CdrGenerateClassFromTemplate\NewCli;
+use SscBtlr\Cdr\GenerateClassFromTemplate\NewCli;
 use tests\Ssc\Btlr\AppTest\BtlrCliTestCase;
 
 class NewCliTest extends BtlrCliTestCase

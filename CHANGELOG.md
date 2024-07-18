@@ -1,5 +1,14 @@
 # Changes between versions
 
+## 0.8.0 Introducing `cdr:generate-prompt-from-template`
+
+* `cdr:generate-prompt-from-template`:
+  * Retrieve test class code example content from given filename
+  * Retrieve corresponding class code example content from given filename
+  * Retrieve test classe code content given from filename
+  * Read template file content and replace its placeholders, to generate prompt
+  * Display generated prompt in terminal
+
 ## 0.7.0 Introducing `cdr:generate-class-from-template`
 
 * `cdr:generate-class-from-template`:

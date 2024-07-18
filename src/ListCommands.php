@@ -24,6 +24,7 @@ class ListCommands extends BtlrCommand
     private const COMMANDS = [
         'cdr' => [
             Cdr\GenerateClassFromTemplate::class,
+            Cdr\GeneratePromptFromTemplate::class,
         ],
         'cht' => [
             Cht\Message::class,
