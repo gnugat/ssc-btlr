@@ -6,23 +6,16 @@ namespace tests\Ssc\Btlr\AppTest;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Tester\ApplicationTester;
+use tests\Ssc\Btlr\AppTest\Symfony\ApplicationTesterSingleton;
 
 class BtlrCliTestCase extends TestCase
 {
-    protected ApplicationTester $app;
-
-    protected function setUp(): void
-    {
-        $this->app = BtlrTestApplication::make();
-    }
-
     public function shouldFail(int $statusCode): void
     {
         self::assertSame(
             Command::FAILURE,
             $statusCode,
-            $this->app->getDisplay(),
+            ApplicationTesterSingleton::get()->getDisplay(),
         );
     }
 
@@ -31,7 +24,7 @@ class BtlrCliTestCase extends TestCase
         self::assertSame(
             Command::SUCCESS,
             $statusCode,
-            $this->app->getDisplay(),
+            ApplicationTesterSingleton::get()->getDisplay(),
         );
     }
 }

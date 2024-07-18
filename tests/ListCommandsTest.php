@@ -7,6 +7,7 @@ namespace tests\Ssc\Btlr;
 use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\ListCommands;
 use tests\Ssc\Btlr\AppTest\BtlrCliTestCase;
+use tests\Ssc\Btlr\AppTest\Symfony\ApplicationTesterSingleton;
 
 class ListCommandsTest extends BtlrCliTestCase
 {
@@ -17,7 +18,7 @@ class ListCommandsTest extends BtlrCliTestCase
             ListCommands::NAME,
         ];
 
-        $statusCode = $this->app->run($input);
+        $statusCode = ApplicationTesterSingleton::get()->run($input);
 
         $this->shouldSucceed($statusCode);
     }

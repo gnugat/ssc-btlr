@@ -7,6 +7,7 @@ namespace tests\Ssc\Btlr\Cdr;
 use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\Cdr\GenerateClassFromTemplate;
 use tests\Ssc\Btlr\AppTest\BtlrCliTestCase;
+use tests\Ssc\Btlr\AppTest\Symfony\ApplicationTesterSingleton;
 
 class GenerateClassFromTemplateTest extends BtlrCliTestCase
 {
@@ -25,7 +26,7 @@ class GenerateClassFromTemplateTest extends BtlrCliTestCase
             '--class-fqcn' => 'tests\\SscBtlr\\CdrGenerateClassFromTemplate\\Folder\\NewCliTest',
         ];
 
-        $statusCode = $this->app->run($input);
+        $statusCode = ApplicationTesterSingleton::get()->run($input);
 
         $this->shouldSucceed($statusCode);
     }
