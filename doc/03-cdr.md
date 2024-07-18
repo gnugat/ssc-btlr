@@ -77,13 +77,12 @@ Here's what the template could look like:
 
 namespace %namespace%;
 
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class %class_name% extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_()
     {
         $this->assertSame(true, true);

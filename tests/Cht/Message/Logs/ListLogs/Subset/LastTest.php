@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\Logs\ListLogs\Subset;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Subset\Last;
 use Ssc\Btlr\Cht\Message\Logs\Type;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class LastTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_can_return_last_x_logs(): void
     {
         // Fixtures
@@ -64,9 +63,7 @@ class LastTest extends BtlrServiceTestCase
         ));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_can_return_all(): void
     {
         // Fixtures
@@ -114,9 +111,7 @@ class LastTest extends BtlrServiceTestCase
         ));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_can_return_none(): void
     {
         // Fixtures
@@ -165,9 +160,7 @@ class LastTest extends BtlrServiceTestCase
         ));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_returns_all_if_x_is_invalid(): void
     {
         // Fixtures

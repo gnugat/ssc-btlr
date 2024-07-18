@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\Memory;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\App\Filesystem\FileExists;
 use Ssc\Btlr\App\Filesystem\Format\ReadYamlFile;
 use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
@@ -14,9 +15,7 @@ use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class PointerTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_points_to_the_latest_memorised_log(): void
     {
         // Fixtures
@@ -101,9 +100,7 @@ class PointerTest extends BtlrServiceTestCase
         ));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_makes_brand_new_one_if_it_did_not_already_exist(): void
     {
         // Fixtures

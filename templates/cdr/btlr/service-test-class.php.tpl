@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace %fully_qualified_name.namespace%;
 
+use PHPUnit\Framework\Attributes\Test;
 use Sut;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class %fully_qualified_name.name% extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_(): void
     {
         // Fixtures

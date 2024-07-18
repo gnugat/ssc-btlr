@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\Logs\ListLogs\Subset;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Subset\All;
 use Ssc\Btlr\Cht\Message\Logs\Type;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class AllTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_returns_all(): void
     {
         // Fixtures

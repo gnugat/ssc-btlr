@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\Memory;
 
+use PHPUnit\Framework\Attributes\Test;
 use Prophecy\Argument;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\From;
@@ -21,9 +22,7 @@ use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class ConsolidateTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_sums_up_messages_that_have_not_been_yet(): void
     {
         // Fixtures
@@ -131,9 +130,7 @@ class ConsolidateTest extends BtlrServiceTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_does_nothing_if_there_are_not_enough_new_messages(): void
     {
         // Fixtures

@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace tests\SscBtlr\Cdr\GenerateClassFromTemplate;
 
+use PHPUnit\Framework\Attributes\Test;
 use SscBtlr\Cdr\GenerateClassFromTemplate\NewCli;
 use tests\Ssc\Btlr\AppTest\BtlrCliTestCase;
 
 class NewCliTest extends BtlrCliTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_(): void
     {
         $input = [

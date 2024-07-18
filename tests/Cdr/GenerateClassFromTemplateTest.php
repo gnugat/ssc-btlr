@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cdr;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\Cdr\GenerateClassFromTemplate;
 use tests\Ssc\Btlr\AppTest\BtlrCliTestCase;
 
 class GenerateClassFromTemplateTest extends BtlrCliTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_generates_class_from_template(): void
     {
         $root = __DIR__.'/../../';

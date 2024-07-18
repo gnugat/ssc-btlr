@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Lck;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\Lck\GenerateKeys;
 use tests\Ssc\Btlr\AppTest\BtlrCliTestCase;
 
 class GenerateKeysTest extends BtlrCliTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_generates_keys(): void
     {
         $forTests = __DIR__.'/../../var/tests';
@@ -26,9 +25,7 @@ class GenerateKeysTest extends BtlrCliTestCase
         $this->shouldSucceed($statusCode);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_fails_if_keys_already_exist(): void
     {
         $forTests = __DIR__.'/../../var/tests';

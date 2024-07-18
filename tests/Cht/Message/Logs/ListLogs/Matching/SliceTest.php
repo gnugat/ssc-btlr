@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\App\Filesystem\Format\ReadYamlFile;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\Slice;
 use Ssc\Btlr\Cht\Message\Logs\Type;
@@ -11,9 +12,7 @@ use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class SliceTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_can_match_all(): void
     {
         // Fixtures
@@ -58,9 +57,7 @@ class SliceTest extends BtlrServiceTestCase
         ));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_can_match_the_begining(): void
     {
         // Fixtures
@@ -113,9 +110,7 @@ class SliceTest extends BtlrServiceTestCase
         ));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_can_match_the_middle(): void
     {
         // Fixtures
@@ -170,9 +165,7 @@ class SliceTest extends BtlrServiceTestCase
         ));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_can_match_the_end(): void
     {
         // Fixtures

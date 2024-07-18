@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\App\JsonPath;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\App\JsonPath\Get;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class GetTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_gets_value_of_given_key_at_the_first_level(): void
     {
         $parameters = [
@@ -27,9 +26,7 @@ class GetTest extends BtlrServiceTestCase
         self::assertSame('project', (new Get())->in($parameters, '$.type'));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_gets_value_of_given_key_at_deeper_levels(): void
     {
         $parameters = [
@@ -48,9 +45,7 @@ class GetTest extends BtlrServiceTestCase
         self::assertSame('./bin/test.sh', (new Get())->in($parameters, '$.scripts.test'));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_gets_the_second_key_value_pair_of_an_object(): void
     {
         $parameters = [

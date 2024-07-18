@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\Cht\Message;
 use tests\Ssc\Btlr\AppTest\BtlrCliTestCase;
 
 class MessageTest extends BtlrCliTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_replies_to_user_prompt_using_llm(): void
     {
         $root = __DIR__.'/../..';

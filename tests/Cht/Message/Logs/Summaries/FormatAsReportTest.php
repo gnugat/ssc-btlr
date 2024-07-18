@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\Logs\Summaries;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\Cht\Message\Logs\Summaries\FormatAsReport;
 use Ssc\Btlr\Cht\Message\Logs\Type;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class FormatAsReportTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_formats_logs_as_report(): void
     {
         // Fixtures
