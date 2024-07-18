@@ -3,12 +3,12 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "SscBtlr\\CdrGenerateClassFromTemplate\\": "src/"
+            "SscBtlr\\Cdr\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "tests\\SscBtlr\\CdrGenerateClassFromTemplate\\": "tests/"
+            "tests\\SscBtlr\\Cdr\\": "tests/"
         }
     },
     "require": {}

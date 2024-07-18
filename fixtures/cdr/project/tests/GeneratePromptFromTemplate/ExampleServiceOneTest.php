@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\Ssc\Btlr\Cdr\Generate;
+namespace tests\SscBtlr\Cdr\GeneratePromptFromTemplate;
 
 use Ssc\Btlr\App\Code\Model\FullyQualifiedName;
 use Ssc\Btlr\App\Filesystem\BuildPath;
@@ -11,10 +11,10 @@ use Ssc\Btlr\App\Filesystem\ReadFile;
 use Ssc\Btlr\App\Filesystem\WriteFile;
 use Ssc\Btlr\App\JsonPath\Get;
 use Ssc\Btlr\App\Template\Replace;
-use Ssc\Btlr\Cdr\Generate\ClassFromTemplate;
+use SscBtlr\Cdr\GeneratePromptFromTemplate\ExampleServiceOne;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
-class ClassFromTemplateTest extends BtlrServiceTestCase
+class ExampleServiceOneTest extends BtlrServiceTestCase
 {
     /**
      * @test
@@ -79,7 +79,7 @@ class ClassFromTemplateTest extends BtlrServiceTestCase
             ->shouldBeCalled();
 
         // Assertion
-        $classFromTemplate = new ClassFromTemplate(
+        $exampleServiceOne = new ExampleServiceOne(
             $buildPath->reveal(),
             $get->reveal(),
             $readFile->reveal(),
@@ -87,7 +87,7 @@ class ClassFromTemplateTest extends BtlrServiceTestCase
             $replace->reveal(),
             $writeFile->reveal(),
         );
-        self::assertSame($classFilename, $classFromTemplate->using(
+        self::assertSame($classFilename, $exampleServiceOne->using(
             $projectFilename,
             $composerConfigFilename,
             $composerParameterNamespacePathMap,
