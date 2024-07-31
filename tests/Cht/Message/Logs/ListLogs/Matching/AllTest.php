@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\App\Filesystem\Format\ReadYamlFile;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\All;
 use Ssc\Btlr\Cht\Message\Logs\Type;
@@ -11,9 +12,7 @@ use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class AllTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_matches_against_all(): void
     {
         // Fixtures

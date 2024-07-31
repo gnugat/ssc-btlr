@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\App;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\App\Stdio;
 use Ssc\Btlr\App\Stdio\Write;
 use Ssc\Btlr\App\Stdio\Write\WithStyle;
@@ -13,9 +14,7 @@ use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class StdioTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_is_a_shortcut_for_stdio_write(): void
     {
         // Fixtures

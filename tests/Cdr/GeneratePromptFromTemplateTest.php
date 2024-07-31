@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cdr;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\Cdr\GeneratePromptFromTemplate;
 use tests\Ssc\Btlr\AppTest\BtlrCliTestCase;
+use tests\Ssc\Btlr\AppTest\Symfony\ApplicationTesterSingleton;
 
 class GeneratePromptFromTemplateTest extends BtlrCliTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_generates_prompt_from_template(): void
     {
         $root = __DIR__.'/../../';
@@ -26,7 +26,7 @@ class GeneratePromptFromTemplateTest extends BtlrCliTestCase
             '--test-class-code-filename' => "{$projectFilename}tests/GeneratePromptFromTemplate/ServiceTwoTest.php",
         ];
 
-        $statusCode = $this->app->run($input);
+        $statusCode = ApplicationTesterSingleton::get()->run($input);
 
         $this->shouldSucceed($statusCode);
     }

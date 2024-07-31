@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\App\Code\Model;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\App\Code\Model\FullyQualifiedName;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class FullyQualifiedNameTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_has_fully_qualified_classname(): void
     {
         $fullyQualifiedName = new FullyQualifiedName('Vendor\Project\MyClass');
@@ -19,9 +18,7 @@ class FullyQualifiedNameTest extends BtlrServiceTestCase
         self::assertSame('Vendor\Project\MyClass', $fullyQualifiedName->fullyQualifiedName);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_has_name(): void
     {
         $fullyQualifiedName = new FullyQualifiedName('Vendor\Project\MyClass');
@@ -29,9 +26,7 @@ class FullyQualifiedNameTest extends BtlrServiceTestCase
         self::assertSame('MyClass', $fullyQualifiedName->getName());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_has_namespace(): void
     {
         $fullyQualifiedName = new FullyQualifiedName('Vendor\Project\MyClass');
@@ -39,9 +34,7 @@ class FullyQualifiedNameTest extends BtlrServiceTestCase
         self::assertSame('Vendor\Project', $fullyQualifiedName->getNamespace());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_can_have_an_alias(): void
     {
         $fullyQualifiedName = new FullyQualifiedName('Vendor\Project\MyClass');
@@ -58,9 +51,7 @@ class FullyQualifiedNameTest extends BtlrServiceTestCase
         self::assertSame('MyClass', $fullyQualifiedName->getName());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_normalizes_float_name(): void
     {
         $fullyQualifiedName = new FullyQualifiedName('float');

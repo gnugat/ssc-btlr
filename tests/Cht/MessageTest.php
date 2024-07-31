@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\Cht\Message;
 use tests\Ssc\Btlr\AppTest\BtlrCliTestCase;
+use tests\Ssc\Btlr\AppTest\Symfony\ApplicationTesterSingleton;
 
 class MessageTest extends BtlrCliTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_replies_to_user_prompt_using_llm(): void
     {
         $root = __DIR__.'/../..';
@@ -25,12 +25,12 @@ class MessageTest extends BtlrCliTestCase
             '--config-prompt-templates-filename' => "{$root}/templates/cht/prompts",
             '--manual-mode' => 'true',
         ];
-        $this->app->setInputs([
+        ApplicationTesterSingleton::get()->setInputs([
             'user_prompt' => 'Write code for me, please',
             'model_completion' => "I'm sorry, dev. I'm afraid I can't do that.",
         ]);
 
-        $statusCode = $this->app->run($input);
+        $statusCode = ApplicationTesterSingleton::get()->run($input);
 
         $this->shouldSucceed($statusCode);
     }

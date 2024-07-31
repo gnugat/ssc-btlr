@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\Logs;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\App\Template\Replace;
 use Ssc\Btlr\Cht\Message\Logs\MakeFilename;
 use Ssc\Btlr\Cht\Message\Logs\Type;
@@ -11,9 +12,7 @@ use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class MakeFilenameTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_makes_a_log_filename(): void
     {
         // Fixtures

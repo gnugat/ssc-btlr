@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Lck\GenerateKeys;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\App\Filesystem\FileExists;
 use Ssc\Btlr\App\Filesystem\WriteFile;
 use Ssc\Btlr\App\Sodium\CryptoBox;
@@ -13,9 +14,7 @@ use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class UsingSodiumTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_generates_keys_using_sodium_and_saves_them_on_filesystem(): void
     {
         // Fixtures
@@ -59,9 +58,7 @@ class UsingSodiumTest extends BtlrServiceTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_fails_if_private_key_file_already_exists(): void
     {
         // Fixtures
@@ -109,9 +106,7 @@ class UsingSodiumTest extends BtlrServiceTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_fails_if_public_key_file_already_exists(): void
     {
         // Fixtures

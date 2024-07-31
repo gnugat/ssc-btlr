@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\SscBtlr\Cdr\GeneratePromptFromTemplate;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\App\Code\Model\FullyQualifiedName;
 use Ssc\Btlr\App\Filesystem\BuildPath;
 use Ssc\Btlr\App\Filesystem\Format\ReadJsonFile;
@@ -16,9 +17,7 @@ use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class ExampleServiceOneTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_generates_class_from_template(): void
     {
         // Fixtures

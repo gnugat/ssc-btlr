@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\Reply;
 
+use PHPUnit\Framework\Attributes\Test;
 use Prophecy\Argument;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs\Matching\From;
@@ -19,9 +20,7 @@ use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class AugmentTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_augments_user_prompt(): void
     {
         // Fixtures

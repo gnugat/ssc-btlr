@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\Logs;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
 use Ssc\Btlr\App\Identifier\Uuid;
 use Ssc\Btlr\App\Time\Clock;
@@ -14,9 +15,7 @@ use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class WriteLogTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_writes_log_entry(): void
     {
         // Fixtures

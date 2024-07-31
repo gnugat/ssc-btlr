@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\App\Stdio;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\App\Stdio\Write;
 use Ssc\Btlr\App\Stdio\Write\WithStyle;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -11,9 +12,7 @@ use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class WriteTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_uses_given_style_to_writes_the_message_on_output(): void
     {
         // Dummies
@@ -52,9 +51,7 @@ class WriteTest extends BtlrServiceTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_uses_default_style_if_given_one_is_not_in_the_configured_ones(): void
     {
         // Dummies

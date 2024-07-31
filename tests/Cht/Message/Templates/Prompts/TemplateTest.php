@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\Templates\Prompts;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\App\Filesystem\ReadFile;
 use Ssc\Btlr\App\Template\Replace;
 use Ssc\Btlr\Cht\Message\Logs\Type;
@@ -13,9 +14,7 @@ use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class TemplateTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_creates_prompt_from_template(): void
     {
         // Fixtures

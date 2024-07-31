@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\Memory\Pointer;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
 use Ssc\Btlr\Cht\Message\Logs\MakeFilename;
 use Ssc\Btlr\Cht\Message\Logs\Type;
@@ -12,9 +13,7 @@ use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class MoveTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_moves_the_memory_pointer_to_the_given_log(): void
     {
         // Fixtures

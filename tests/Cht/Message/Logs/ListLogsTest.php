@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\Logs;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\App\Filesystem\Format\ReadYamlFile;
 use Ssc\Btlr\App\Filesystem\ListFiles;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
@@ -14,9 +15,7 @@ use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class ListLogsTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_lists_logs_that_match_against_given_criteria(): void
     {
         // Fixtures

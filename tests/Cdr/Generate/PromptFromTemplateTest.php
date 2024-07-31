@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cdr\Generate;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\App\Filesystem\ReadFile;
 use Ssc\Btlr\App\Template\Replace;
 use Ssc\Btlr\Cdr\Generate\PromptFromTemplate;
@@ -11,9 +12,7 @@ use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class PromptFromTemplateTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_generates_prompt_from_template(): void
     {
         // Fixtures

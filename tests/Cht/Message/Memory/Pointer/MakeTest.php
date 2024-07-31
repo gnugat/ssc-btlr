@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\Memory\Pointer;
 
+use PHPUnit\Framework\Attributes\Test;
 use Prophecy\Argument;
 use Ssc\Btlr\App\Filesystem\Format\WriteYamlFile;
 use Ssc\Btlr\Cht\Message\Logs\ListLogs;
@@ -16,9 +17,7 @@ use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class MakeTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_points_to_the_first_log(): void
     {
         // Fixtures

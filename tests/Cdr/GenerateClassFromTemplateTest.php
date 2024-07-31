@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cdr;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\Cdr\GenerateClassFromTemplate;
 use tests\Ssc\Btlr\AppTest\BtlrCliTestCase;
+use tests\Ssc\Btlr\AppTest\Symfony\ApplicationTesterSingleton;
 
 class GenerateClassFromTemplateTest extends BtlrCliTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_generates_class_from_template(): void
     {
         $root = __DIR__.'/../../';
@@ -26,7 +26,7 @@ class GenerateClassFromTemplateTest extends BtlrCliTestCase
             '--class-fqcn' => 'tests\\SscBtlr\\CdrGenerateClassFromTemplate\\Folder\\NewCliTest',
         ];
 
-        $statusCode = $this->app->run($input);
+        $statusCode = ApplicationTesterSingleton::get()->run($input);
 
         $this->shouldSucceed($statusCode);
     }

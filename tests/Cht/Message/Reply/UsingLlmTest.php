@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\Cht\Message\Reply;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\Cht\Message\Reply\UsingLlm;
 use Ssc\Btlr\Cht\Message\Reply\UsingLlm\Engine;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class UsingLlmTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_uses_large_language_model_engines_to_complete_prompts(): void
     {
         // Fixtures
@@ -36,9 +35,7 @@ class UsingLlmTest extends BtlrServiceTestCase
         self::assertSame($completion, $actualCompletion);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_can_switch_to_a_different_engine(): void
     {
         // Fixtures

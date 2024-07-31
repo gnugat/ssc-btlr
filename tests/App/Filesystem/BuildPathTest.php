@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace tests\Ssc\Btlr\App\Filesystem;
 
+use PHPUnit\Framework\Attributes\Test;
 use Ssc\Btlr\App\Filesystem\BuildPath;
 use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
 class BuildPathTest extends BtlrServiceTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function it_builds_a_path_by_joining_sub_paths(): void
     {
         self::assertSame('./composer.json', (new BuildPath())->joining('.', 'composer.json'));
