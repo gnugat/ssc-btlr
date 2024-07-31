@@ -45,9 +45,6 @@ echo ''
 composer --quiet dump-autoload --optimize --apcu
 rm -rf var/tests
 
-# Cht
-mkdir -p var/tests/var/cht/logs/summaries
-
 # Fixtures
 mkdir -p ./var/tests/
 cp -r ./fixtures ./var/tests/
