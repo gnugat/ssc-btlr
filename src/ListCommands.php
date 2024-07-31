@@ -17,7 +17,6 @@ class ListCommands extends BtlrCommand
     public const NAME = 'list-commands';
     public const ARGUMENTS = [
         'cdr' => null,
-        'cht' => null,
         'lck' => null,
     ];
 
@@ -25,9 +24,6 @@ class ListCommands extends BtlrCommand
         'cdr' => [
             Cdr\GenerateClassFromTemplate::class,
             Cdr\GeneratePromptFromTemplate::class,
-        ],
-        'cht' => [
-            Cht\Message::class,
         ],
         'lck' => [
             Lck\GenerateKeys::class,

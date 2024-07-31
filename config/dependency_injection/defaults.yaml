@@ -1,6 +1,3 @@
-imports:
-    - { resource: cht/ }
-
 services:
     _defaults:
         autowire: true
