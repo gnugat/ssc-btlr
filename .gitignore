@@ -1,10 +1,12 @@
 # Local configurations
+/phpstan.neon
 /.php-cs-fixer.php
 /phpunit.xml
 
 # Temporary files
 /.php-cs-fixer.cache
 /.phpunit.result.cache
+/.phpstan-cache/*
 /vendor/*
 /var/tests/*
 

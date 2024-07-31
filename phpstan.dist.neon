@@ -1,0 +1,10 @@
+includes:
+    - phpstan-baseline.neon
+    - vendor/jangregor/phpstan-prophecy/extension.neon
+
+parameters:
+    level: 5
+    tmpDir: .phpstan-cache
+    paths:
+        - src
+        - tests
