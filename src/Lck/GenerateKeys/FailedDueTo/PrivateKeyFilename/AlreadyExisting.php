@@ -8,5 +8,5 @@ use Ssc\Btlr\Lck\GenerateKeys\FailedDueTo;
 
 class AlreadyExisting extends FailedDueTo\PrivateKeyFilename
 {
-    public const VIOLATED_RULE = 'new, but one already exists';
+    public const string VIOLATED_RULE = 'new, but one already exists';
 }

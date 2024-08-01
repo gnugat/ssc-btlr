@@ -13,7 +13,7 @@ use Symfony\Component\Console\Question\Question;
 
 class Stdio
 {
-    public const EMPTY_LINE = '';
+    public const string EMPTY_LINE = '';
 
     public function __construct(
         private InputInterface $input,

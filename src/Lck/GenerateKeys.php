@@ -15,13 +15,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class GenerateKeys extends BtlrCommand
 {
-    public const NAME = 'lck:generate-keys';
-    public const ARGUMENTS = [
+    public const string NAME = 'lck:generate-keys';
+    /** @var array<string, ?string> ARGUMENTS */
+    public const array ARGUMENTS = [
         'private-key-filename' => './config/lck/private_decrypting_key',
         'public-key-filename' => './config/lck/public_encrypting_key',
     ];
 
-    protected static $defaultName = self::NAME;
+    protected static string $defaultName = self::NAME;
 
     public function __construct(
         private ConfigureCommand $configureCommand,

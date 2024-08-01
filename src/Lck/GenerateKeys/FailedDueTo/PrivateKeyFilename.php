@@ -8,5 +8,5 @@ use Ssc\Btlr\App\Failed;
 
 class PrivateKeyFilename extends Failed\DueTo
 {
-    public const FIELD = 'private-key-filename';
+    public const string FIELD = 'private-key-filename';
 }

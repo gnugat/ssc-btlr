@@ -8,6 +8,7 @@ use Ssc\Btlr\App\BtlrApplication;
 
 class InlineCommand
 {
+    /** @param array<string, ?string> $arguments */
     public function using(
         string $name,
         array $arguments,

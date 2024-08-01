@@ -9,14 +9,15 @@ use Symfony\Component\Yaml\Yaml;
 
 class WriteYamlFile
 {
-    private const EXPANDED_ARRAYS = 2;
-    private const INDENTATION = 4;
+    private const int EXPANDED_ARRAYS = 2;
+    private const int INDENTATION = 4;
 
     public function __construct(
         private WriteFile $writeFile,
     ) {
     }
 
+    /** @param array<string, mixed> $content */
     public function in(
         string $filename,
         array $content,

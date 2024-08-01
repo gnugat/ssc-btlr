@@ -6,6 +6,7 @@ namespace Ssc\Btlr\App\Filesystem;
 
 class ListFiles
 {
+    /** @return array<int, string> */
     public function in(string $directory): array
     {
         $filenames = [];

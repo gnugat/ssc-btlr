@@ -8,5 +8,5 @@ use Ssc\Btlr\App\JsonPath\FailedDueTo;
 
 class MissingStartingDollar extends FailedDueTo\Path
 {
-    public const VIOLATED_RULE = 'starting with "$." to be valid JSON Path';
+    public const string VIOLATED_RULE = 'starting with "$." to be valid JSON Path';
 }

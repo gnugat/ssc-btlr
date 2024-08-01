@@ -13,6 +13,7 @@ class ReadJsonFile
     ) {
     }
 
+    /** @return array<string, mixed> */
     public function in(string $filename): array
     {
         return \json_decode($this->readFile->in($filename), flags: \JSON_OBJECT_AS_ARRAY | \JSON_THROW_ON_ERROR);

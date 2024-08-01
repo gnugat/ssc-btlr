@@ -14,8 +14,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class GenerateClassFromTemplate extends BtlrCommand
 {
-    public const NAME = 'cdr:generate-class-from-template';
-    public const ARGUMENTS = [
+    public const string NAME = 'cdr:generate-class-from-template';
+    /** @var array<string, ?string> ARGUMENTS */
+    public const array ARGUMENTS = [
         'project-filename' => './',
         'composer-config-filename' => 'composer.json',
         'composer-parameter-namespace-path-map' => "'$.autoload-dev.psr-4.*[0]'",
@@ -23,7 +24,7 @@ class GenerateClassFromTemplate extends BtlrCommand
         'class-fqcn' => "'tests\\'",
     ];
 
-    protected static $defaultName = self::NAME;
+    protected static string $defaultName = self::NAME;
 
     public function __construct(
         private ConfigureCommand $configureCommand,

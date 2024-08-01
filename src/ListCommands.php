@@ -14,13 +14,15 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ListCommands extends BtlrCommand
 {
-    public const NAME = 'list-commands';
-    public const ARGUMENTS = [
+    public const string NAME = 'list-commands';
+    /** @var array<string, ?string> ARGUMENTS */
+    public const array ARGUMENTS = [
         'cdr' => null,
         'lck' => null,
     ];
 
-    private const COMMANDS = [
+    /** @var array<string, array<int, string>> ARGUMENTS */
+    private const array COMMANDS = [
         'cdr' => [
             Cdr\GenerateClassFromTemplate::class,
             Cdr\GeneratePromptFromTemplate::class,
@@ -30,7 +32,7 @@ class ListCommands extends BtlrCommand
         ],
     ];
 
-    protected static $defaultName = self::NAME;
+    protected static string $defaultName = self::NAME;
 
     public function __construct(
         private ConfigureCommand $configureCommand,

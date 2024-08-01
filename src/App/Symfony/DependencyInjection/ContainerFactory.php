@@ -11,7 +11,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class ContainerFactory
 {
-    private const COMPILER_CLASSES = [
+    /** @var array<int, string> COMPILER_CLASSES */
+    private const array COMPILER_CLASSES = [
         ConsoleCommandIds::class,
     ];
 

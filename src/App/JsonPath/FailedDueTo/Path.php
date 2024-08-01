@@ -8,5 +8,5 @@ use Ssc\Btlr\App\Failed;
 
 class Path extends Failed\DueTo
 {
-    public const FIELD = 'path';
+    public const string FIELD = 'path';
 }
