@@ -5,7 +5,7 @@ Your own personal assistant.
 ## Installation
 
 Clone the repository,
-then run [composer](https://getcomposer.org/) (PHP 8.1 required):
+then run [composer](https://getcomposer.org/) (PHP 8.3 required):
 
 ```
 git clone git@github.com:gnugat/ssc-btlr.git

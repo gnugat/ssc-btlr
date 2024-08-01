@@ -1,5 +1,10 @@
 # Changes between versions
 
+## 0.9.0: Abandoning `cht`
+
+Removed:
+* `cht:message`: no replacements
+
 ## 0.8.0 Introducing `cdr:generate-prompt-from-template`
 
 * `cdr:generate-prompt-from-template`:

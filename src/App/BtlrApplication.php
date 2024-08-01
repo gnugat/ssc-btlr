@@ -10,7 +10,7 @@ use Symfony\Component\Console\Application;
 class BtlrApplication
 {
     public const string NAME = 'btlr';
-    public const string VERSION = '0.6.1';
+    public const string VERSION = '0.9.0';
 
     public static function make(): Application
     {
