@@ -14,15 +14,16 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class GeneratePromptFromTemplate extends BtlrCommand
 {
-    public const NAME = 'cdr:generate-prompt-from-template';
-    public const ARGUMENTS = [
+    public const string NAME = 'cdr:generate-prompt-from-template';
+    /** @var array<string, ?string> ARGUMENTS */
+    public const array ARGUMENTS = [
         'prompt-template-filename' => __DIR__.'/../../templates/cdr/btlr/prompts/generate-code-corresponding-to-test-class.md.tpl',
         'test-class-code-example-filename' => './tests/',
         'corresponding-class-code-example-filename' => './src/',
         'test-class-code-filename' => './tests/',
     ];
 
-    protected static $defaultName = self::NAME;
+    protected static string $defaultName = self::NAME;
 
     public function __construct(
         private ConfigureCommand $configureCommand,

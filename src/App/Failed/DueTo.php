@@ -6,10 +6,10 @@ namespace Ssc\Btlr\App\Failed;
 
 class DueTo extends \DomainException
 {
-    public const CODE = 422;
-    public const TEMPLATE_MESSAGE = 'Invalid %field%: should be %violated_rule%, "%invalid_value%" given';
-    public const FIELD = 'field';
-    public const VIOLATED_RULE = 'violated_rule';
+    public const int CODE = 422;
+    public const string TEMPLATE_MESSAGE = 'Invalid %field%: should be %violated_rule%, "%invalid_value%" given';
+    public const string FIELD = 'field';
+    public const string VIOLATED_RULE = 'violated_rule';
 
     final public function __construct(
         string $message = '',

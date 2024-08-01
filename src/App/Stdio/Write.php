@@ -9,9 +9,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Write
 {
-    public const DEFAULT_STYLE = WithStyle::AS_REGULAR_TEXT;
-    private const USE_RECOMMENDED_STYLES = [];
+    public const string DEFAULT_STYLE = WithStyle::AS_REGULAR_TEXT;
+    /** @var array{} USE_RECOMMENDED_STYLES */
+    private const array USE_RECOMMENDED_STYLES = [];
 
+    /** @param array<string, WithStyle> $configuredStyles */
     public function __construct(
         private array $configuredStyles = self::USE_RECOMMENDED_STYLES,
         private string $defaultStyle = WithStyle::AS_REGULAR_TEXT,

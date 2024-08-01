@@ -16,6 +16,7 @@ namespace Ssc\Btlr\App\JsonPath;
  */
 class Get
 {
+    /** @param mixed[] $parameters */
     public function in(array $parameters, string $path, mixed $default = null): mixed
     {
         if (false === str_starts_with($path, '$.')) {

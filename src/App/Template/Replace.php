@@ -6,6 +6,7 @@ namespace Ssc\Btlr\App\Template;
 
 class Replace
 {
+    /** @param array<string, string> $thoseParameters */
     public function in(string $template, array $thoseParameters): string
     {
         $placeholders = [];

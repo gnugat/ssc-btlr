@@ -9,8 +9,8 @@ use Symfony\Component\Console\Application;
 
 class BtlrApplication
 {
-    public const NAME = 'btlr';
-    public const VERSION = '0.6.1';
+    public const string NAME = 'btlr';
+    public const string VERSION = '0.6.1';
 
     public static function make(): Application
     {

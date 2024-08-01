@@ -6,7 +6,7 @@ namespace Ssc\Btlr\App\Filesystem;
 
 class BuildPath
 {
-    public function joining(string ...$subPaths)
+    public function joining(string ...$subPaths): string
     {
         $trimmedPaths = array_map(static function ($subPath) {
             return trim($subPath, '/');

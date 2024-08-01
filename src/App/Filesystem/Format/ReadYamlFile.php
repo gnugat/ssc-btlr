@@ -14,6 +14,7 @@ class ReadYamlFile
     ) {
     }
 
+    /** @return array<string, mixed> */
     public function in(string $filename): array
     {
         return Yaml::parse($this->readFile->in($filename));
