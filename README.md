@@ -25,8 +25,8 @@ To list all the available commands, run:
 
 Check the documentation for each subset commands:
 
-* [lck: keep your secrets safe](./doc/01-lck.md)
-* [cdr: Code Generation](./doc/03-cdr.md)
+* [cdr: Code Generation](./doc/00-cdr.md)
+* [lck: keep your secrets safe](./doc/02-lck.md)
 
 You can see the current and past versions using one of the following:
 
