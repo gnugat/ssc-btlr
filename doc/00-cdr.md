@@ -126,4 +126,4 @@ Here's what the template prompt could look like:
 
 ## What?
 
-You can find more information in the `./doc/03-cdr/` directory.
+You can find more information in the `./doc/00-cdr/` directory.
