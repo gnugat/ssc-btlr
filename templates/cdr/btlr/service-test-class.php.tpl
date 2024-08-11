@@ -5,25 +5,28 @@ declare(strict_types=1);
 namespace %fully_qualified_name.namespace%;
 
 use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Sut;
-use tests\Ssc\Btlr\AppTest\BtlrServiceTestCase;
 
-class %fully_qualified_name.name% extends BtlrServiceTestCase
+class %fully_qualified_name.name% extends TestCase
 {
+    use ProphecyTrait;
+
     #[Test]
     public function it_(): void
     {
-        // Fixtures
+        // Fixtures - Input parameters
         $fixture = 42;
 
-        // Dummies
+        // Dummies - Service dependencies
         $dependency = $this->prophesize(Dependency::class);
 
-        // Stubs & Mocks
+        // Stubs & Mocks - Specification
         $dependency->call($fixture)
             shouldBeCalled()->willReturn(23);
 
-        // Assertion
+        // Assertion - Usage
         $sut = new Sut(
             $dependency->reveal(),
         );
