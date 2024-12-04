@@ -6,27 +6,48 @@
 >
 > [Pádraic Brady. 2012. PHP: a Pillagin Pirate](https://web.archive.org/web/20120430232221/http://blog.astrumfutura.com/2012/04/php-innocent-villagefolk-or-a-pillagin-pirate/)
 
-[phpspec](https://github.com/phpspec/phpspec) is a PHP testing framework
-crafted to help developers write clean, maintainable, and testable code
+[phpspec](https://github.com/phpspec/phpspec) is a specBDD framework for PHP.
+
+It's like a testing framework,
+but crafted to help developers write clean and maintainable code
 (even if they’d rather be swashbuckling through bug-infested seas).
-It insists on specifying the behavior of your code before you even start coding
--- because sometimes, you need a little push to keep your code in shipshape
-and Bristol fashion!
+
+Behaviour Driven Development (BDD) is a shift away from Test Driven Development (TDD):
+it's not about testing, it's about designing, with is main methodology being to
+find the correct vocabulary to describe what we want to achieve.
+
+In that spirit, here's a TDD to BDD terminology conversion:
+- instead of the verb "to test", use "to specify"
+- instead of "unit", use "behaviour"
+- instead of "test method", use "example"
+- instead of "assertion", use "expectation"
+- instead of "mock", use "collaborator"
+- and why not switch the words "class under test" for "use case"
+
+> See Liz Keogh. 2009. [Translating TDD to BDD](https://lizkeogh.com/2009/11/06/translating-tdd-to-bdd/)
+
+While PHPUnit can be about testing the unit of a class by writing assertions,
+phpspec is about specifying the behaviour of a use case by writing expectations.
 
 [It is highly opinionated on purpose](https://inviqa.com/blog/my-top-ten-favourite-phpspec-limitations),
-with the intent to teach its users good design, whether they like it or not.
+with the intent to teach its users good design, whether they like it or not
+-- because sometimes,
+you need a little push to keep your code in shipshape and Bristol fashion!
+
 If something's not possible or hard to do with phpspec, it’s because that
 thing is likely a dubious idea in need of some serious reconsideration.
 
 Amongst its key features is a code generation tool, that integrates seamlessly
 into the specBDD workflow, providing the following benefits:
 
-- as you write and run your test, it bootstraps classes and methods
-  for the system under test (SUT)
-- it also bootstraps code for the service dependencies used by the SUT
-  (though as interfaces)
-- it's only one way, meaning it's not possible to generate test for a given code
-  (hence promoting a test-first approach -- wait, is that a benefit?)
+- when you write your specification first,
+  then phpspec will bootstrap the code for the Use Case
+- if your specification has Collaborators,
+  then phpspec also bootstraps their code -- but as interfaces
+- phpspec will not bootstrap the specification from an existing
+- it's only one way, meaning it's not possible to generate specification code
+  for a given Use Case code
+  (hence promoting a design-first approach -- wait, is that a benefit??)
 
 It's just brilliant. But what if you find yourself stranded in a codebase
 that’s been cursed with PHPUnit instead?
@@ -59,9 +80,8 @@ I guess I be true PHPirate now, me buckle!
 >
 > Dan North. 2006. [Introducing BDD](https://dannorth.net/introducing-bdd/)
 
-There are two sides to BDD, the first one being specBDD which really is just
-TDD with a couple of rules, mainly about the test method name, to make the
-tests **expressive**:
+There are two sides to BDD, the first one being specBDD which suggest you
+follow some naming convention for your Specification Examples:
 
 - it should be a sentence
 - it should follow a simple and consistent template
@@ -70,9 +90,8 @@ tests **expressive**:
 
 This helps you shift your thinking away from "testing" and towards "specifying".
 
-The other side is storyBDD, which really is just User Stories with a couple of
-rules, mainly about vocabulary, to capture the scope of a feature alongside its
-acceptance criteria:
+The other side is storyBDD,
+which suggest you follow some naming convention for your User Stories:
 
 - `Feature:`
 - `  As a <actor>`
@@ -83,34 +102,39 @@ acceptance criteria:
 - `    When <event>`
 - `    Then <expected outcome>`
 
-We're already in too deep, so let's try to keep up and indulge in this
-methodology by defining what we're trying to achieve here, using
-[Gherkin](https://cucumber.io/docs/gherkin/reference/).
+This helps you capture the scope of a feature alongside its acceptance criteria.
+
+We're already in too deep, so let's try to keep...
+And indulge in this methodology by defining what we're trying to achieve here,
+using ,[Gherkin](https://cucumber.io/docs/gherkin/reference/).
 
 ```gherkin
 Feature: Study phpspec's code generation workflow
 
   As a developer
   I want to understand phpspec's code generation tool
-  And how it integrates with a TDD (more specifically specBDD) methodology
-  So that I can create a similar tool that'd integrate with another testing tool (eg PHPUnit)
+  And how it integrates with a specBDD methodology
+  So that I can create a similar tool that'd integrate with testing tools (eg PHPUnit)
   And that would work without being installed / tied to the application it'll be used in.
 ```
 
-It's official. There's no turning back now.
+It's official, we've summoned the Agile Deities, there's no turning back now!
 
-## analysis
 
-```
+## Analysis
+
+The Eldritch Terrors of eXtreme Programming demand... A scenario. Here it is:
+
+```gherkin
   Scenario: Analyze PHPSpec's code generation process
     Given a new `ssc/btlr` project
-    And the creation of a specification for a `DescribeClass` class
+    And the creation of a specification for a `DescribeUseCase` Use Case
     When reviewing the inputs of the `phpspec describe` command
-    And the output generated file and code
+    And checking the generated file and code
     Then I should identify the key components and patterns used in the process
 ```
 
-### project initialization
+### Project initialization
 
 Let's create a new `ssc/btlr` project, by running:
 
